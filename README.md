@@ -13,11 +13,11 @@ Aplicación web de venta de productos de óptica.
   
 ### Funcionalidad Privada
   <b>Administador</b><br>
-    1. Administración de Productos (Añadir/Quitar Productos, Añadir ofertas...)
+    1. Administración de Productos (Añadir/Quitar Productos, Añadir ofertas...)<br>
     2. Administración de Usuarios  (Añadir/Quitar Usuarios)
 
-  <b>Usuarios</b>
-    1. Administración de datos personales.
+  <b>Usuarios</b><br>
+    1. Administración de datos personales.<br>
     2. Crear/Cancelar y Seguimiento de Pedidos.
    
 
