@@ -19,7 +19,7 @@ Aplicación web de venta de productos de óptica.
 
 #### Usuarios
   1. Administración de datos personales.<br>
-  2. Crear/Cancelar y Seguimiento de Pedidos.
+  2. Crear, Cancelar y Seguimiento de Pedidos.
    
 
 ## Entidades
