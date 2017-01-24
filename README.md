@@ -12,7 +12,7 @@ Aplicación web de venta de productos de óptica.
   3. Realizar pedido sin login.
   
 ### Funcionalidad Privada
-  <b>Administador</b>
+  <b>Administador</b><br>
     1. Administración de Productos (Añadir/Quitar Productos, Añadir ofertas...)
     2. Administración de Usuarios  (Añadir/Quitar Usuarios)
 
