@@ -37,7 +37,7 @@ Aplicación web de venta de productos de óptica.
   - <b>OFERTAS</b>: PRODUCTO(S) | Rebajas | Rebaja acumulable en función del número de pedidos.
   
 ## INTEGRANTES
-  - Thais Méndez Otero
-  - Yasmina Leranca Domínguez
-  - Dina El Gueddari
-  - Juan Jesús Blanco Bautista
+  - Thais Méndez Otero            t.mendez@alumnos.urjc.es        ThaisM
+  - Yasmina Leranca Domínguez     y.leranca@alumnos.urjc.es       yasminalrc
+  - Dina El Gueddari              d.elgueddari@alumnos.urjc.es    dinaelgueddari
+  - Juan Jesús Blanco Bautista    jj.blanco@alumnos.urjc.es       jjblancob
