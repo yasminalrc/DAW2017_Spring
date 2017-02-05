@@ -1,0 +1,419 @@
+<html lang="es">
+
+<head>
+    <title>VisionLynx</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+   
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
+   
+
+</head>
+
+<header>
+ <div class="container"> 
+    
+    <!-- Navbar
+      ================================================== -->
+     <div class="bs-docs-section clearfix"> 
+       <div class="row"> 
+          <div class="col-lg-12">
+            <div class="page-header"> 
+              <h1 id="navbar">Navbar</h1>
+            </div>
+
+             <div class="bs-component"> 
+              <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                  <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Brand</a>
+                  </div>
+
+                  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                      <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+                      <li><a href="#">Link</a></li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Action</a></li>
+                          <li><a href="#">Another action</a></li>
+                          <li><a href="#">Something else here</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#">Separated link</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#">One more separated link</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <form class="navbar-form navbar-left" role="search">
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                      </div>
+                      <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+                      <li><a href="#">Link</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </nav> <!-- fin div nav -->
+                        
+            </div> <!-- div para bs-component -->
+          </div>
+        </div> <!-- div class row -->
+      </div>  <!-- div class bs-docs-section clearfix -->         
+   </div> <!-- /fin container 1 -->
+
+<!-- /container 2 -->
+   <div class="container">     
+        <div class="bs-docs-section clearfix">
+              <div class="row"> 
+                <div class="col-lg-12">
+                    <div class="bs-component"> 
+
+                      <ul class="breadcrumb">
+                        <li><a href="#">Home</a></li>
+                        <li class="active">Su Carrito</li>
+                      </ul>
+
+                   </div> 
+                 </div>
+               </div>
+          </div> 
+       
+        </div> 
+       </div>
+    </div>
+  </header>   
+    
+ <body>      
+       <div class="container">
+          <div class="bs-docs-section clearfix">
+               <div class="row">
+                 <div class="col-lg-12">
+                      <div class="bs-component">
+                          
+                        <ul class="nav nav-tabs">
+                                <li class="">
+                                    <a href="#carrito" data-toggle="tab" aria-expanded="false">
+                                        <i class="glyphicon glyphicon-shopping-cart"></i>
+                                        Carrito
+                                    </a>
+                                </li>
+                                <li class="active">
+                                    <a href="#direccion" data-toggle="tab" aria-expanded="true">
+                                        Finalizar pedido
+                                    </a>
+                                </li>
+                            
+                                </li>
+                        </ul>                        
+                      </div>   
+                </div>  
+            </div>
+              <p></p>
+              <p></p>
+
+        <div class="row">          <!-- Inicio Carrito -->
+		<div class="col-xs-12">
+        
+<div id="myTabContent" class="tab-content">
+  <div class="tab-pane fade" id="carrito"> 
+            
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<div class="panel-title">
+						<div class="row">
+							<div class="col-xs-6">
+								<h5>RESUMEN</h5> 
+                                
+							</div>
+
+							<div class="col-xs-6">
+								<!-- <button type="button" class="btn btn-primary btn-sm btn-block">
+									<span class="glyphicon glyphicon-share-alt"></span> Seguir comprando
+								</button> -->
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-xs-2"><img class="img-responsive" src="http://placehold.it/100x70">
+						</div>
+						<div class="col-xs-4">
+							<h4 class="product-name"><strong>Product name</strong></h4><h4><small>Product description</small></h4>
+						</div>
+						<div class="col-xs-6">
+							<div class="col-xs-6 text-right">
+								<h6><strong>25.00 <span class="text-muted">x</span></strong></h6>
+							</div>
+							<div class="col-xs-4">
+								<input type="text" class="form-control input-sm" value="1">
+							</div>
+							<div class="col-xs-2">
+								<button type="button" class="btn btn-link btn-xs">
+									<span class="glyphicon glyphicon-trash"> </span>
+								</button>
+							</div>
+						</div>
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col-xs-2"><img class="img-responsive" src="http://placehold.it/100x70">
+						</div>
+						<div class="col-xs-4">
+							<h4 class="product-name"><strong>Product name</strong></h4><h4><small>Product description</small></h4>
+						</div>
+						<div class="col-xs-6">
+							<div class="col-xs-6 text-right">
+								<h6><strong>25.00 <span class="text-muted">x</span></strong></h6>
+							</div>
+							<div class="col-xs-4">
+								<input type="text" class="form-control input-sm" value="1">
+							</div>
+							<div class="col-xs-2">
+								<button type="button" class="btn btn-link btn-xs">
+									<span class="glyphicon glyphicon-trash"> </span>
+								</button>
+							</div>
+						</div>  
+					</div>
+                    <!--<hr> -->
+
+				</div>
+				<div class="panel-footer">
+                    <div class="row text-right">
+                        <div class="col-xs-8"> </div>
+                            <div class="col-xs-2"> 
+                            <h5>Subtotal</h5>
+                            </div> 
+                            <div class="col-xs-2">
+                               <h5> 24.59€</h5>
+                            </div>   
+                    </div>   
+                    <div class="row text-right">
+                        <div class="col-xs-8"> </div>
+                        <div class="col-xs-2"> 
+                        <h5>Gastos Envío</h5>
+                        </div> 
+                        <div class="col-xs-2">
+                           <h5> 6.94€</h5>
+                        </div>    
+                    </div> 
+                  <p></p>
+                  
+                    
+					<div class="row text-center">
+						<div class="col-xs-6">
+							<!--<h4 class="text-right">Total <strong>$50.00</strong></h4> -->
+						</div>
+                        
+                        <div class="col-xs-4">
+                           <button type="button" class="btn btn-primary btn-sm btn-block">
+									<span class="glyphicon glyphicon-share-alt"></span> Seguir comprando
+				           </button>
+                            
+                        </div>
+						<div class="col-xs-2">
+							<a href="ConfirmarPedido.html" type="button" class="btn btn-success btn-sm btn-block">
+								<span></span>Confirmar
+							</a>
+						</div>
+					</div>
+				</div>
+                
+			</div>        
+		</div> <!-- fin primerTab -> carrito -->
+    
+      <div class="tab-pane fade active in" id="direccion">
+
+          <div class="well text-center">
+              <div class="row">
+                  <div class="col-xs-6 text-left">
+                        <form class="form-horizontal" role="form">
+        <!--<fieldset> -->
+          <!-- Form Name -->
+          <legend>Método de Pago                             <img class="img-responsive pull-right" src="http://i76.imgup.net/accepted_c22e0.png"></legend>                     
+                           
+                       <!-- <div class="alert alert-dismissible alert-info">
+            Elija primero su forma de pago
+                        </div> -->    
+                  <br>
+                             <div class="form-group">
+    
+    <div class="col-lg-1"></div>
+      <div class="col-lg-10">
+        <div class="radio">
+          <label for="textinput">
+            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+            Pago con tarjeta
+          </label>
+          <label for="textinput"><span class="glyphicon glyphicon-credit-card"> </span> </label>    
+        </div>
+        <div class="radio">
+          <label for="textinput">
+            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+            Pago por transferencia bancaria
+          </label>
+            <label for="textinput"><span class="glyphicon glyphicon-transfer"> </span> </label> 
+        </div>
+      </div>
+    </div>   
+     <br>                       
+    <div class="form-group">
+      <label for="textArea" class="col-lg-1 control-label"></label>
+      <div class="col-lg-10">
+        <textarea class="form-control" rows="3" id="textArea" placeholder="Si desea dejarnos un comentario acerca de su pedido, por favor escríbalo a continuación."></textarea>
+        <span class="help-block"></span>
+      </div>
+    </div>
+                            
+             <div class="form-group">
+      <label for="textArea" class="col-lg-1 control-label"></label>
+      <div class="col-lg-10">
+            <div class="checkbox">
+          <label>
+            <input type="checkbox"> Estoy de acuerdo con las Condiciones generales de venta y las acepto incondicionalmente <a href="#">(leer) </a>
+          </label>
+        </div>
+      </div>
+    </div>                   
+                            
+                            
+                            
+                            
+                            
+                        </form>
+                      <br>
+
+                  
+                  </div>
+                  <div class="col-xs-5 text-left">
+            <form class="form-horizontal " role="form">
+        <!--<fieldset> -->
+
+          <!-- Form Name -->
+          <legend>Dirección de Envío</legend>
+            
+        <!-- Text input--> 
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="textinput">Dirección*</label>
+            <div class="col-sm-10">
+              <input type="text" value="C/Pintor Velázquez 79" class="form-control">
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="textinput">Ciudad*</label>
+            <div class="col-sm-10">
+              <input type="text" value="Móstoles" class="form-control">
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="textinput">Provincia*</label>
+            <div class="col-sm-4">
+              <input type="text" value="Madrid" class="form-control">
+            </div>
+
+            <label class="col-sm-3 control-label" for="textinput">Cod.Postal*</label>
+            <div class="col-sm-3">
+              <input type="text" value="28935" class="form-control">
+            </div>
+          </div>
+            
+            
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="textinput">País*</label>
+            <div class="col-sm-10">
+               
+                <select id="country" name="country" class="form-control">
+                            <option value="AT">Austria</option>
+                            <option value="BE">Bélgica</option>
+                            <option value="CA">Canadá</option>
+                            <option value="DK">Dinamarca</option>
+                            <option value="FI">Finlandia</option>
+                            <option value="FR">Francia</option>
+                            <option value="DE">Alemania</option>
+                            <option value="GR">Greece</option>
+                            <option value="IT">Italia</option>
+                            <option value="PT">Portugal</option>
+                            <option value="ES" selected="selected">España</option>
+                            <option value="GB">Reino Unido</option>
+                </select>
+                
+                
+            </div>
+          </div>
+            
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="textinput">Teléfono</label>
+            <div class="col-sm-10">
+              <input type="text" value="660955559" class="form-control">
+            </div>
+          </div>   
+          
+        <div class="alert alert-dismissible alert-info">
+            Si desea modificar sus datos de envío, sobreescriba en los campos arriba indicados.
+        </div>    
+            
+            
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="pull-right">
+                <a href="Micarrito.html" type="button" class="btn btn-default" >Atrás</a>
+                <a href="Pagotarjeta.html" class="btn btn-success">Continuar</a>
+              </div>
+            </div>
+          </div>
+            
+              
+
+        <!-- </fieldset> -->
+      </form>
+ 
+                  </div>
+                  <div class="col-xs-1">
+                  
+                  
+                  
+              </div>      
+              
+          </div>   <!-- fin well -> segundo panel -->   
+          </div>
+          
+          
+          
+      </div>    
+    
+ </div> <!-- fin mytabContent -->
+              
+            </div> 
+          </div> 
+    
+    </div>               
+            
+       
+</div> <!-- /fin container 2-->           
+    
+
+</body>
+              
