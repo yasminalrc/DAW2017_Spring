@@ -18,15 +18,20 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
     	
     	// Public pages
-        http.authorizeRequests().antMatchers("/").permitAll();
-        http.authorizeRequests().antMatchers("/login").permitAll();
         http.authorizeRequests().antMatchers("/loginerror").permitAll();
         http.authorizeRequests().antMatchers("/logout").permitAll();
+        http.authorizeRequests().antMatchers("/login").permitAll();
+        
+        
 
         // Private pages (all other pages)
-        http.authorizeRequests().antMatchers("/nuevoAnuncioForm").hasAnyRole("USER");
+
+        http.authorizeRequests().antMatchers("/home").hasAnyRole("USER","ADMIN");
         http.authorizeRequests().antMatchers("/admin").hasAnyRole("ADMIN");
-        http.authorizeRequests().antMatchers("/admin.html").hasAnyRole("ADMIN");
+        http.authorizeRequests().antMatchers("/adminadd").hasAnyRole("ADMIN");
+        http.authorizeRequests().antMatchers("/admin_add_product.html").hasAnyRole("ADMIN");
+        http.authorizeRequests().antMatchers("/admin_product.html").hasAnyRole("ADMIN");
+
 
         // Login form
         http.formLogin().loginPage("/login");

@@ -23,10 +23,10 @@ public class WebController {
 	private UserComponent userComponent;
 	
 	
-    @RequestMapping("/")
+   @RequestMapping("/")
     public String index() {
     	return "index";
-    }
+    } 
     
 
     @RequestMapping("/login")
@@ -36,8 +36,9 @@ public class WebController {
     
     @RequestMapping("/loginerror")
     public String loginerror() {
-    	return "loginerror";
+    	return "login_form_error";
     }
+    
 
     @RequestMapping("/home")
     public String home(Model model, HttpServletRequest request) {
@@ -54,12 +55,18 @@ public class WebController {
     	
     	System.out.println("User: "+user);
     	System.out.println("User2: "+user2);
-    	
+	
     	return "index";
     }
     
     @RequestMapping("/admin")
     public String admin() {
-    	return "admin";
+    	return "admin_product";
+    }
+    
+    
+    @RequestMapping("/adminadd")
+    public String admin_add_product() {
+    	return "admin_add_product";
     }
 }
