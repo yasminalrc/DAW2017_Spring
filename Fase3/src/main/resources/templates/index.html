@@ -16,34 +16,59 @@
 
 
     <!--SCRIPT TO IMPORT MENU AND FOOTER-->
-     {{#logueado}}    
-     <script>
+    <script>
+    {{#logueado}}
         $(function () {
-            $("#header").load("header_LoginOk.html");
+            $("#header").load("header_loginOk.html");
         });
         $(function () {
             $("#footer").load("footer.html");
         });
+    {{/logueado}}
+    
+    {{^logueado}}
+	    $(function () {
+	        $("#header").load("header.html");
+	    });
+	    $(function () {
+	        $("#footer").load("footer.html");
+	    });
+	{{/logueado}}  
+    
+    
     </script>
-     {{/logueado}}
-     {{^logueado}}
-     	    <script>
-        $(function () {
-            $("#header").load("header.html");
-        });
-        $(function () {
-            $("#footer").load("footer.html");
-        });
-    </script>
-     {{/logueado}}
-      
 </head>
 
 <body>
+
+	
     <header>
         <!--IMPORT MENU-->
+        {{#logueado}}
+        
+        <div class="menu-cartsession">
+            <!-- <nav class="navbar navbar-right"> -->
+            <div class="container-fluid">
+                <div class="cartsession">
+                	<ul>
+                		<li>
+					        <form action="/logout" method="post" class="text-right">				        
+								<input type="submit" value="Sign Out" />
+								<input type="hidden" name="_csrf" value="{{token}}"/>
+							</form>
+							
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+    	{{/logueado}}
         <div id="header"></div>
+        
     </header>
+    
+     
+    
 
     <!-- CAROUSEL NEWS -->
     <section id="carousel-section">
@@ -87,12 +112,7 @@
             <div class="row">
                 <div class="row">
                     <div class="col-md-12">
-                    {{#logueado}}
-                    <h1> Hola {{user}}</h1>
-                    {{/logueado}}
-                    {{^logueado}}
-                     <h1> Hola usuario no registrado</h1>
-                    {{/logueado}}
+                    	
                         <h2>Productos más destacados</h2>
                     </div>
                     <div class="col-md-12">
