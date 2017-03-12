@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import es.urjc.code.practica.user.User;
@@ -69,4 +70,23 @@ public class WebController {
     public String admin_add_product() {
     	return "admin_add_product";
     }
+    
+    @RequestMapping("/profile")
+    public String profile(Model model, HttpServletRequest request) {
+
+
+    	model.addAttribute("user", request.isUserInRole("USER"));
+    	
+    	Principal p = request.getUserPrincipal();
+    	User user = userRepository.findByName(p.getName());
+    	
+    	
+    	model.addAttribute("user", user.getName());
+    	model.addAttribute("logueado", userComponent.isLoggedUser());
+    	
+    	
+    	return "profile";
+    }
+    
+    
 }
