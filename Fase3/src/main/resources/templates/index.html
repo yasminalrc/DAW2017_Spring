@@ -16,7 +16,18 @@
 
 
     <!--SCRIPT TO IMPORT MENU AND FOOTER-->
-    <script>
+     {{#logueado}}    
+     <script>
+        $(function () {
+            $("#header").load("header_LoginOk.html");
+        });
+        $(function () {
+            $("#footer").load("footer.html");
+        });
+    </script>
+     {{/logueado}}
+     {{^logueado}}
+     	    <script>
         $(function () {
             $("#header").load("header.html");
         });
@@ -24,6 +35,8 @@
             $("#footer").load("footer.html");
         });
     </script>
+     {{/logueado}}
+      
 </head>
 
 <body>
@@ -74,6 +87,12 @@
             <div class="row">
                 <div class="row">
                     <div class="col-md-12">
+                    {{#logueado}}
+                    <h1> Hola {{user}}</h1>
+                    {{/logueado}}
+                    {{^logueado}}
+                     <h1> Hola usuario no registrado</h1>
+                    {{/logueado}}
                         <h2>Productos más destacados</h2>
                     </div>
                     <div class="col-md-12">
