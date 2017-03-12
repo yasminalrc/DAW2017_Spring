@@ -49,6 +49,9 @@ public class WebController {
     	
     	User user2 = userComponent.getLoggedUser();
     	
+    	model.addAttribute("user", user2.getName());
+    	model.addAttribute("logueado", userComponent.isLoggedUser());
+    	
     	System.out.println("User: "+user);
     	System.out.println("User2: "+user2);
     	
