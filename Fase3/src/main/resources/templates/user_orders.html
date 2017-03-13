@@ -22,7 +22,7 @@
     <!--SCRIPT TO IMPORT MENU AND FOOTER-->
     <script>
         $(function () {
-            $("#header").load("header.html");
+            $("#header").load("header_LoginOk.html");
         });
         $(function () {
             $("#footer").load("footer.html");
@@ -35,6 +35,26 @@
 
     <header>
         <!--IMPORT MENU-->
+        {{#logueado}}
+        <div class="menu-cartsession">
+            <!-- <nav class="navbar navbar-right"> -->
+            <div class="container-fluid">
+                <div class="cartsession">
+                	<ul>
+                		<li>
+					        <form action="/logout" method="post" class="text-right">				        
+								<input type="submit" value="Sign Out" />
+								<input type="hidden" name="_csrf" value="{{token}}"/>
+							</form>
+							
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+    	{{/logueado}}
+        
+        
         <div id="header"></div>
     </header>
     <!-- FIN MENU NAVBAR -->
@@ -98,12 +118,12 @@
                         </div>
                         <div class="panel-body">
                             <div class="tr">
-                                <div class="td"><a href="resumenPedido.html">RYCHBODAO</a></div>
+                                <div class="td"><a href="/user_orders_sum">RYCHBODAO</a></div>
                                 <div class="td">2017-02-05</div>
                                 <div class="td">2,58 €</div>
                                 <div class="td">Transferencia bancaria</div>
                                 <div class="td">En espera de pago por transferencia bancaria</div>
-                                <div class="td"><a href="resumenPedido.html">Detalle</a></div>
+                                <div class="td"><a href="/user_orders_sum">Detalle</a></div>
 
                             </div>
                         </div>

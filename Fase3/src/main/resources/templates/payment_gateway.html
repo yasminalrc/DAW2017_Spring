@@ -17,7 +17,7 @@
     <!--SCRIPT TO IMPORT MENU AND FOOTER-->
     <script>
         $(function () {
-            $("#header").load("header.html");
+            $("#header").load("header_loginOk.html");
         });
         $(function () {
             $("#footer").load("footer.html");
@@ -28,6 +28,26 @@
 <body>
     <header>
         <!--IMPORT MENU-->
+        
+        
+         {{#logueado}}
+        <div class="menu-cartsession">
+            <!-- <nav class="navbar navbar-right"> -->
+            <div class="container-fluid">
+                <div class="cartsession">
+                	<ul>
+                		<li>
+					        <form action="/logout" method="post" class="text-right">				        
+								<input type="submit" value="Sign Out" />
+								<input type="hidden" name="_csrf" value="{{token}}"/>
+							</form>
+							
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+    	{{/logueado}}
         <div id="header"></div>
     </header>
     <!-- FIN MENU NAVBAR -->
@@ -239,7 +259,7 @@
                                                 <div class="col-md-6 col-sm-6 xs-12">
                                                     <div class=" col-md-2 col-sm-0 col-xs-0"></div>
                                                     <div class=" col-md-5 col-sm-6 col-xs-6">
-                                                        <a href="user_cart_shopping.html" type="button" class="btn btn-primary btn-sm">Atrás</a>
+                                                        <a href="/usercart" type="button" class="btn btn-primary btn-sm">Atrás</a>
                                                     </div>
                                                     <div class="col-md-5 col-sm-6 col-xs-6">
                                                         <a href="Pagotarjeta.html" class="btn btn-success btn-sm">Continuar</a>
