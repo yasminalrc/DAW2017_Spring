@@ -84,9 +84,16 @@ public class WebController {
     	model.addAttribute("user", user.getName());
     	model.addAttribute("logueado", userComponent.isLoggedUser());
     	
+    
+    	if (request.isUserInRole("ADMIN")){
+    		return "/admin";
+    	}
+    	
     	
     	return "profile";
+    	
     }
+    
     
     
 }
