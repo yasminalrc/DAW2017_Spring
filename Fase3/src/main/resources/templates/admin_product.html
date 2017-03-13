@@ -35,6 +35,24 @@
 <body>
     <header>
         <!--IMPORT MENU-->
+         {{#logueado}}
+        <div class="menu-cartsession">
+            <!-- <nav class="navbar navbar-right"> -->
+            <div class="container-fluid">
+                <div class="cartsession">
+                	<ul>
+                		<li>
+					        <form action="/logout" method="post" class="text-right">				        
+								<input type="submit" value="Sign Out" />
+								<input type="hidden" name="_csrf" value="{{token}}"/>
+							</form>
+							
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+    	{{/logueado}}
         <div id="header"></div>
     </header>
     <br>

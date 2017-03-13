@@ -33,7 +33,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/admin_add_product.html").hasAnyRole("ADMIN");
         http.authorizeRequests().antMatchers("/admin_product.html").hasAnyRole("ADMIN");
 
-
+//        http.authorizeRequests().antMatchers("/").not().hasAnyRole("USER","ADMIN");
+        
         // Login form
         http.formLogin().loginPage("/login");
         http.formLogin().usernameParameter("username");
