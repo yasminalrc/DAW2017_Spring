@@ -22,19 +22,37 @@
 
 
     <!--SCRIPT TO IMPORT MENU AND FOOTER-->
-    <script>
+     <script>
         $(function () {
-            $("#header").load("header.html");
+            $("#header").load("header_Admin.html");
         });
         $(function () {
             $("#footer").load("footer.html");
-        });
+        });    
     </script>
 </head>
 
 <body>
     <header>
         <!--IMPORT MENU-->
+         {{#logueado}}
+        <div class="menu-cartsession">
+            <!-- <nav class="navbar navbar-right"> -->
+            <div class="container-fluid">
+                <div class="cartsession">
+                	<ul>
+                		<li>
+					        <form action="/logout" method="post" class="text-right">				        
+								<input type="submit" value="Sign Out" />
+								<input type="hidden" name="_csrf" value="{{token}}"/>
+							</form>
+							
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+    	{{/logueado}}
         <div id="header"></div>
     </header>
     <br>
@@ -45,7 +63,7 @@
             <div class="container">
 
                 <button type="button" class="btn btn-primary add-product"> <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</button>
-                <button type="button" class="btn btn-primary add-product"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add</button>
+                <a href="/adminadd" type="button" class="btn btn-primary add-product" > <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add</a>
 
 
                 <div class="row">
