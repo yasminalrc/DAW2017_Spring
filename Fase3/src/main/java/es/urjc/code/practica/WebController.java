@@ -25,7 +25,11 @@ public class WebController {
 	
 	
    @RequestMapping("/")
-    public String index() {
+    public String index(Model model, HttpServletRequest request) {
+	   
+	   if (userComponent.isLoggedUser()){
+   		return home(model,request);
+   		}
     	return "index";
     } 
     
@@ -56,6 +60,8 @@ public class WebController {
     	
     	System.out.println("User: "+user);
     	System.out.println("User2: "+user2);
+    	
+    
 	
     	return "index";
     }
@@ -84,9 +90,16 @@ public class WebController {
     	model.addAttribute("user", user.getName());
     	model.addAttribute("logueado", userComponent.isLoggedUser());
     	
+    
+    	if (request.isUserInRole("ADMIN")){
+    		return admin();
+    	}
+    	
     	
     	return "profile";
+    	
     }
+    
     
     
 }
