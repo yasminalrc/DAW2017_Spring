@@ -67,13 +67,19 @@ public class WebController {
     }
     
     @RequestMapping("/admin")
-    public String admin() {
+    public String admin(Model model) {
+    	
+    	model.addAttribute("logueado", userComponent.isLoggedUser());
+    	
     	return "admin_product";
     }
     
     
     @RequestMapping("/adminadd")
-    public String admin_add_product() {
+    public String admin_add_product(Model model) {
+    	
+    	model.addAttribute("logueado", userComponent.isLoggedUser());
+    	
     	return "admin_add_product";
     }
     
@@ -92,13 +98,47 @@ public class WebController {
     	
     
     	if (request.isUserInRole("ADMIN")){
-    		return admin();
+    		return admin(model);
     	}
     	
     	
     	return "profile";
     	
     }
+    
+    @RequestMapping("/usercart")
+    public String usercart(Model model) {
+    	
+    	model.addAttribute("logueado", userComponent.isLoggedUser());
+	   
+    	return "user_cart_shopping";
+    } 
+    
+    
+    @RequestMapping("/payment")
+    public String payment1(Model model) {
+    	
+    	model.addAttribute("logueado", userComponent.isLoggedUser());
+	   
+    	return "payment_gateway";
+    } 
+    
+    
+    @RequestMapping("/user_orders")
+    public String user_orders(Model model) {
+    	
+    	model.addAttribute("logueado", userComponent.isLoggedUser());
+	   
+    	return "user_orders";
+    } 
+    
+    @RequestMapping("/user_orders_sum")
+    public String user_orders_summary(Model model) {
+    	
+    	model.addAttribute("logueado", userComponent.isLoggedUser());
+	   
+    	return "user_order_summary";
+    } 
     
     
     
