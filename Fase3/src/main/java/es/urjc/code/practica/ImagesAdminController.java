@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
@@ -18,6 +19,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import es.urjc.code.practica.images.Image;
+import es.urjc.code.practica.images.ImageRepository;
+
 @Controller
 public class ImagesAdminController {
 
@@ -25,8 +29,9 @@ public class ImagesAdminController {
 
 	private List<String> imageTitles = new ArrayList<>();
 	
+	@Autowired
+	private ImageRepository imageRepository;
 	
-
 	@RequestMapping(value="/adminadd", method = RequestMethod.POST)
 	//@RequestMapping(value = "/image/upload", method = RequestMethod.POST)
 	public String handleFileUpload(Model model, 
@@ -50,6 +55,16 @@ public class ImagesAdminController {
 				
 				
 				model.addAttribute("imageTitles", imageTitles);
+				
+				//Código para guardar la entidad imagen en Base de datos
+				Image image = new Image(imageTitle, filesFolder.getPath());
+				
+				//Prueba - duda entre usar Path o la ruta Absoluta 
+				System.out.println("Esto es : getAbsolutePath" + filesFolder.getAbsolutePath());
+				System.out.println("Esto es : getPath" + filesFolder.getPath());
+				
+				imageRepository.save(image);
+				model.addAttribute("path", filesFolder.getAbsolutePath());
 				
 				return "admin_add_product";
 
