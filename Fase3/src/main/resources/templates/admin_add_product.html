@@ -1,7 +1,7 @@
 <!-- crearProducto.html | Thais -->
 
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" >
 
 <head>
     <link href="images/lince.png" type="image/x-icon" rel="shortcut icon" />
@@ -104,7 +104,7 @@
     <br>
     <div class="container">
         <div id="admin-add-product">
-
+		 <form class="form-horizontal" action="/admin/add/" method="post" enctype="multipart/form-data">
            <div class="clearfix"></div> 
             <div class="row">
                 <div>
@@ -116,10 +116,14 @@
                         <!--                    <li class=""><a href="#Product_Options" role="tab" data-toggle="tab">Options</a></li>-->
                     </ul>
                 </div>
+                
+                
              <div class="clearfix"></div> 
+             	
+             	<!-- PRODUCTO -->
                 <div class="Product_Content tab-content">
+                	<!-- PRODUCTO PAG PRINCIPAL -->
                     <div id="Product_main" class="tab-pane active">
-                        <form class="form-horizontal" action='' method="POST">
                             <fieldset>
                                 <div class="col-lg-12 form-group margin50">
                                     <label class="col-lg-2" for="Name">Name</label>
@@ -257,7 +261,6 @@
                                     </div>
                                 </div>
 
-
                                 <div class="col-lg-12 form-group">
                                     <label class="col-lg-2" for="Published">Published</label>
                                     <div class="col-lg-4">
@@ -272,20 +275,6 @@
                                         <input type="text" id="price" name="Price" placeholder="" class="form-control price">
                                     </div>
                                 </div>
-                                <!--<div class="col-lg-12 form-group">
-                          <label class="col-lg-2" for="Weight">Weight</label>
-                          <div class="col-lg-4">
-                            <input type="text" id="weight" name="Weight" placeholder="" class="form-control weight">
-                          </div>
-                        </div>
-                        <div class="col-lg-12 form-group">
-                          <label class="col-lg-2" for="Dimentions">Dimentions(Width x Height x Depth)</label>
-                          <div class="col-lg-10">
-                            <div class="col-lg-3"><input type="text" id="dimentionsWidth" name="DimentionsWidth" placeholder="" class="form-control dimentions-width">  x</div>
-                            <div class="col-lg-3"><input type="text" id="dimentionsHeight" name="DimentionsHeight" placeholder="" class="form-control dimentions-height">  x</div>
-                            <div class="col-lg-3"><input type="text" id="dimentionsDepth" name="DimentionsDepth" placeholder="" class="form-control dimentions-depth"></div>
-                          </div>
-                        </div>-->
 
                                 <div class="col-lg-12 form-group">
                                     <label class="col-lg-2" for="Sizes">Quantity</label>
@@ -295,14 +284,14 @@
                                 </div>
 
                             </fieldset>
-                        </form>
                     </div>
+                    <!--FIN PRODUCTO PAG PRINCIPAL -->
                     
                     <!--  DIV SUBIDA IMÁGENES -->
-                  
-
+                    
                     <div id="Product_Images" class="tab-pane">
-                <form action="/adminadd" method="post" enctype="multipart/form-data">
+                    
+                	
                         <div class="col-lg-12 form-group margin50">
                             <label class="col-sm-2" for="exampleInputFile">Title</label>   
                             <div class="col-sm-4">
@@ -314,14 +303,17 @@
                         <div class="col-lg-12 form-group margin50">
                             <label class="col-sm-2" for="exampleInputFile">Image</label>   
                             <div class="col-sm-4">
-                                <input type="file" id="small" name="file">
+                                <input type="file" id="small" name="file" >
                             </div>
                         </div>
+                        
+                   		<input type='submit' value='subir' class="btn btn-primary"/>
+                   		<input type="hidden" name="_csrf" value="{{token}}"/>
+                   	
                     </div>
-                   
                     
                     <!--  FIN SUBIDA DE IMÁGENES -->
-
+					<!-- DESCRIPTION -->
                     <div id="Product_Desc" class="tab-pane">
                         <div class="col-lg-12 form-group margin50">
                             <label class="col-sm-2" for="Description">Description</label>
@@ -330,7 +322,8 @@
                             </div>
                         </div>
                     </div>
-
+					<!--FIN DESCRIPTION -->
+					<!-- CATEGORIES -->
                     <div id="Product_StoreMapping" class="tab-pane">
                         <div class="form-group">
                             <div class="col-sm-12">
@@ -356,93 +349,27 @@
                             </div>
                         </div>
                     </div>
-                    <!--<div id="Product_Options" class="tab-pane">  <div class="col-lg-12 form-group margin50">
-        <div class="col-lg-6">
-            <label class="col-sm-4" for="RelatedProducts">Related Products</label>
-            <div class="col-sm-8">
-              <input class="form-control related-products" type="text" id="relatedProducts" name="RelatedProducts" >
-            </div>
-          </div>
-          <div class="col-lg-4">
-               <div class="container">
-          <button type="button" class="btn productbtn collapsed width450" data-toggle="collapse" data-target="#related">Related Products Helper</button>
-          <div id="related" class="collapse">
-            Related Products Information
-          </div>
-        </div>
-          </div>
-          </div>
-          <div class="col-lg-12 form-group">
-          <div class="col-lg-6">
-            <label class="col-sm-4" for="UpsellProducts">Upsell Products</label>
-            <div class="col-sm-8">
-              <input class="form-control upsell-products" type="text" id="upsellProducts" name="UpsellProducts">
-            </div>
-          </div>
-          <div class="col-lg-4">
-               <div class="container">
-          <button type="button" class="btn productbtn collapsed width450" data-toggle="collapse" data-target="#upsell">Upsell Products Helper</button>
-          <div id="upsell" class="collapse">
-            Upsell Products Information
-          </div>
-          </div>
-           </div>
-          </div>
-          <div class="col-lg-12 form-group">
-          <div class="col-lg-6">
-            <label class="col-sm-4" for="RequiredProducts">Required Products</label>
-            <div class="col-sm-8">
-              <input class="form-control required-products" type="text" id="requiredProducts" name="RequiredProducts">
-            </div>
-          </div>
-          <div class="col-lg-4">
-               <div class="container">
-          <button type="button" class="btn productbtn collapsed width450" data-toggle="collapse" data-target="#required">Required Products Helper</button>
-          <div id="required" class="collapse">
-           Required Products Information
-          </div>
-          </div>
-           </div>
-          </div>
-          <div class="col-lg-12 form-group">
-          <div class="col-lg-6">
-            <label class="col-sm-4" for="UpsellProductDiscount">Upsell Product Discount Percent</label>
-            <div class="col-sm-8">
-              <input class="form-control upsell-product-discount" type="text" id="upsellProductDiscount" name="UpsellProductDiscount">
-            </div>
-          </div>
-          </div>
-          <div class="col-lg-12 form-group">
-          <div class="col-lg-6">
-            <label class="col-sm-4" for="SalePrompt">'On Sale' Prompt</label>
-            <div class="col-sm-8">
-              <select class="form-control sale-prompt">
-                  
-              </select>
-            </div>
-            </div>
-          </div>
-        </div>-->
+                    <!-- CATEGORIES -->
+                    
                 </div>
+                <!--FIN PRODUCTO -->
             </div>
+            
             <div>
-
                 <div class="Product_Button col-lg-offset-6">
                     <a href="#" class="btn btn-primary"><i class=""></i><strong>CLOSE</strong></a>
                     <a href="#" class="btn btn-primary"><i class=""></i><strong>SAVE AND CLOSE</strong></a>
                    	
                    <!--  	<a href="#" class="btn btn-primary"><i class=""></i><strong>SAVE</strong></a> -->
                    
-                   	<input type='submit' name='enviar' value='SAVE' class="btn btn-primary"/>
+                   	<input type='submit' value='save' class="btn btn-primary"/>
                   
                    	<input type="hidden" name="_csrf" value="{{token}}"/>
-
-                   
-                </div>
-                
-                 </form>
+                </div> 
             </div>
-  
+            
+            
+   		</form>
         </div>
     </div>
     

@@ -8,6 +8,6 @@ public interface ImageRepository extends CrudRepository<Image, Long> {
     
     Image findById(Long id);
     
-    Image findByRuta(String ruta);
+    Image findByPath(String path);
 
 }
