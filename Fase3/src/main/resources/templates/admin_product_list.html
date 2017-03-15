@@ -1,0 +1,120 @@
+<!-- crearProducto.html | Thais -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="/images/lince.png" type="image/x-icon" rel="shortcut icon" />
+    <title>VisionLynx</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   	
+   	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    
+    <link type="text/css" rel="stylesheet" href="/css/menunavbar.css" />
+    <link type="text/css" rel="stylesheet" href="/css/carouselnew.css" />
+    <link type="text/css" rel="stylesheet" href="/css/style.css" />
+    
+    <!--
+    <script src="js/admin-search.js"></script>
+    <script src="//rawgithub.com/stidges/jquery-searchable/master/dist/jquery.searchable-1.0.0.min.js"></script>
+	-->
+    
+    <script src="/js/admin-search.js"></script>
+
+
+    <!--SCRIPT TO IMPORT MENU AND FOOTER-->
+    <script>
+        $(function () {
+            $("#header").load("/header.html");
+        });
+        $(function () {
+            $("#footer").load("/footer.html");
+        });
+    </script>
+</head>
+
+<header>
+	<!--IMPORT MENU-->
+    <div id="header"></div>
+</header>
+<body>
+    <br>
+    <br>
+    <div id="admin">
+
+        <div id="admin-products">
+            <div class="container">
+
+                <button type="button" class="btn btn-primary add-product"> <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</button>
+                <button type="button" class="btn btn-primary add-product" onclick="location.href='/admin_product_new.html'"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add</button>
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Products</h3>
+                                <div class="pull-right">
+                                    <span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </span>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Developers" />
+                            </div>
+                            <table class="table table-hover" id="dev-table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Image</th>
+                                        <th>Product ID</th>
+                                        <th>Product name</th>
+                                        <th>Product brand</th>
+                                        <th>Product type</th>
+                                        <th>Published</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                	{{#products}}
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox"> <a href="#"><i class="icon-star-empty"></i></a></td>
+                                        <td><img style="border:1px solid #ddd; height: 70px; width: 70px;" src="{{image}}" /></td>
+                                        <td>
+                                            <p>{{id}}</p>
+                                        </td>
+                                        <td>
+                                            <p>{{name}}</p>
+                                        </td>
+                                        <td>
+                                            <p>{{brand}}</p>
+                                        </td>
+                                        <td>
+                                            <p>{{type}}</p>
+                                        </td>
+                                        <td>
+                                            <p>{{published}}</p>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-pencil"></span></button>
+                                            <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-trash"></span></button>
+                                        </td>
+                                    </tr>
+                                    {{/products}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+</body>
+<footer>
+	<div id="footer"></div>
+</footer>
