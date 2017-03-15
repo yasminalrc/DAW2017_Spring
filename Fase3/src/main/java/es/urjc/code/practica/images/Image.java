@@ -30,7 +30,7 @@ public class Image {
 
 	private String title;
 
-	private String ruta;
+	private String path;
 	
 	/*@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> roles; */
@@ -38,9 +38,9 @@ public class Image {
 	public Image() {
 	}
 
-	public Image(String title, String ruta) {
+	public Image(String title, String path) {
 		this.title = title;
-		this.ruta= ruta;
+		this.path= path;
 
 	}
 
@@ -52,17 +52,17 @@ public class Image {
 		this.title = title;
 	}
 
-	public String getRuta() {
-		return ruta;
+	public String getPath() {
+		return path;
 	}
 
-	public void setRuta(String ruta) {
-		this.ruta = ruta;
+	public void setPath(String path) {
+		this.path = path;
 	}
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", title=" + title + ", ruta=" + ruta + "]";
+		return "User [id=" + id + ", title=" + title + ", path=" + path + "]";
 	}
 	
 	

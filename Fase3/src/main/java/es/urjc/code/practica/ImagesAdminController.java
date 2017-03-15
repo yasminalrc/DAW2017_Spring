@@ -32,7 +32,9 @@ public class ImagesAdminController {
 	@Autowired
 	private ImageRepository imageRepository;
 	
-	@RequestMapping(value="/adminadd", method = RequestMethod.POST)
+	
+	
+	@RequestMapping(value="/adminadd/image", method = RequestMethod.POST)
 	//@RequestMapping(value = "/image/upload", method = RequestMethod.POST)
 	public String handleFileUpload(Model model, 
 			@RequestParam("imageTitle") String imageTitle,
