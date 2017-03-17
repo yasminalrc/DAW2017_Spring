@@ -63,6 +63,7 @@ public class ProductController {
 	public String productList(Model model) {
 
 		model.addAttribute("products", repository.findAll());
+		
 
 		return "admin_product_list";
 	}
@@ -90,9 +91,9 @@ public class ProductController {
 				File uploadedFile = new File(filesFolder.getAbsolutePath(), imageName);
 				file.transferTo(uploadedFile);
 					
-				Image image = new Image(imageTitle, filesFolder.getPath());
+				Image image = new Image(imageTitle, filesFolder.getAbsolutePath());
 				imageReporsitory.save(image); 	
-				product.setImage(filesFolder.getAbsolutePath());
+				product.setImage(filesFolder.getAbsolutePath()+"/"+imageName);
 			}
 			repository.save(product);
 			return "product_added";	
