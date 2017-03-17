@@ -75,7 +75,7 @@
     <br>
     <br>
     <div class="container">
-        <div id="admin-add-product">
+        <div id="admin-product-view">
 
             <div class="clearfix"></div>
             <div class="row">
@@ -96,25 +96,25 @@
                                 <div class="col-lg-12 form-group margin50">
                                     <label class="col-lg-2" for="Name">Name</label>
                                     <div class="col-lg-4">
-                                        <input type="text" id="name" name="Name" placeholder="" class="form-control name">
+                                        <input type="text" id="name" name="name" placeholder="" class="form-control name">
                                     </div>
                                 </div>
                                 <div class="col-lg-12 form-group">
                                     <label class="col-lg-2" for="Name">Brand</label>
                                     <div class="col-lg-4">
-                                        <input type="text" id="brand" name="Brand" placeholder="" class="form-control brand">
+                                        <input type="text" id="brand" name="brand" placeholder="" class="form-control brand">
                                     </div>
                                 </div>
                                 <div class="col-lg-12 form-group">
                                     <label class="col-lg-2" for="Name">Model</label>
                                     <div class="col-lg-4">
-                                        <input type="text" id="model" name="Model" placeholder="" class="form-control model">
+                                        <input type="text" id="model" name="model" placeholder="" class="form-control model">
                                     </div>
                                 </div>
                                 <div class="col-lg-12 form-group">
                                     <label class="col-lg-2" for="Name">Reference</label>
                                     <div class="col-lg-4">
-                                        <input type="text" id="reference" name="Reference" placeholder="" class="form-control reference">
+                                        <input type="text" id="reference" name="reference" placeholder="" class="form-control reference">
                                     </div>
                                 </div>
 
@@ -123,7 +123,7 @@
                                     <div class="col-lg-4">
 
                                         <div>
-                                            <select class="form-control product-type" name="primero" id="primero" onchange="habilitar(this.value);">
+                                            <select class="form-control product-type" name="type" id="type" onchange="habilitar(this.value);">
                                                 <option value='0'>-select-</option>
                                                 <option value='1'>Lentillas</option>
                                                 <option value='2'>Líquidos</option>
@@ -138,16 +138,16 @@
 
                                             <div id="div1" style="display:none;">
                                                 <div class="col-lg-12 form-group">
-                                                    <label class="col-lg-2" for="Colors">Colors</label>
+                                                    <label class="col-lg-2" for="Colour">Colors</label>
                                                     <div class="col-lg-10">
-                                                        <input type="text" id="colors" name="Colors" placeholder="" class="form-control colors">
+                                                        <input type="text" id="colour" name="colour" placeholder="" class="form-control colour">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-lg-12 form-group">
-                                                    <label class="col-lg-2" for="Sizes">Sizes</label>
+                                                    <label class="col-lg-2" for="Size">Sizes</label>
                                                     <div class="col-lg-10">
-                                                        <input type="text" id="sizes" name="Sizes" placeholder="" class="form-control sizes">
+                                                        <input type="text" id="size" name="Size" placeholder="" class="form-control size">
                                                     </div>
                                                 </div>
                                             </div>
@@ -156,7 +156,7 @@
                                                 <div class=" col-lg-12 form-group">
                                                     <label class="col-lg-2" for="ProductType">Esfera</label>
                                                     <div class="col-lg-10">
-                                                        <select id="productType" name="ProductType" class="form-control product-type">
+                                                        <select id="productType" name="sphera" class="form-control product-type">
                                                             <option value="46" title="+00.25">+00.25</option>
                                                             <option value="47" title="+00.50">+00.50</option>
                                                             <option value="48" title="+00.75">+00.75</option>
@@ -224,7 +224,7 @@
                                                 <div class=" col-lg-12 form-group">
                                                     <label class="col-lg-2" for="ProductType">Radio</label>
                                                     <div class="col-lg-10">
-                                                        <select id="productType" name="ProductType" class="form-control product-type">
+                                                        <select id="productType" name="radio" class="form-control product-type">
                                                             <option value="106" selected="selected" title="08.50">08.50</option>
                                                             <option value="107" title="09.00">09.00</option>
                                                         </select>
@@ -249,7 +249,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12 form-group">
-                                    <label class="col-lg-2" for="Sizes">Quantity</label>
+                                    <label class="col-lg-2" for="Quantity">Quantity</label>
                                     <div class="col-lg-4">
                                         <input type="text" id="quantity" name="Quantity" placeholder="" class="form-control quantity">
                                     </div>
@@ -258,14 +258,33 @@
                             </fieldset>
                         </form>
                     </div>
+                    
+                    <!--  DIV SUBIDA IMÁGENES -->
+                    
                     <div id="Product_Images" class="tab-pane">
+                    
+                	
                         <div class="col-lg-12 form-group margin50">
-                            <label class="col-sm-2" for="exampleInputFile">Image</label>
+                            <label class="col-sm-2" for="exampleInputFile">Title</label>   
                             <div class="col-sm-4">
-                                <input type="file" id="small">
+                                <input type="text" id="small" name="imageTitle">
                             </div>
                         </div>
+                    
+                    
+                        <div class="col-lg-12 form-group margin50">
+                            <label class="col-sm-2" for="exampleInputFile">Image</label>   
+                            <div class="col-sm-4">
+                                <input type="file" id="small" name="file" >
+                            </div>
+                        </div>
+                        
+                   		<input type='submit' value='subir' class="btn btn-primary"/>
+                   		<input type="hidden" name="_csrf" value="{{token}}"/>
+                   	
                     </div>
+                    
+                    <!--  FIN SUBIDA DE IMÁGENES -->
 
                     <div id="Product_Desc" class="tab-pane">
                         <div class="col-lg-12 form-group margin50">
