@@ -1,20 +1,29 @@
 package es.urjc.code.practica.product;
 
+import java.io.File;
+import java.io.IOException;
+
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.multipart.MultipartFile;
 
+
+import es.urjc.code.practica.images.Image;
+import es.urjc.code.practica.images.ImageRepository;
 import es.urjc.code.practica.user.UserComponent;
 
 @Controller
@@ -23,10 +32,11 @@ public class ProductController {
 	@Autowired
 	private ProductsRepository repository;
 	
+	
 	@Autowired
-	private UserComponent userComponent;
+	private ImageRepository imageReporsitory;
 	
-	
+	private static final String FILES_FOLDER = "files";
 	
 	@PostConstruct
 	public void init() {
@@ -49,13 +59,46 @@ public class ProductController {
 	}
    
 	// VIEW
-	@RequestMapping("/admin/product/")
+	@RequestMapping("/admin/products/")
 	public String productList(Model model) {
 
 		model.addAttribute("products", repository.findAll());
 
 		return "admin_product_list";
 	}
+	
+	//NEW
+	//Añadir un producto como Administrador	
+
+		@RequestMapping(value="/admin/add/", method = RequestMethod.POST)
+		//@RequestMapping(value = "/image/upload", method = RequestMethod.POST)
+		public String ProductAdd(Model model, 
+				@RequestParam("imageTitle") String imageTitle,
+				@RequestParam("file") MultipartFile file, Product product) throws IllegalStateException, IOException {
+			
+			//TITULO DE LA IMAGEN
+			String imageName = imageTitle + ".jpg";
+			
+			//SI SE HA SELECCIONADO LA FOTO
+			if (!file.isEmpty()) {
+					//Insertamos la imagen en la carpeta files
+				File filesFolder = new File(FILES_FOLDER);
+				if (!filesFolder.exists()) {
+					filesFolder.mkdirs();
+				}
+				
+				File uploadedFile = new File(filesFolder.getAbsolutePath(), imageName);
+				file.transferTo(uploadedFile);
+					
+				Image image = new Image(imageTitle, filesFolder.getPath());
+				imageReporsitory.save(image); 	
+				product.setImage(filesFolder.getAbsolutePath());
+			}
+			repository.save(product);
+			return "product_added";	
+			
+		}
+		
 
 	/*
 	// VIEW 
@@ -72,12 +115,21 @@ public class ProductController {
 	@RequestMapping("/admin/product/{id}")
 	public String productView(Model model, @PathVariable long id) {
 		
-		
 		Product product = repository.findOne(id);
 
 		model.addAttribute("product", product);
 
 		return "admin_product_view";
 	}
+	
+	@RequestMapping(value = "/admin/product/delete/{id}")
+	public String deleteProduct(@PathVariable long id) {
 
+		if (repository.exists(id)) {
+			repository.delete(id);
+			
+		}
+		return "product_deleted";
+	}
 }
+

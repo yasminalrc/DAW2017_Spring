@@ -44,16 +44,16 @@
 
     <script>
         function habilitar(value) {
-            if (value == "0") { // habilitamos
+            if (value == "Select") { // habilitamos
                 document.getElementById("div1").style.display = "none";
                 document.getElementById("div2").style.display = "none";
 
-            } else if (value == "1") {
+            } else if (value == "Lentillas") {
                 // deshabilitamos
                 document.getElementById("div1").style.display = "none";
                 document.getElementById("div2").style.display = "block";
 
-            } else if (value == "3") {
+            } else if (value == "Gafas de sol") {
                 document.getElementById("div1").style.display = "block";
                 document.getElementById("div2").style.display = "none";
             } else {
@@ -132,29 +132,29 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12 form-group">
-                                    <label class="col-lg-2" for="Name">Brand</label>
+                                    <label class="col-lg-2" for="Brand">Brand</label>
                                     <div class="col-lg-4">
                                         <input type="text" id="brand" name="Brand" placeholder="" class="form-control brand">
                                     </div>
                                 </div>
                                 <div class="col-lg-12 form-group">
-                                    <label class="col-lg-2" for="Name">Reference</label>
+                                    <label class="col-lg-2" for="Reference">Reference</label>
                                     <div class="col-lg-4">
                                         <input type="text" id="reference" name="Reference" placeholder="" class="form-control reference">
                                     </div>
                                 </div>
 
                                 <div class=" col-lg-12 form-group">
-                                    <label class="col-lg-2" for="ProductType">Product Type</label>
+                                    <label class="col-lg-2" for="Typeproduct">Product Type</label>
                                     <div class="col-lg-4">
 
                                         <div>
-                                            <select class="form-control product-type" name="primero" id="primero" onchange="habilitar(this.value);">
-                                                <option value='0'>-select-</option>
-                                                <option value='1'>Lentillas</option>
-                                                <option value='2'>Líquidos</option>
-                                                <option value='3'>Gafas de sol</option>
-                                                <option value='4'>Accesorios</option>
+                                            <select class="form-control typeproduct" name="type" id="typeproduct" onchange="habilitar(this.value);">
+                                                <option value='Select'>-select-</option>
+                                                <option value='Lentillas'>Lentillas</option>
+                                                <option value='Líquidos'>Líquidos</option>
+                                                <option value='Gafas de sol'>Gafas de sol</option>
+                                                <option value='Accesorios'>Accesorios</option>
                                             </select>
                                         </div>
 
@@ -164,25 +164,25 @@
 
                                             <div id="div1" style="display:none;">
                                                 <div class="col-lg-12 form-group">
-                                                    <label class="col-lg-2" for="Colors">Colors</label>
+                                                    <label class="col-lg-2" for="Colour">Colors</label>
                                                     <div class="col-lg-10">
-                                                        <input type="text" id="colors" name="Colors" placeholder="" class="form-control colors">
+                                                        <input type="text" id="colour" name="Colour" placeholder="" class="form-control colour">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-lg-12 form-group">
-                                                    <label class="col-lg-2" for="Sizes">Sizes</label>
+                                                    <label class="col-lg-2" for="Size">Size</label>
                                                     <div class="col-lg-10">
-                                                        <input type="text" id="sizes" name="Sizes" placeholder="" class="form-control sizes">
+                                                        <input type="text" id="size" name="Size" placeholder="" class="form-control size">
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <div id="div2" style="display:none;">
                                                 <div class=" col-lg-12 form-group">
-                                                    <label class="col-lg-2" for="ProductType">Esfera</label>
+                                                    <label class="col-lg-2" for="Typeproduct">Esfera</label>
                                                     <div class="col-lg-10">
-                                                        <select id="productType" name="ProductType" class="form-control product-type">
+                                                        <select id="typeproduct" name="sphere" class="form-control typeproduct">
                                                             <option value="46" title="+00.25">+00.25</option>
                                                             <option value="47" title="+00.50">+00.50</option>
                                                             <option value="48" title="+00.75">+00.75</option>
@@ -248,9 +248,9 @@
                                                     </div>
                                                 </div>
                                                 <div class=" col-lg-12 form-group">
-                                                    <label class="col-lg-2" for="ProductType">Radio</label>
+                                                    <label class="col-lg-2" for="Typeproduct">Radio</label>
                                                     <div class="col-lg-10">
-                                                        <select id="productType" name="ProductType" class="form-control product-type">
+                                                        <select id="typeproduct" name="radio" class="form-control typeproduct">
                                                             <option value="106" selected="selected" title="08.50">08.50</option>
                                                             <option value="107" title="09.00">09.00</option>
                                                         </select>
@@ -264,20 +264,20 @@
                                 <div class="col-lg-12 form-group">
                                     <label class="col-lg-2" for="Published">Published</label>
                                     <div class="col-lg-4">
-                                        <input type="radio" name="Published" class="input-xlarge"><span>No</span>
-                                        <input type="radio" name="Published" checked class="input-xlarge"><span>Yes</span>
+                                        <input type="radio" name="published" class="input-xlarge"><span>No</span>
+                                        <input type="radio" name="published" checked class="input-xlarge"><span>Yes</span>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-12 form-group">
                                     <label class="col-lg-2" for="Price">Price</label>
                                     <div class="col-lg-4">
-                                        <input type="text" id="price" name="Price" placeholder="" class="form-control price">
+                                        <input type="text" id="price" name="price" placeholder="" class="form-control price">
                                     </div>
                                 </div>
 
                                 <div class="col-lg-12 form-group">
-                                    <label class="col-lg-2" for="Sizes">Quantity</label>
+                                    <label class="col-lg-2" for="Quantity">Quantity</label>
                                     <div class="col-lg-4">
                                         <input type="text" id="quantity" name="Quantity" placeholder="" class="form-control quantity">
                                     </div>

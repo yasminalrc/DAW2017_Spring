@@ -38,10 +38,8 @@ public class WebController {
 	@Autowired
 	private ProductsRepository repository;
 	
-	@Autowired
-	private ImageRepository imageReporsitory;
 	
-	private static final String FILES_FOLDER = "files";
+	
 	
    @RequestMapping("/")
     public String index(Model model, HttpServletRequest request) {
@@ -86,13 +84,14 @@ public class WebController {
     }
     
     @RequestMapping("/admin")
-    public String admin(Model model) {
+    public String admin(Model model,HttpServletRequest request) {
     	
-    	model.addAttribute("logueado", userComponent.isLoggedUser());
+    	model.addAttribute("admin", request.isUserInRole("admin"));
     	
-    	return "admin_product";
+    	model.addAttribute("products", repository.findAll());
+    	
+    	return "admin_product_list";
     }
-    
     
     @RequestMapping("/adminadd")
     public String admin_add_product(Model model) {
@@ -119,7 +118,7 @@ public class WebController {
     	
     
     	if (request.isUserInRole("ADMIN")){
-    		return admin(model);
+    		return admin(model,request);
     	}
     	
     	
@@ -163,40 +162,7 @@ public class WebController {
     
  
  		
- 	//Añadir un producto como Administrador	
-
- 		@RequestMapping(value="/admin/add/", method = RequestMethod.POST)
- 		//@RequestMapping(value = "/image/upload", method = RequestMethod.POST)
- 		public String handleFileUpload(Model model, 
- 				@RequestParam("imageTitle") String imageTitle,
- 				@RequestParam("file") MultipartFile file, Product product) throws IllegalStateException, IOException {
- 			
- 			//TITULO DE LA IMAGEN
- 			String imageName = imageTitle + ".jpg";
- 			
- 			//SI SE HA SELECCIONADO LA FOTO
- 			if (!file.isEmpty()) {
- 				
- 					//Insertamos la imagen en la carpeta files
- 					File filesFolder = new File(FILES_FOLDER);
- 					if (!filesFolder.exists()) {
- 						filesFolder.mkdirs();
- 			
- 					}
- 					
- 			File uploadedFile = new File(filesFolder.getAbsolutePath(), imageName);
- 			file.transferTo(uploadedFile);
- 				
- 			Image image = new Image(imageTitle, filesFolder.getPath());
- 			imageReporsitory.save(image); 	
- 			product.setImage(filesFolder.getAbsolutePath());
- 			}
- 			
- 			repository.save(product);
- 			return "product_added";	
- 			
- 		}
- 		
+ 	
  		
 
 }
