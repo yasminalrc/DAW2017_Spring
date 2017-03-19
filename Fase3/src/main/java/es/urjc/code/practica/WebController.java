@@ -132,10 +132,9 @@ public class WebController {
     	if (request.isUserInRole("ADMIN")){
     		return admin(model,page,request);
     	}
-    	
-    	
-    	return "profile";
-    	
+    	else{
+    		return "profile";
+    	}
     }
     
     @RequestMapping("/usercart")
@@ -173,7 +172,10 @@ public class WebController {
     } 
     
  
- 		
+    @RequestMapping("/create_account")
+    public String createAccount() {
+    	return "create_account";
+    }	
  	
  		
 

@@ -17,13 +17,27 @@
 
     <!--SCRIPT TO IMPORT MENU AND FOOTER-->
     <script>
+    //en caso de que se haya loqueado
     {{#logueado}}
-        $(function () {
-            $("#header").load("header_loginOk.html");
-        });
-        $(function () {
-            $("#footer").load("footer.html");
-        });
+    	//y es admin
+    	{{#admin}}
+	    	 $(function () {
+	             $("#header").load("header_Admin.html");
+	         });
+	         $(function () {
+	             $("#footer").load("footer.html");
+	         });    
+	    {{/admin}}
+	    //y no es admin, es decir, es un usuario
+	    {{^admin}}
+	        $(function () {
+	            $("#header").load("header_loginOk.html");
+	       	 });
+	        $(function () {
+	            $("#footer").load("footer.html");
+	        });
+        {{/admin}}
+        
     {{/logueado}}
     
     {{^logueado}}
