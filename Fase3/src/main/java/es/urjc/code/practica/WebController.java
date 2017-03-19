@@ -7,6 +7,8 @@ import java.security.Principal;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import es.urjc.code.practica.images.Image;
@@ -84,11 +87,20 @@ public class WebController {
     }
     
     @RequestMapping("/admin")
-    public String admin(Model model,HttpServletRequest request) {
+    public String admin(Model model,Pageable page,HttpServletRequest request) {
     	
+    	model.addAttribute("logueado", userComponent.isLoggedUser());
     	model.addAttribute("admin", request.isUserInRole("admin"));
     	
-    	model.addAttribute("products", repository.findAll());
+    	//model.addAttribute("products", repository.findAll());
+    	Page<Product> products = repository.findAll(page);
+    	model.addAttribute("products", products);
+    	
+    	//Parte Paginación
+    	model.addAttribute("showNext",!products.isLast());
+    	model.addAttribute("showPrev", !products.isFirst());
+    	model.addAttribute("nextPage", products.getNumber()+1);
+    	model.addAttribute("prevPage",products.getNumber()-1);
     	
     	return "admin_product_list";
     }
@@ -104,7 +116,7 @@ public class WebController {
     
     
     @RequestMapping("/profile")
-    public String profile(Model model, HttpServletRequest request) {
+    public String profile(Model model, HttpServletRequest request, Pageable page) {
 
 
     	model.addAttribute("user", request.isUserInRole("USER"));
@@ -118,7 +130,7 @@ public class WebController {
     	
     
     	if (request.isUserInRole("ADMIN")){
-    		return admin(model,request);
+    		return admin(model,page,request);
     	}
     	
     	
