@@ -20,8 +20,8 @@ public class DatabaseImagesLoader {
 	@PostConstruct
 	private void initDatabase() {
 
-		Image image1 = new Image("imagen1", "/files");
-		Image image2 = new Image("imagen2", "/files");
+		Image image1 = new Image("imagen1", "files");
+		Image image2 = new Image("imagen2", "files");
 	
 		imageRepository.save(image1);
 		imageRepository.save(image2);
