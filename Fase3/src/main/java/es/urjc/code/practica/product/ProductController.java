@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 
@@ -56,16 +57,39 @@ public class ProductController {
 		repository.save(new Product("accesory13", "brand13", "model13", "reference13", "type3", null, null, null, null, false, 0.50, 5, "/images/upload/product13.jgp", "description13"));
 		repository.save(new Product("accesory14", "brand14", "model14", "reference14", "type3", null, null, null, null, false, 0.50, 5, "/images/upload/product14.jgp", "description14"));
 		repository.save(new Product("accesory15", "brand15", "model15", "reference15", "type3", null, null, null, null, false, 0.50, 5, "/images/upload/product15.jgp", "description15"));
+	    //Hasta aquí son 11 productos
+		
+		//Metemos los siguientes nuevos para probar la paginación
+		
+		repository.save(new Product("accesory16", "brand11", "model11", "reference11", "type3", null, null, null, null, false, 0.50, 5, "/images/upload/product11.jgp", "description11"));
+		repository.save(new Product("accesory17", "brand12", "model12", "reference12", "type3", null, null, null, null, false, 0.50, 5, "/images/upload/product12.jgp", "description12"));
+		repository.save(new Product("accesory18", "brand13", "model13", "reference13", "type3", null, null, null, null, false, 0.50, 5, "/images/upload/product13.jgp", "description13"));
+		repository.save(new Product("accesory19", "brand14", "model14", "reference14", "type3", null, null, null, null, false, 0.50, 5, "/images/upload/product14.jgp", "description14"));
+		repository.save(new Product("accesory20", "brand15", "model15", "reference15", "type3", null, null, null, null, false, 0.50, 5, "/images/upload/product15.jgp", "description15"));
+		repository.save(new Product("accesory21", "brand11", "model11", "reference11", "type3", null, null, null, null, false, 0.50, 5, "/images/upload/product11.jgp", "description11"));
+		repository.save(new Product("accesory22", "brand12", "model12", "reference12", "type3", null, null, null, null, false, 0.50, 5, "/images/upload/product12.jgp", "description12"));
+		repository.save(new Product("accesory23", "brand13", "model13", "reference13", "type3", null, null, null, null, false, 0.50, 5, "/images/upload/product13.jgp", "description13"));
+		repository.save(new Product("accesory24", "brand14", "model14", "reference14", "type3", null, null, null, null, false, 0.50, 5, "/images/upload/product14.jgp", "description14"));
+		repository.save(new Product("accesory25", "brand15", "model15", "reference15", "type3", null, null, null, null, false, 0.50, 5, "/images/upload/product15.jgp", "description15"));
+		repository.save(new Product("accesory26", "brand11", "model11", "reference11", "type3", null, null, null, null, false, 0.50, 5, "/images/upload/product11.jgp", "description11"));
+		repository.save(new Product("accesory27", "brand12", "model12", "reference12", "type3", null, null, null, null, false, 0.50, 5, "/images/upload/product12.jgp", "description12"));
+		repository.save(new Product("accesory28", "brand13", "model13", "reference13", "type3", null, null, null, null, false, 0.50, 5, "/images/upload/product13.jgp", "description13"));
+		repository.save(new Product("accesory29", "brand14", "model14", "reference14", "type3", null, null, null, null, false, 0.50, 5, "/images/upload/product14.jgp", "description14"));
+		repository.save(new Product("accesory30", "brand15", "model15", "reference15", "type3", null, null, null, null, false, 0.50, 5, "/images/upload/product15.jgp", "description15"));
+	
+		
+		
 	}
    
 	// VIEW
-	@RequestMapping("/admin/products/")
+	/*@RequestMapping("/admin/products/")
 	public String productList(Model model) {
 
 		model.addAttribute("products", repository.findAll());
+		
 
 		return "admin_product_list";
-	}
+	} */
 	
 	//NEW
 	//Añadir un producto como Administrador	
@@ -90,9 +114,9 @@ public class ProductController {
 				File uploadedFile = new File(filesFolder.getAbsolutePath(), imageName);
 				file.transferTo(uploadedFile);
 					
-				Image image = new Image(imageTitle, filesFolder.getPath());
+				Image image = new Image(imageTitle, filesFolder.getAbsolutePath());
 				imageReporsitory.save(image); 	
-				product.setImage(filesFolder.getAbsolutePath());
+				product.setImage(filesFolder.getAbsolutePath()+"/"+imageName);
 			}
 			repository.save(product);
 			return "product_added";	
