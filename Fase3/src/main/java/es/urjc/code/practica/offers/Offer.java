@@ -77,7 +77,7 @@ public class Offer {
 
 
 
-	    @Override
+	/*    @Override
 	    public int hashCode() {
 	        final int prime = 31;
 	        int result = 1;
@@ -103,7 +103,7 @@ public class Offer {
 	        } else if (!name.equals(other.name))
 	            return false;
 	        return true;
-	    }
+	    } */
 
 	    @Override
 	    public String toString() {

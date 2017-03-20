@@ -90,7 +90,7 @@ public class WebController {
     public String admin(Model model,Pageable page,HttpServletRequest request) {
     	
     	model.addAttribute("logueado", userComponent.isLoggedUser());
-    	model.addAttribute("admin", request.isUserInRole("admin"));
+    	model.addAttribute("admin", request.isUserInRole("ADMIN"));
     	
     	//model.addAttribute("products", repository.findAll());
     	Page<Product> products = repository.findAll(page);
@@ -106,9 +106,10 @@ public class WebController {
     }
     
     @RequestMapping("/adminadd")
-    public String admin_add_product(Model model) {
+    public String admin_add_product(Model model,HttpServletRequest request) {
     	
     	model.addAttribute("logueado", userComponent.isLoggedUser());
+    	model.addAttribute("admin", request.isUserInRole("ADMIN"));
     	
     	return "admin_add_product";
     }
@@ -138,9 +139,11 @@ public class WebController {
     }
     
     @RequestMapping("/usercart")
-    public String usercart(Model model) {
+    public String usercart(Model model,HttpServletRequest request) {
     	
     	model.addAttribute("logueado", userComponent.isLoggedUser());
+    	model.addAttribute("admin", request.isUserInRole("ADMIN"));
+    	
 	   
     	return "user_cart_shopping";
     } 
