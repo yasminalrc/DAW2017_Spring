@@ -80,7 +80,7 @@ Mi carrito también es una sección tanto privada como pública
 
 <b>Mi carrito</b> 
 
-![Alt text](Capturas/MiCarrito.png "imagen carrito")
+![Alt text](Capturas/Micarrito.png "imagen carrito")
 
 ![Alt text](Capturas/ConfirmarCarrito.png "imagen confirmar carrito")
 
@@ -96,4 +96,4 @@ En cada página se muestran 10 productos:
 
 Para añadir un producto a la tienda, seleccionamos el botón <b>add</b>
 
-![Alt text](Capturas/Añadirproducto.png "imagen añadir producto")
+![Alt text](Capturas/Aniadirproducto.png "imagen añadir producto")
