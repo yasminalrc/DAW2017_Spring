@@ -55,18 +55,18 @@ Comenzamos en <index.html>:
 
 Desde aquí podemos registrarnos para acceder con nuestro usuario, o acceder a la página de registro en caso de no tener aún un usuario.
 
-![Alt text](Capturas/Acceso Cuenta.png "imagen acceso cuenta")
+![Alt text](Capturas/AccesoCuenta.png "imagen acceso cuenta")
 
 <b>Crear cuenta </b>
-![Alt text](Capturas/Crear Cuenta.png "imagen acceso cuenta")
+![Alt text](Capturas/CrearCuenta.png "imagen acceso cuenta")
 
 Si estamos registrados y nos logueamos con nuestro usuario, entonces la página principal se muestra de la siguiente forma, donde nos redirige a la página de inicio pero como usuario loggeado.
 
-![Alt text](Capturas/Inicio Usuario.png "imagen inicio usuario")
+![Alt text](Capturas/InicioUsuario.png "imagen inicio usuario")
 
 Y si queremos acceder a nuestro perfil, seleccionamos <b>MI PERFIL</b> que se encuentra en la barra de navegación
 
-![Alt text](Capturas/Mi Perfil.png "imagen inicio usuario")
+![Alt text](Capturas/MiPerfil.png "imagen inicio usuario")
 
 Se puede acceder a varias funcionalidades, cambiar sus datos de usuario, acceder a las ofertas, mi carrito, etc.
 
@@ -74,20 +74,20 @@ Se puede acceder a varias funcionalidades, cambiar sus datos de usuario, acceder
 ![Alt text](Capturas/Ofertas.png "imagen ofertas")
 
 <b>Mi carrito</b> 
-![Alt text](Capturas/Mi Carrito.png "imagen carrito")
+![Alt text](Capturas/MiCarrito.png "imagen carrito")
 
-![Alt text](Capturas/Confirmas carrito.png "imagen confirmar carrito")
+![Alt text](Capturas/ConfirmarCarrito.png "imagen confirmar carrito")
 
 Cerramos sesión para loggearnos como usuario <b>Admin</b>,  cuya página principal es la de index, igual que cualquier usuario, sin embargo, en este caso al ser admin, no aparece en la barra de navegación MI PERFIL, sino <b>ADMIN</b>, que muestra todos los productos de la tienda, así como añadir un producto, borrar un producto, editarlo, etc.
 
-![Alt text](Capturas/Lista prodcutos 1.png "imagen Lista productos")
+![Alt text](Capturas/Listaproductos1.png "imagen Lista productos")
 
 En cada página se muestran 10 productos:
 
-![Alt text](Capturas/Lista prodcutos 2.png "imagen Lista productos")
+![Alt text](Capturas/Listaproductos2.png "imagen Lista productos")
 
-![Alt text](Capturas/Lista prodcutos 3.png "imagen Lista productos")
+![Alt text](Capturas/Listaprodcutos3.png "imagen Lista productos")
 
 Para añadir un producto a la tienda, seleccionamos el botón <b>add</b>
 
-![Alt text](Capturas/Añadir producto.png "imagen añadir producto")
+![Alt text](Capturas/Añadirproducto.png "imagen añadir producto")
