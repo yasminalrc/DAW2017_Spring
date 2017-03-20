@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -33,6 +34,9 @@ public class OffersController {
 	
 	@Autowired
 	private OfferRepository repository;
+	
+	@Autowired
+	private UserComponent userComponent;
 	
 	
 	@Autowired
@@ -70,9 +74,11 @@ public class OffersController {
 	
 	
 	@RequestMapping(value = "/offers", method = RequestMethod.GET)
-	    public String listOffer(Model model) {
+	    public String listOffer(Model model,HttpServletRequest request) {
 	       // model.addAttribute("offer", new Offer());
 		
+			model.addAttribute("logueado", userComponent.isLoggedUser());
+			model.addAttribute("admin", request.isUserInRole("admin"));
 	        model.addAttribute("offers", repository.findAll());
 	        
 	        return "user_offers";
