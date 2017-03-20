@@ -126,7 +126,9 @@
                                 <h3 class="price-container">19,34 €<small>IVA incluído</small></h3>
 
                             </div>
-                            <div class="col-lg-12 col-sm-12 col-xs-12">
+                      <!--  -->       
+                            
+                           <!--  <div class="col-lg-12 col-sm-12 col-xs-12">
                                 <label class="attribute_label" for="group_5">Cantidad</label>
                             </div>
                             <div class="col-lg-12 col-sm-12 col-xs-12">
@@ -285,16 +287,28 @@
                                     </div>
                                 </div>
                                 <hr>
-                            </div>
+                            </div> -->
+                            
+                            <!--  -->
 
                             <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
                                     <!--  <a href="/usercart_post" class="btn btn-success btn-lg">Añadir al carrito(19,34€)</a>
                                 -->
-                                      <form action="/usercart_post" method="post">
+                                    <!--    <form action="/usercart_post" method="post">
                                     		<input type="submit" class="btn btn-success btn-lg" value="Add to Cart (61,50€)" />
                                 	 		<input type="hidden" name="_csrf" value="{{token}}"/>
-                                	 </form> 
+                                	 </form> -->
+                                	 <hr>
+                                	 
+		                              <div class="alert alert-success alert-dismissable">
+		  									<button type="button" class="close" data-dismiss="alert">&times;</button>
+		  									<h4>PRODUCT ADDED</h4> 
+		  									<hr>
+											<a href="/usercart" class="tn btn-success btn-lg">View Cart</a>
+											<a href="/product_add_contactlens" class="tn btn-success btn-lg">Continue shopping</a>
+									 </div>
+		                                	 
                                 </div>
                             </div>
                         </div>

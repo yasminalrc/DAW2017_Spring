@@ -27,12 +27,38 @@
 
     <!--SCRIPT TO IMPORT MENU AND FOOTER-->
     <script>
-        $(function () {
-            $("#header").load("header.html");
-        });
-        $(function () {
-            $("#footer").load("footer.html");
-        });
+    //en caso de que se haya loqueado
+    {{#logueado}}
+    	//y es admin
+    	{{#admin}}
+	    	 $(function () {
+	             $("#header").load("header_Admin.html");
+	         });
+	         $(function () {
+	             $("#footer").load("footer.html");
+	         });    
+	    {{/admin}}
+	    //y no es admin, es decir, es un usuario
+	    {{^admin}}
+	        $(function () {
+	            $("#header").load("header_loginOk.html");
+	       	 });
+	        $(function () {
+	            $("#footer").load("footer.html");
+	        });
+        {{/admin}}
+        
+    {{/logueado}}
+    
+    {{^logueado}}
+	    $(function () {
+	        $("#header").load("header.html");
+	    });
+	    $(function () {
+	        $("#footer").load("footer.html");
+	    });
+	{{/logueado}}
+
     </script>
 </head>
 
@@ -67,6 +93,7 @@
                         <div class="col-md-1 col-sm-12 col-xs-12">
                         </div>
                         <div class="col-md-3 col-sm-12 col-xs-12">
+                        <br>
                             <div class="product-image">
                                 <div id="myCarousel-2" class="carousel slide">
                                     <ol class="carousel-indicators">
@@ -128,12 +155,17 @@
                             </div>
                             <br>
                             <hr>
-                            <div class="certified">
-                                <ul>
-                                    <li><a href="javascript:void(0);">Tiempo de entrega<span>7 días laborales</span></a></li>
-                                    <li><a href="javascript:void(0);">Certified<span>Quality Assured</span></a></li>
-                                </ul>
+                            <div class="col-lg-12 col-sm-12 col-xs-12"">
+                            <br>
+	                            <div class="certified">
+	                            
+	                                <ul>
+	                                    <li><a href="javascript:void(0);">Tiempo de entrega: <span>7 días laborales</span></a></li>
+	                                    <li><a href="javascript:void(0);">Certified: <span>Quality Assured</span></a></li>
+	                                </ul>
+	                            </div>
                             </div>
+                            
                             <hr>
                             <div class="description description-tabs">
 
@@ -149,11 +181,16 @@
                             <hr>
                             <div class="row">
                                 <div class="col-sm-12 col-md-6 col-lg-6">
-                                    <a href="javascript:void(0);" class="btn btn-success btn-lg">Añadir al carrito(61,50€)</a>
+                                <form action="/usercart_post" method="post">
+                                    <input type="submit" class="btn btn-success btn-lg" value="Add to Cart (61,50€)" />
+                                    <input type="hidden" name="_csrf" value="{{token}}"/>
+                                </form>    
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        
+                        
+                    </div> <!--  fin div class row -->
                 </div>
 
                 <!-- end product -->
