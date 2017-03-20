@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.security.Principal;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -40,6 +41,8 @@ public class WebController {
 	
 	@Autowired
 	private ProductsRepository repository;
+	
+	private int productadded =0;
 	
 	
 	
@@ -90,7 +93,7 @@ public class WebController {
     public String admin(Model model,Pageable page,HttpServletRequest request) {
     	
     	model.addAttribute("logueado", userComponent.isLoggedUser());
-    	model.addAttribute("admin", request.isUserInRole("admin"));
+    	model.addAttribute("admin", request.isUserInRole("ADMIN"));
     	
     	//model.addAttribute("products", repository.findAll());
     	Page<Product> products = repository.findAll(page);
@@ -106,9 +109,10 @@ public class WebController {
     }
     
     @RequestMapping("/adminadd")
-    public String admin_add_product(Model model) {
+    public String admin_add_product(Model model,HttpServletRequest request) {
     	
     	model.addAttribute("logueado", userComponent.isLoggedUser());
+    	model.addAttribute("admin", request.isUserInRole("ADMIN"));
     	
     	return "admin_add_product";
     }
@@ -137,13 +141,6 @@ public class WebController {
     	}
     }
     
-    @RequestMapping("/usercart")
-    public String usercart(Model model) {
-    	
-    	model.addAttribute("logueado", userComponent.isLoggedUser());
-	   
-    	return "user_cart_shopping";
-    } 
     
     
     @RequestMapping("/payment")
@@ -176,6 +173,62 @@ public class WebController {
     public String createAccount() {
     	return "create_account";
     }	
+    
+    @RequestMapping("/usercart")
+    public String usercart(Model model,HttpServletRequest request, HttpSession session) {
+    	
+    	model.addAttribute("logueado", userComponent.isLoggedUser());
+    	model.addAttribute("admin", request.isUserInRole("ADMIN"));
+    	
+    	//Utilizamos este método para cuando mapeamos desde la cabecera a usercart, sin utilizar el método post
+    	//Redigirimos a la vista según ya se haya añadido un producto desde product_add_contactlens, o no
+    	if (productadded>=1){
+    		Boolean newproduct= true;
+    		model.addAttribute("newproduct", newproduct);
+    	} 
+    	
+    	return "user_cart_shopping";
+    } 
+    
+    @RequestMapping(value="/usercart_post",method = RequestMethod.POST)
+    public String usercartpost(Model model,HttpServletRequest request, HttpSession session) {
+    	
+    	model.addAttribute("logueado", userComponent.isLoggedUser());
+    	model.addAttribute("admin", request.isUserInRole("ADMIN"));
+     
+    	/*Boolean newproduct =true;
+    	model.addAttribute("newproduct",newproduct); */ 
+    	productadded=productadded+1;
+  
+    	return "product_add_contactlens_cart";
+    } 
+    
+    
+    
+    
+    @RequestMapping("/product_add_contactlens")
+    public String productContactLens(Model model, HttpServletRequest request) {
+    	
+    	model.addAttribute("logueado", userComponent.isLoggedUser());
+    	model.addAttribute("admin", request.isUserInRole("ADMIN"));
+    	
+    	model.addAttribute("isLent");
+    	
+    	
+    	
+		return "product_add_contactlens";
+    	
+    	
+    }
+    
+    @RequestMapping("/product_add_general")
+    public String productGeneral (Model model, HttpServletRequest request){
+    	
+    	model.addAttribute("logueado", userComponent.isLoggedUser());
+     	model.addAttribute("admin", request.isUserInRole("ADMIN"));
+    	
+    	return "product_add_general";
+    }
  	
  		
 
