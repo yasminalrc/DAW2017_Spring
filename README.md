@@ -41,3 +41,8 @@ Aplicación web de venta de productos de óptica.
   - Yasmina Leranca Domínguez     y.leranca@alumnos.urjc.es       yasminalrc
   - Dina El Gueddari              d.elgueddari@alumnos.urjc.es    dinaelgueddari
   - Juan Jesús Blanco Bautista    jj.blanco@alumnos.urjc.es       jjblancob
+
+
+##DIAGRAMA DE ENTIDAD/RELACIÓN
+
+![Alt text](Capturas/EER_Diagram.png "imagen diagrama")
