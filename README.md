@@ -70,10 +70,16 @@ Y si queremos acceder a nuestro perfil, seleccionamos <b>MI PERFIL</b> que se en
 
 Se puede acceder a varias funcionalidades, cambiar sus datos de usuario, acceder a las ofertas, mi carrito, etc.
 
+La sección de ofertas es una página pública, cualquier usuario, registrado o no puede acceder a ella.
+
 <b>Ofertas</b> 
+
 ![Alt text](Capturas/Ofertas.png "imagen ofertas")
 
+Mi carrito también es una sección tanto privada como pública
+
 <b>Mi carrito</b> 
+
 ![Alt text](Capturas/MiCarrito.png "imagen carrito")
 
 ![Alt text](Capturas/ConfirmarCarrito.png "imagen confirmar carrito")
@@ -86,7 +92,7 @@ En cada página se muestran 10 productos:
 
 ![Alt text](Capturas/Listaproductos2.png "imagen Lista productos")
 
-![Alt text](Capturas/Listaprodcutos3.png "imagen Lista productos")
+![Alt text](Capturas/Listaproductos3.png "imagen Lista productos")
 
 Para añadir un producto a la tienda, seleccionamos el botón <b>add</b>
 
