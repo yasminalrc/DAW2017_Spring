@@ -43,6 +43,7 @@ Aplicación web de venta de productos de óptica.
   - Juan Jesús Blanco Bautista    jj.blanco@alumnos.urjc.es       jjblancob
 
 
-##DIAGRAMA DE ENTIDAD/RELACIÓN
+
+## Diagrama de Entidad/Relación
 
 ![Alt text](Capturas/EER_Diagram.png "imagen diagrama")
