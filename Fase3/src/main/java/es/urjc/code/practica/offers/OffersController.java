@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -74,12 +75,20 @@ public class OffersController {
 	
 	
 	@RequestMapping(value = "/offers", method = RequestMethod.GET)
-	    public String listOffer(Model model,HttpServletRequest request) {
+	    public String listOffer(Model model,Pageable page,HttpServletRequest request) {
 	       // model.addAttribute("offer", new Offer());
 		
 			model.addAttribute("logueado", userComponent.isLoggedUser());
-			model.addAttribute("admin", request.isUserInRole("admin"));
-	        model.addAttribute("offers", repository.findAll());
+			model.addAttribute("admin", request.isUserInRole("ADMIN"));
+			
+	    	Page<Offer> offers = repository.findAll(new PageRequest(page.getPageNumber(), 4));
+	    	model.addAttribute("offers", offers);
+	    	
+	    	//Parte Paginación
+	    	model.addAttribute("showNext",!offers.isLast());
+	    	model.addAttribute("showPrev", !offers.isFirst());
+	    	model.addAttribute("nextPage", offers.getNumber()+1);
+	    	model.addAttribute("prevPage",offers.getNumber()-1);
 	        
 	        return "user_offers";
 	 }
