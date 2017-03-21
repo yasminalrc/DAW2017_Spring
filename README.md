@@ -53,6 +53,8 @@ Aplicación web de venta de productos de óptica.
 
 ## DIAGRAMA DE NAVEGACIÓN
 
+![Alt text](Capturas/DiagramaNavegacion.png "Diagrama navegación")
+
 Comenzamos en <index.html>:
 
 ![Alt text](Capturas/Inicio.png "imagen inicio")
