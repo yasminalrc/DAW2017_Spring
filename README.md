@@ -47,6 +47,10 @@ Aplicación web de venta de productos de óptica.
 
 ![Alt text](Capturas/EER_Diagram.png "imagen diagrama")
 
+## DIAGRAMA DE CLASES Y TEMPLATES
+
+![Alt text](Capturas/diagrama.png "UML clases")
+
 ## DIAGRAMA DE NAVEGACIÓN
 
 Comenzamos en <index.html>:
