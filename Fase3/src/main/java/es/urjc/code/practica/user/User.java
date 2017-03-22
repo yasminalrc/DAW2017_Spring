@@ -19,6 +19,10 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
+	private String name;
+
+	private String passwordHash;
 
 	public Long getId() {
 		return id;
@@ -27,10 +31,6 @@ public class User {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-	private String name;
-
-	private String passwordHash;
 
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> roles;
