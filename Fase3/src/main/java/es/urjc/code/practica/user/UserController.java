@@ -1,8 +1,13 @@
 package es.urjc.code.practica.user;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -18,9 +23,11 @@ public class UserController {
 	@RequestMapping(value = "/user/new", method = RequestMethod.POST)
 	public String UserAdd (Model model, User user) {
 		
-		user.setPasswordHash(user.getPasswordHash());
-		userRepository.save(user);
+		String rol= "ROLE_USER";
+		List<String> roles = new ArrayList<>(Arrays.asList(rol));
+		user.setRoles(roles);
 		
+		userRepository.save(user);
 		
 	    return "user_added";
 	}
