@@ -1,4 +1,4 @@
-package es.urjc.code.practica;
+package es.urjc.code.practica.images;
 
 import javax.annotation.PostConstruct;
 

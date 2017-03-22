@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -35,7 +36,10 @@ public class ProductController {
 	
 	
 	@Autowired
-	private ImageRepository imageReporsitory;
+	private ImageRepository imageRepository;
+	
+	@Autowired
+	private UserComponent userComponent;
 	
 	private static final String FILES_FOLDER = "files";
 	
@@ -114,46 +118,93 @@ public class ProductController {
 				File uploadedFile = new File(filesFolder.getAbsolutePath(), imageName);
 				file.transferTo(uploadedFile);
 					
-				Image image = new Image(imageTitle, filesFolder.getAbsolutePath());
-				imageReporsitory.save(image); 	
-				product.setImage(filesFolder.getAbsolutePath()+"/"+imageName);
+				Image image = new Image(imageName, filesFolder.getPath());
+				imageRepository.save(image); 	
+				product.setImage("//"+filesFolder.getPath()+"/"+imageName);
 			}
 			repository.save(product);
 			return "product_added";	
 			
 		}
 		
-
-	/*
-	// VIEW 
-	@RequestMapping("/admin/product/")
-	public String products(Model model, Pageable page) {
 	
-		model.addAttribute("products", repository.findAll(page));
 	
-		return "admin_product_list";
-	}
-	*/
-	
-	// EDIT
-	@RequestMapping("/admin/product/{id}")
-	public String productView(Model model, @PathVariable long id) {
 		
-		Product product = repository.findOne(id);
+ 
+		@RequestMapping(value="/admin/edit/{id}", method = RequestMethod.POST)
+		public String editProduct(Model model, @PathVariable long id, 
+				Product productupdated,
+				@RequestParam("imageTitle") String imageTitle, 
+				@RequestParam("file") MultipartFile file) throws IllegalStateException, IOException {
+			
+			
+	    	
+			if (repository.exists(id)){
+				
+				Product producto = repository.findOne(id);
+				
+				producto.setBrand(productupdated.getBrand());
+				producto.setColour(productupdated.getColour());
+				producto.setDescription(productupdated.getDescription());
+				producto.setModel(productupdated.getModel());
+				producto.setName(productupdated.getName());
+				producto.setPrice(productupdated.getPrice());
+				producto.setPublished(productupdated.getPublished());
+				producto.setQuantity(productupdated.getQuantity());
+				producto.setRadio(productupdated.getRadio());
+				
+				
+				//imagen//
+				
+				//TITULO DE LA IMAGEN
+				
+				String imagen = productupdated.getImage();
+				
+				System.out.println("imagen");
+				
+				String imageName = imageTitle + ".jpg";
+				
+				//SI SE HA SELECCIONADO LA FOTO
+				if (!file.isEmpty()) {
+						//Insertamos la imagen en la carpeta files
+					File filesFolder = new File(FILES_FOLDER);
+					if (!filesFolder.exists()) {
+						filesFolder.mkdirs();
+					}
+					
+					File uploadedFile = new File(filesFolder.getAbsolutePath(), imageName);
+					file.transferTo(uploadedFile);
+						
+					Image image = new Image(imageName, filesFolder.getPath());
+					imageRepository.save(image); 	
+					productupdated.setImage("/"+filesFolder.getPath()+"/"+imageName);
+					producto.setImage(productupdated.getImage());
+				//fin imagen//
+				}
 
-		model.addAttribute("product", product);
-
-		return "admin_product_view";
-	}
+				producto.setReference(productupdated.getReference());
+				producto.setSize(productupdated.getSize());
+				producto.setSphere(productupdated.getSphere());
+				producto.setType(productupdated.getType());
+				
+				
+				repository.save(producto);
+			}
+			return "product_updated";
+			
+		}
+		
+		
+		
 	
 	@RequestMapping(value = "/admin/product/delete/{id}")
 	public String deleteProduct(@PathVariable long id) {
 
 		if (repository.exists(id)) {
 			repository.delete(id);
-			
+			return "product_deleted";
 		}
-		return "product_deleted";
+		return "/admin";
 	}
 }
 
