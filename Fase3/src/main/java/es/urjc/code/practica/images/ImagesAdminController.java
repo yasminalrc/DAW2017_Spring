@@ -1,4 +1,4 @@
-package es.urjc.code.practica;
+package es.urjc.code.practica.images;
 
 import java.io.File;
 import java.io.FileInputStream;

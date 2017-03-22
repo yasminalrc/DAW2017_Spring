@@ -19,7 +19,37 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
+	private String name;
+	private String passwordHash;
+	
+	private String surnames;
+	private String email;
+	private String birthdate;
+	
+	// ATRIBUTOS DE DIRECCIÓN DE FACTURACION
+	
+			private String address;
+			private String address2;
+			private int zipcode;
+			private String locality;
+			private String province;
+			private String country;
+			private String phone;
+			private String nid;
+			private String other;
 
+	public String getOther() {
+				return other;
+			}
+
+			public void setOther(String other) {
+				this.other = other;
+			}
+
+	@ElementCollection(fetch = FetchType.EAGER)
+	private List<String> roles;
+	
 	public Long getId() {
 		return id;
 	}
@@ -27,23 +57,40 @@ public class User {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-	private String name;
-
-	private String passwordHash;
-
-	@ElementCollection(fetch = FetchType.EAGER)
-	private List<String> roles;
-
+	
+	//Constructor 
+	
 	public User() {
 	}
 
+	
 	public User(String name, String password, String... roles) {
 		this.name = name;
 		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 		this.roles = new ArrayList<>(Arrays.asList(roles));
 	}
-
+	
+	public User(String name, String surnames , String email, String password, String birthdate, 
+				String address, int zipcode, String locality, String province, String country, String phone, String nid, String... roles){
+		
+		this.name = name;
+		this.surnames = surnames;
+		this.email = email;
+		this.birthdate = birthdate;
+		this.address = address;
+		this.zipcode = zipcode;
+		this.locality = locality;
+		this.province = province;
+		this.country = country;
+		this.phone = phone;
+		this.nid = nid;
+		this.passwordHash = new BCryptPasswordEncoder().encode(password);
+		this.roles = new ArrayList<>(Arrays.asList(roles));
+		
+	}
+	
+	
+	
 	public String getName() {
 		return name;
 	}
@@ -51,15 +98,17 @@ public class User {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
 
 	public String getPasswordHash() {
 		return passwordHash;
 	}
 
-	public void setPasswordHash(String passwordHash) {
-		this.passwordHash = passwordHash;
+	public void setPasswordHash(String password){
+		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 	}
 
+	
 	public List<String> getRoles() {
 		return roles;
 	}
@@ -67,11 +116,112 @@ public class User {
 	public void setRoles(List<String> roles) {
 		this.roles = roles;
 	}
+	
+	
+	public String getSurnames() {
+		return surnames;
+	}
+
+	public void setSurnames(String surnames) {
+		this.surnames = surnames;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	
+	public String getBirthdate() {
+		return birthdate;
+	}
+
+	public void setBirthdate(String birthdate) {
+		this.birthdate = birthdate;
+	}
+	
+	
+		
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getNid() {
+		return nid;
+	}
+
+	public void setNid(String nid) {
+		this.nid = nid;
+	}
+		
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getAddress2() {
+		return address2;
+	}
+
+	public void setAddress2(String address2) {
+		this.address2 = address2;
+	}
+
+	public int getZipcode() {
+		return zipcode;
+	}
+
+	public void setZipcode(int zipcode) {
+		this.zipcode = zipcode;
+	}
+
+	public String getLocality() {
+		return locality;
+	}
+
+	public void setLocality(String locality) {
+		this.locality = locality;
+	}
+
+	public String getProvince() {
+		return province;
+	}
+
+	public void setProvince(String province) {
+		this.province = province;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", passwordHash=" + passwordHash + ", roles=" + roles + "]";
+		return "User [id=" + id + ", name=" + name + ", passwordHash=" + passwordHash + ", roles=" + roles
+				+ ", surnames=" + surnames + ", email=" + email + ", birthdate=" + birthdate + ", address=" + address
+				+ ", address2=" + address2 + ", zipcode=" + zipcode + ", locality=" + locality + ", province="
+				+ province + ", Country=" + country + "]";
 	}
+
+
+
+	
+	
 	
 	
 

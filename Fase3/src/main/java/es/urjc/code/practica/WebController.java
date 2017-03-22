@@ -122,17 +122,17 @@ public class WebController {
     
     
     
+    
     @RequestMapping("/profile")
     public String profile(Model model, HttpServletRequest request, Pageable page) {
 
-
-    	model.addAttribute("user", request.isUserInRole("USER"));
+    	model.addAttribute("user", userComponent.getLoggedUser());
     	
     	Principal p = request.getUserPrincipal();
     	User user = userRepository.findByName(p.getName());
     	
     	
-    	model.addAttribute("user", user.getName());
+    	model.addAttribute("name", user.getName());
     	model.addAttribute("logueado", userComponent.isLoggedUser());
     	
     
@@ -142,6 +142,17 @@ public class WebController {
     	else{
     		return "profile";
     	}
+    }
+     
+    @RequestMapping(value ="/admin/{id}")
+    public String admin_add_product(Model model, @PathVariable long id , HttpServletRequest request) {
+    
+		model.addAttribute("logueado", userComponent.isLoggedUser());
+    	model.addAttribute("admin", request.isUserInRole("ADMIN"));
+    	
+		model.addAttribute("id", repository.findOne(id).getId());
+    	
+    	return "admin_edit_product";
     }
     
     
