@@ -123,14 +123,13 @@ public class WebController {
     @RequestMapping("/profile")
     public String profile(Model model, HttpServletRequest request, Pageable page) {
 
-
-    	model.addAttribute("user", request.isUserInRole("USER"));
+    	model.addAttribute("user", userComponent.getLoggedUser());
     	
     	Principal p = request.getUserPrincipal();
     	User user = userRepository.findByName(p.getName());
     	
     	
-    	model.addAttribute("user", user.getName());
+    	model.addAttribute("name", user.getName());
     	model.addAttribute("logueado", userComponent.isLoggedUser());
     	
     
