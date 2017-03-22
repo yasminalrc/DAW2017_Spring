@@ -142,7 +142,7 @@ public class WebController {
     	}
     }
      
-    @RequestMapping(value ="/admin/product/edit/{id}")
+    @RequestMapping(value ="/admin/{id}")
     public String admin_add_product(Model model, @PathVariable long id , HttpServletRequest request) {
     
 		model.addAttribute("logueado", userComponent.isLoggedUser());
