@@ -12,6 +12,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,6 +25,7 @@ import es.urjc.code.practica.images.Image;
 import es.urjc.code.practica.images.ImageRepository;
 import es.urjc.code.practica.product.Product;
 import es.urjc.code.practica.product.ProductsRepository;
+import es.urjc.code.practica.shoppingcart.Cart;
 import es.urjc.code.practica.user.User;
 import es.urjc.code.practica.user.UserComponent;
 import es.urjc.code.practica.user.UserRepository;
@@ -48,8 +50,9 @@ public class WebController {
 	
 	
    @RequestMapping("/")
-    public String index(Model model, HttpServletRequest request) {
+    public String index(Model model, HttpServletRequest request, ModelMap m) {
 	   
+	   m.put("cart", new Cart());
 	   if (userComponent.isLoggedUser()){
    		return home(model,request);
    		}
@@ -174,7 +177,7 @@ public class WebController {
     	return "create_account";
     }	
     
-    @RequestMapping("/usercart")
+  /*  @RequestMapping("/usercart")
     public String usercart(Model model,HttpServletRequest request, HttpSession session) {
     	
     	model.addAttribute("logueado", userComponent.isLoggedUser());
@@ -196,41 +199,14 @@ public class WebController {
     	model.addAttribute("logueado", userComponent.isLoggedUser());
     	model.addAttribute("admin", request.isUserInRole("ADMIN"));
      
-    	/*Boolean newproduct =true;
-    	model.addAttribute("newproduct",newproduct); */ 
+    	// Boolean newproduct =true;model.addAttribute("newproduct",newproduct); 
     	productadded=productadded+1;
   
     	return "product_add_contactlens_cart";
     } 
+     */
     
-    
-    
-    
-    @RequestMapping("/product_add_contactlens")
-    public String productContactLens(Model model, HttpServletRequest request) {
-    	
-    	model.addAttribute("logueado", userComponent.isLoggedUser());
-    	model.addAttribute("admin", request.isUserInRole("ADMIN"));
-    	
-    	model.addAttribute("isLent");
-    	
-    	
-    	
-		return "product_add_contactlens";
-    	
-    	
-    }
-    
-    @RequestMapping("/product_add_general")
-    public String productGeneral (Model model, HttpServletRequest request){
-    	
-    	model.addAttribute("logueado", userComponent.isLoggedUser());
-     	model.addAttribute("admin", request.isUserInRole("ADMIN"));
-    	
-    	return "product_add_general";
-    }
- 	
- 		
+		
 
 }
     
