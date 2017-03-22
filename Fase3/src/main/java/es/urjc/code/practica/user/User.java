@@ -37,6 +37,15 @@ public class User {
 			private String country;
 			private String phone;
 			private String nid;
+			private String other;
+
+	public String getOther() {
+				return other;
+			}
+
+			public void setOther(String other) {
+				this.other = other;
+			}
 
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> roles;
@@ -95,8 +104,8 @@ public class User {
 		return passwordHash;
 	}
 
-	public void setPasswordHash(String passwordHash) {
-		this.passwordHash = passwordHash;
+	public void setPasswordHash(String password){
+		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 	}
 
 	
