@@ -154,6 +154,11 @@ public class ShoppingCartController {
 		}
 		
 		model.addAttribute("cartm", session.getAttribute("cart"));
+		List<Cart> lst = (List<Cart>) session.getAttribute("cart");
+		
+		if (lst == null){
+			model.addAttribute("emptycar","emptycar");
+		}
 
 		return "user_cart_shopping";
 	}
