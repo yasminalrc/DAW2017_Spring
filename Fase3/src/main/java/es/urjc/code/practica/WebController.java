@@ -99,6 +99,16 @@ public class WebController {
     	return "index";
     }
     
+    @RequestMapping("/adminall")
+    public String adminAll (Model model, HttpServletRequest request){
+    	model.addAttribute("logueado", userComponent.isLoggedUser());
+    	model.addAttribute("admin", request.isUserInRole("ADMIN"));
+    	
+    	return "admin";
+    	
+    	
+    }
+    
     @RequestMapping("/admin")
     public String admin(Model model,Pageable page,HttpServletRequest request) {
     	
