@@ -158,8 +158,11 @@ public class ShoppingCartController {
 		
 		if (lst == null){
 			model.addAttribute("emptycar","emptycar");
+		} else{
+		
+		model.addAttribute("total",getTotal(lst));
 		}
-
+		
 		return "user_cart_shopping";
 	}
 
@@ -195,6 +198,7 @@ public class ShoppingCartController {
 		session.setAttribute("cart", lst);
 
 		session.setAttribute("total", getTotal(lst));
+		model.addAttribute("total",getTotal(lst));
 		
 		System.out.println(lst);
 
