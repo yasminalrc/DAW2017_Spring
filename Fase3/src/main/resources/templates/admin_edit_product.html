@@ -4,24 +4,24 @@
 <html lang="en" >
 
 <head>
-    <link href="images/lince.png" type="image/x-icon" rel="shortcut icon" />
+    <link href="/images/lince.png" type="image/x-icon" rel="shortcut icon" />
     <title>VisionLynx</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <link type="text/css" rel="stylesheet" href="css/menunavbar.css" />
-    <link type="text/css" rel="stylesheet" href="css/carouselnew.css" />
-    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <link type="text/css" rel="stylesheet" href="/css/menunavbar.css" />
+    <link type="text/css" rel="stylesheet" href="/css/carouselnew.css" />
+    <link type="text/css" rel="stylesheet" href="/css/style.css" />
 
     <!--SCRIPT TO IMPORT MENU AND FOOTER-->
     <script>
         $(function () {
-            $("#header").load("header_Admin.html");
+            $("#header").load("/header_Admin.html");
         });
         $(function () {
-            $("#footer").load("footer.html");
+            $("#footer").load("/footer.html");
         });
     </script>
 
@@ -121,19 +121,19 @@
                                 <div class="col-lg-12 form-group margin50">
                                     <label class="col-lg-2" for="Name">Name</label>
                                     <div class="col-lg-4">
-                                        <input type="text" id="name" name="Name" placeholder="" class="form-control name">
+                                        <input type="text" id="name" name="Name" placeholder="{{producto.name}}" class="form-control name">
                                     </div>
                                 </div>
                                 <div class="col-lg-12 form-group">
                                     <label class="col-lg-2" for="Brand">Brand</label>
                                     <div class="col-lg-4">
-                                        <input type="text" id="brand" name="Brand" placeholder="" class="form-control brand">
+                                        <input type="text" id="brand" name="Brand" placeholder="{{producto.brand}}" class="form-control brand">
                                     </div>
                                 </div>
                                 <div class="col-lg-12 form-group">
                                     <label class="col-lg-2" for="Reference">Reference</label>
                                     <div class="col-lg-4">
-                                        <input type="text" id="reference" name="Reference" placeholder="" class="form-control reference">
+                                        <input type="text" id="reference" name="Reference" placeholder="{{producto.reference}}" class="form-control reference">
                                     </div>
                                 </div>
 
@@ -159,14 +159,14 @@
                                                 <div class="col-lg-12 form-group">
                                                     <label class="col-lg-2" for="Colour">Colors</label>
                                                     <div class="col-lg-10">
-                                                        <input type="text" id="colour" name="Colour" placeholder="" class="form-control colour">
+                                                        <input type="text" id="colour" name="Colour" placeholder="{{producto.colour}}" class="form-control colour">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-lg-12 form-group">
                                                     <label class="col-lg-2" for="Size">Size</label>
                                                     <div class="col-lg-10">
-                                                        <input type="text" id="size" name="Size" placeholder="" class="form-control size">
+                                                        <input type="text" id="size" name="Size" placeholder="{{producto.size}}" class="form-control size">
                                                     </div>
                                                 </div>
                                             </div>
@@ -265,14 +265,14 @@
                                 <div class="col-lg-12 form-group">
                                     <label class="col-lg-2" for="Price">Price</label>
                                     <div class="col-lg-4">
-                                        <input type="text" id="price" name="price" placeholder="" class="form-control price">
+                                        <input type="text" id="price" name="price" placeholder="{{producto.price}}" class="form-control price">
                                     </div>
                                 </div>
 
                                 <div class="col-lg-12 form-group">
                                     <label class="col-lg-2" for="Quantity">Quantity</label>
                                     <div class="col-lg-4">
-                                        <input type="text" id="quantity" name="Quantity" placeholder="" class="form-control quantity">
+                                        <input type="text" id="quantity" name="Quantity" placeholder="{{producto.quantity}}" class="form-control quantity">
                                     </div>
                                 </div>
 
@@ -299,19 +299,17 @@
                                 <input type="file" id="small" name="file" >
                             </div>
                         </div>
-                        
-                   		<!--  <input type='submit' value='subir' class="btn btn-primary"/>-->
-                   		<!--  <input type="hidden" name="_csrf" value="{{token}}"/> -->
                    	
                     </div>
                     
                     <!--  FIN SUBIDA DE IMÁGENES -->
+                    
 					<!-- DESCRIPTION -->
                     <div id="Product_Desc" class="tab-pane">
                         <div class="col-lg-12 form-group margin50">
                             <label class="col-sm-2" for="Description">Description</label>
                             <div class="col-sm-4">
-                                <textarea class="form-control description" id="description" name="Description"></textarea>
+                                <textarea class="form-control description" id="description" name="Description" placeholder="{{producto.description}}"></textarea>
                             </div>
                         </div>
                     </div>
