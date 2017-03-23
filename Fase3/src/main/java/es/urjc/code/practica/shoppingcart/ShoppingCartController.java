@@ -74,11 +74,6 @@ public class ShoppingCartController {
      	model.addAttribute("admin", request.isUserInRole("ADMIN"));
      	
       	//Obtenemos nuestro producto del repositorio y lo pasamos al modelo
-    	Product product = repository.findByBrand("Rayban");	
-    	model.addAttribute("product_rayban",product);
-    	model.addAttribute("namer",product.getName());
-    	model.addAttribute("pricer",product.getPrice());
-    	model.addAttribute("quantityr",product.getQuantity());
     	
     	return "product_add_general";
     }

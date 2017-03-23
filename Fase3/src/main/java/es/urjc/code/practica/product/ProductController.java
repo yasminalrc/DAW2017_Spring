@@ -92,11 +92,10 @@ public class ProductController {
 		
 		//SEGUNDO EJEMPLO: RAY BAN 4165 601/71 55
 		repository.save(new Product("RAY BAN 4165 601/71 55",
-                "Rayban","model1","reference1","1_uds","redcolor",
+                "rayban","model1","reference1","1_uds","redcolor",
                 "medium",null,null,false,
                 61.50,5,"/files/rayban.jpg",
-                "Referencia: 21006065 " + "\n" + "Las gafas de sol Ray-Ban Justin RB4165 son unas de las m originales de la colecci Ray-Ban. Inspirado por las emblemicas gafas de sol Wayfarer, los nuevos colores degradados de la montura, las nuevas e impresionantes lentes de colores y su acabado en goma aden un toque divertido, intrido y vanguardista a tu estilo."
-                ));
+                "Referencia: 21006065 "));
 		
 	}
    
