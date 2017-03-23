@@ -57,9 +57,12 @@ public class ShoppingCartController {
     	model.addAttribute("admin", request.isUserInRole("ADMIN"));
     	
     	model.addAttribute("isLent");
- 
-		return "product_add_contactlens";
     	
+    	//Obtenemos nuestro producto del repositorio y lo pasamos al modelo
+    	Product product = repository.findByBrand("Acuvue");	
+    	model.addAttribute("product_acuvue",product);
+
+		return "product_add_contactlens";
     	
     }
      
@@ -69,15 +72,22 @@ public class ShoppingCartController {
     	
     	model.addAttribute("logueado", userComponent.isLoggedUser());
      	model.addAttribute("admin", request.isUserInRole("ADMIN"));
+     	
+      	//Obtenemos nuestro producto del repositorio y lo pasamos al modelo
+    	Product product = repository.findByBrand("Rayban");	
+    	model.addAttribute("product_rayban",product);
+    	model.addAttribute("namer",product.getName());
+    	model.addAttribute("pricer",product.getPrice());
+    	model.addAttribute("quantityr",product.getQuantity());
     	
     	return "product_add_general";
     }
     
-    
+ /*   
     @RequestMapping(value="addcart", method=RequestMethod.POST)
-    public String addCart (@ModelAttribute("cart") Cart c, HttpSession session){
+    public String addCart (@ModelAttribute("cart") CartContactLens c, HttpSession session){
     	
-    	List <Cart> lst = (List<Cart>) session.getAttribute("cart");
+    	List <CartContactLens> lst = (List<CartContactLens>) session.getAttribute("cart");
     	
     	if (lst==null){
     		
@@ -86,7 +96,7 @@ public class ShoppingCartController {
     	} 
     	else {
     		boolean flag= false;
-    		for (Cart cart: lst){
+    		for (CartContactLens cart: lst){
     			
     			if (cart.getId()== c.getId()){
     					cart.setQuantity(cart.getQuantity()+1);
@@ -103,15 +113,15 @@ public class ShoppingCartController {
     		
     	}
     	
-		return null;
+		return "user_cart_shopping";
     	
     }
     
 	
-    public float getTotal (List <Cart> lst){
+    public float getTotal (List <CartContactLens> lst){
     	
     	float total=0;
-    	for (Cart cart: lst){
+    	for (CartContactLens cart: lst){
     		total += (cart.getQuantity()*cart.getPrice());
     	}
     	
@@ -121,16 +131,16 @@ public class ShoppingCartController {
     @RequestMapping (value="remove", method=RequestMethod.GET)
     public String remove (@RequestParam (value="id") int id, HttpSession session){
 		
-    	List <Cart> lst = (List<Cart>) session.getAttribute("cart");
+    	List <CartContactLens> lst = (List<CartContactLens>) session.getAttribute("cart");
     	
     	if (lst != null){
-    		for (Cart cart: lst){
+    		for (CartContactLens cart: lst){
     			if (cart.getId()== id){
     				lst.remove(cart);
     				break;
     			}
     		}	
-    	}
+    	} 
     	
     	session.setAttribute("cart", lst);
     	session.setAttribute("total", getTotal(lst));
@@ -139,7 +149,7 @@ public class ShoppingCartController {
     	return null;
     	
     	
-    }
+    }*/
     
     
     @RequestMapping("usercart")
@@ -159,17 +169,54 @@ public class ShoppingCartController {
     } 
     
     @RequestMapping(value="usercart_post",method = RequestMethod.POST)
-    public String usercartpost(Model model,HttpServletRequest request, HttpSession session) {
+    public String usercartpost(Model model,@ModelAttribute ("cart") Cart c,@RequestParam("quantity") Integer quantity,
+    		HttpServletRequest request, HttpSession session) {
     	
+    	List <Cart> lst = (List<Cart>) session.getAttribute("cart");	
     	model.addAttribute("logueado", userComponent.isLoggedUser());
     	model.addAttribute("admin", request.isUserInRole("ADMIN"));
      
-    	/*Boolean newproduct =true;
-    	model.addAttribute("newproduct",newproduct); */ 
     	productadded=productadded+1;
-  
+    	
+    	if (lst==null){
+    		
+    		lst= new ArrayList <>();
+    		lst.add(c);	
+    	} 
+    	else {
+    		boolean flag= false;
+    		for (Cart cart: lst){
+    		
+    			if (cart.getId()== c.getId()){
+    					cart.setQuantity(cart.getQuantity()+quantity);
+    					flag=true;
+    					break;
+    			}
+    		}
+    	if (flag==false){
+    			lst.add(c);
+    	}
+    	
+    	session.setAttribute("cart", lst);
+    	session.setAttribute("total",getTotal(lst));
+    		
+    	}
+    	
+    	System.out.println(lst);
+    	
     	return "product_add_contactlens_cart";
     } 
+    
+   //Método que necesitamos para el carritp, para calcular el total
+    public Double getTotal (List <Cart> lst){
+    	
+    	double total=0;
+    	for (Cart cart: lst){
+    		total += (cart.getQuantity()*cart.getPrice());
+    	}
+    	
+    	return total;
+    }
     
     
 }    

@@ -118,12 +118,19 @@
                             </div>
                         </div>
                         
+                    <form action="/usercart_post" method="post" enctype="multipart/form-data">
+                        {{#product_acuvue}}
                         <div class="col-md-7 col-sm-12 col-xs-12">
-                            <h2 class="name">ONE DAY ACUVUE MOIST 30 UNIDADES </h2>
+                            <h2 class="name">{{name}} </h2>
+                            	<input type="hidden" name="id" id="id" value="1"/>
+                            	<input type="hidden" name="name" id="name" value="{{name}}"/> 
+                            <!-- <h2 class="name">ONE DAY ACUVUE MOIST 30 UNIDADES </h2> -->
                             <hr>
                             <div class="col-lg-12 col-sm-12 col-xs-12">
 
-                                <h3 class="price-container">19,34 €<small>IVA incluído</small></h3>
+                                <h3 class="price-container">{{price}} €<small> IVA incluído</small></h3>
+                                <input type="hidden" name="price" id="price" value="{{price}}"/>
+                               
 
                             </div>
                             <div class="col-lg-12 col-sm-12 col-xs-12">
@@ -132,7 +139,7 @@
                             <div class="col-lg-12 col-sm-12 col-xs-12">
                                 <div class="col-lg-6 col-sm-6 col-xs-6" style="padding-left: 0;">
                                     <div class="attribute_list">
-                                        <select class="form-control">
+                                        <select class="form-control" name="quantity" id="quantity">
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
@@ -158,14 +165,14 @@
                                 </div>
                             </div>
                             <br>
-
+									<input type="hidden" name="size" id="size" value="0"/>
                             <div class="col-lg-6 col-sm-6 col-xs-6">
                                 <div id="attributes">
                                     <div class="clearfix"></div>
                                     <fieldset class="attribute_fieldset">
                                         <label class="attribute_label" for="group_5">Esfera:&nbsp;</label>
                                         <div class="attribute_list">
-                                            <select name="group_5" id="group_5" class="form-control attribute_select no-print">
+                                            <select name="sphere" id="group_5" class="form-control attribute_select no-print">
                                                 <option value="46" title="+00.25">+00.25</option>
                                                 <option value="47" title="+00.50">+00.50</option>
                                                 <option value="48" title="+00.75">+00.75</option>
@@ -233,7 +240,7 @@
                                     <fieldset class="attribute_fieldset">
                                         <label class="attribute_label" for="group_4">Radio:&nbsp;</label>
                                         <div class="attribute_list">
-                                            <select name="group_4" id="group_4" class="form-control attribute_select no-print">
+                                            <select name="radio" id="group_4" class="form-control attribute_select no-print">
                                                 <option value="106" title="08.50">08.50</option>
                                                 <option value="107" selected="selected" title="09.00">09.00</option>
                                             </select>
@@ -242,7 +249,7 @@
                                     <fieldset class="attribute_fieldset">
                                         <label class="attribute_label" for="group_3">Diametro:&nbsp;</label>
                                         <div class="attribute_list">
-                                            <select name="group_3" id="group_3" class="form-control attribute_select no-print">
+                                            <select name="diameter" id="group_3" class="form-control attribute_select no-print">
                                                 <option value="7" selected="selected" title="14.2">14.2</option>
                                             </select>
                                         </div>
@@ -250,7 +257,7 @@
                                     <fieldset class="attribute_fieldset">
                                         <label class="attribute_label" for="group_1">Ojo:&nbsp;</label>
                                         <div class="attribute_list">
-                                            <select name="group_1" id="group_1" class="form-control attribute_select no-print">
+                                            <select name="eye" id="group_1" class="form-control attribute_select no-print">
                                                 <option value="2" title="Derecho">Derecho</option>
                                                 <option value="1" selected="selected" title="Izquierdo">Izquierdo</option>
                                             </select>
@@ -281,20 +288,21 @@
                                             <strong>Referencia:  LA3</strong>
                                             <p>Lente de contacto de hidrogel. El componente usado en su fabricación es altamente hidratante y aporta gran comodidad a lo largo del día. Contiene filtro UV. Cada caja contiene 30 unidades. </p>
                                         </div>
-
+									<input type="hidden" name="image"  value="http://lorempixel.com/300/300/fashion"/>
                                     </div>
                                 </div>
                                 <hr>
                             </div>
+						{{/product_acuvue}}
 
                             <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
                                     <!--  <a href="/usercart_post" class="btn btn-success btn-lg">Añadir al carrito(19,34€)</a>
                                 -->
-                                      <form action="/usercart_post" method="post">
-                                    		<input type="submit" class="btn btn-success btn-lg" value="Add to Cart (61,50€)" />
+                                      
+                                    		<input type="submit" class="btn btn-success btn-lg" value="Add to Cart" />
                                 	 		<input type="hidden" name="_csrf" value="{{token}}"/>
-                                	 </form> 
+                    </form> 
                                 </div>
                             </div>
                         </div>

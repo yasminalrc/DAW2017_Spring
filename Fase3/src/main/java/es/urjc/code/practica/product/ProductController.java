@@ -82,6 +82,21 @@ public class ProductController {
 		repository.save(new Product("accesory30", "brand15", "model15", "reference15", "type3", null, null, null, null, false, 0.50, 5, "/files/product15.jpg", "description15"));
 	
 		
+		//Guardamos producto ejemplo para mostrar las lentillas
+		repository.save(new Product("ONE DAY ACUVUE MOIST 30 UNIDADES",
+				                    "Acuvue","model1","reference1","30_uds","bluecolor",
+				                    "noSize","noSpherePredef","noRadioPredef",false,
+				                    19.34,5,"/files/acuvue.jpg",
+				                    "Referencia: LA3 " + "\n" + "Lente de contacto de hidrogel. El componente usado en su fabricación es altamente hidratante y aporta gran comodidad a lo largo del día. Contiene filtro UV. Cada caja contiene 30 unidades."
+				                    ));
+		
+		//SEGUNDO EJEMPLO: RAY BAN 4165 601/71 55
+		repository.save(new Product("RAY BAN 4165 601/71 55",
+                "Rayban","model1","reference1","1_uds","redcolor",
+                "medium",null,null,false,
+                61.50,5,"/files/rayban.jpg",
+                "Referencia: 21006065 " + "\n" + "Las gafas de sol Ray-Ban Justin RB4165 son unas de las m originales de la colecci Ray-Ban. Inspirado por las emblemicas gafas de sol Wayfarer, los nuevos colores degradados de la montura, las nuevas e impresionantes lentes de colores y su acabado en goma aden un toque divertido, intrido y vanguardista a tu estilo."
+                ));
 		
 	}
    
