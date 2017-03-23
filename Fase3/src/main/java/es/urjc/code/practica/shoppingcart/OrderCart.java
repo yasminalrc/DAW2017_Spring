@@ -15,7 +15,7 @@ public class OrderCart{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-	/***Atributos de Cart ***/
+	//Atributos de Cart ***/
 	private String name;
 	private Double price;
 	private Integer quantity;
@@ -25,28 +25,25 @@ public class OrderCart{
 	private String diameter;
 	private String eye;
 	
-	@ManyToOne
-	private OrderSummary productscart;
+	/*@ManyToOne
+	private OrderSummary productscart;*/
 	
 	
-	public OrderSummary getProductscart() {
+	/*public OrderSummary getProductscart() {
 		return productscart;
 	}
 
 	public void setProductscart(OrderSummary productscart) {
 		this.productscart = productscart;
-	}
+	} */
 
 	public OrderCart (){
 			
 	}
 
-	
-
-	public OrderCart(long id, String name, Double price, Integer quantity, String size, String sphere,
-			String radio, String diameter, String eye, OrderSummary productscart) {
+	public OrderCart( String name, Double price, Integer quantity, String size, String sphere,
+			String radio, String diameter, String eye) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.price = price;
 		this.quantity = quantity;
@@ -55,7 +52,7 @@ public class OrderCart{
 		this.radio = radio;
 		this.diameter = diameter;
 		this.eye = eye;
-		this.productscart = productscart;
+	
 	}
 
 	public long getId() {
@@ -131,13 +128,14 @@ public class OrderCart{
 	}
 
 
+
 	@Override
 	public String toString() {
-		return "OrderUserEntity [id=" + id + ", name=" + name + ", price=" + price + ", quantity=" + quantity
-				+ ", size=" + size + ", sphere=" + sphere + ", radio=" + radio + ", diameter=" + diameter + ", eye="
-				+ eye + "]";
+		return "OrderCart [id=" + id + ", name=" + name + ", price=" + price + ", quantity=" + quantity + ", size="
+				+ size + ", sphere=" + sphere + ", radio=" + radio + ", diameter=" + diameter + ", eye=" + eye + "]";
 	}
-	
+
+
 	
 	
 	

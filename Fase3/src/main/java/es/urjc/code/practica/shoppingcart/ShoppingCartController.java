@@ -46,7 +46,7 @@ public class ShoppingCartController {
 	private ProductsRepository repository;
 
 	@Autowired
-	private OrdersUserRepository ordersrepository;
+	private OrderCartRepository ordersrepository;
 
 	private int productadded = 0;
 
