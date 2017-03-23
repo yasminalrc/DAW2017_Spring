@@ -122,7 +122,7 @@
                         {{#product_acuvue}}
                         <div class="col-md-7 col-sm-12 col-xs-12">
                             <h2 class="name">{{name}} </h2>
-                            	<input type="hidden" name="id" id="id" value="1"/>
+                            	<input type="hidden" name="id" id="id" value="{{id}}"/>
                             	<input type="hidden" name="name" id="name" value="{{name}}"/> 
                             <!-- <h2 class="name">ONE DAY ACUVUE MOIST 30 UNIDADES </h2> -->
                             <hr>
@@ -302,7 +302,10 @@
                                       
                                     		<input type="submit" class="btn btn-success btn-lg" value="Add to Cart" />
                                 	 		<input type="hidden" name="_csrf" value="{{token}}"/>
+                               </div> 
+                             </div> 	 		
                     </form> 
+                    
                                 </div>
                             </div>
                         </div>

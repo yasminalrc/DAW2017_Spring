@@ -93,8 +93,8 @@ public class ProductController {
 		//SEGUNDO EJEMPLO: RAY BAN 4165 601/71 55
 		repository.save(new Product("RAY BAN 4165 601/71 55",
                 "rayban","model1","reference1","1_uds","redcolor",
-                "medium",null,null,false,
-                61.50,5,"/files/rayban.jpg",
+                "medium","0","0",false,
+                61.60,5,"/files/rayban.jpg",
                 "Referencia: 21006065 "));
 		
 	}

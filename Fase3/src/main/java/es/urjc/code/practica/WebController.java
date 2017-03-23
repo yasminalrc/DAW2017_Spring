@@ -155,17 +155,7 @@ public class WebController {
     	return "admin_edit_product";
     }
     
-    
-    
-    @RequestMapping("/payment")
-    public String payment1(Model model) {
-    	
-    	model.addAttribute("logueado", userComponent.isLoggedUser());
-	   
-    	return "payment_gateway";
-    } 
-    
-    
+  
     @RequestMapping("/user_orders")
     public String user_orders(Model model) {
     	
