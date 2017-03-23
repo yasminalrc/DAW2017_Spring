@@ -155,6 +155,8 @@ public class WebController {
     	model.addAttribute("admin", request.isUserInRole("ADMIN"));
     	
 		model.addAttribute("id", repository.findOne(id).getId());
+		model.addAttribute("producto", repository.findOne(id));
+		
     	
     	return "admin_edit_product";
     }

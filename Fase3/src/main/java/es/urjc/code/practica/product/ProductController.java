@@ -102,39 +102,7 @@ public class ProductController {
 		return "admin_product_list";
 	} */
 	
-	//NEW
-	//Añadir un producto como Administrador	
-	/*
-		@RequestMapping(value="/admin/add/", method = RequestMethod.POST)
-		//@RequestMapping(value = "/image/upload", method = RequestMethod.POST)
-		public String ProductAdd(Model model, 
-				@RequestParam("imageTitle") String imageTitle,
-				@RequestParam("file") MultipartFile file, Product product) throws IllegalStateException, IOException {
-			
-			//TITULO DE LA IMAGEN
-			String imageName = imageTitle + ".jpg";
-			
-			//SI SE HA SELECCIONADO LA FOTO
-			if (!file.isEmpty()) {
-					//Insertamos la imagen en la carpeta files
-				File filesFolder = new File(FILES_FOLDER);
-				if (!filesFolder.exists()) {
-					filesFolder.mkdirs();
-				}
-				
-				File uploadedFile = new File(filesFolder.getAbsolutePath(), imageName);
-				file.transferTo(uploadedFile);
-					
-				Image image = new Image(imageName, filesFolder.getPath());
-				imageRepository.save(image); 	
-				product.setImage(filesFolder.getPath()+"/"+imageName);
-			}
-			repository.save(product);
-			return "redirect:/profile";	
-			
-		}
 	
-		*/
 	
 		@RequestMapping(value="/admin/add/", method = RequestMethod.POST)
 		//@RequestMapping(value = "/image/upload", method = RequestMethod.POST)
@@ -217,6 +185,7 @@ public class ProductController {
 			if (repository.exists(id)){
 				
 				Product producto = repository.findOne(id);
+				model.addAttribute("producto",producto);
 				
 				producto.setBrand(productupdated.getBrand());
 				producto.setColour(productupdated.getColour());
@@ -235,7 +204,7 @@ public class ProductController {
 				
 				String imagen = productupdated.getImage();
 				
-				System.out.println("imagen");
+				System.out.println(imagen);
 				
 				String imageName = imageTitle + ".jpg";
 				
@@ -252,7 +221,7 @@ public class ProductController {
 						
 					Image image = new Image(imageName, filesFolder.getPath());
 					imageRepository.save(image); 	
-					productupdated.setImage("/"+filesFolder.getPath()+"/"+imageName);
+					productupdated.setImage(imageTitle);
 					producto.setImage(productupdated.getImage());
 				//fin imagen//
 				}
