@@ -3,7 +3,11 @@ package es.urjc.code.practica;
 import java.io.File;
 import java.io.IOException;
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -69,6 +73,8 @@ public class WebController {
     public String loginerror() {
     	return "login_form_error";
     }
+ 
+    
     
 
     @RequestMapping("/home")
@@ -82,6 +88,7 @@ public class WebController {
     	User user2 = userComponent.getLoggedUser();
     	
     	model.addAttribute("user", user2.getName());
+    	
     	model.addAttribute("logueado", userComponent.isLoggedUser());
     	
     	System.out.println("User: "+user);
@@ -129,7 +136,7 @@ public class WebController {
     	model.addAttribute("user", userComponent.getLoggedUser());
     	
     	Principal p = request.getUserPrincipal();
-    	User user = userRepository.findByName(p.getName());
+    	User user = userComponent.getLoggedUser();
     	
     	
     	model.addAttribute("name", user.getName());
@@ -151,6 +158,8 @@ public class WebController {
     	model.addAttribute("admin", request.isUserInRole("ADMIN"));
     	
 		model.addAttribute("id", repository.findOne(id).getId());
+		model.addAttribute("producto", repository.findOne(id));
+		
     	
     	return "admin_edit_product";
     }
