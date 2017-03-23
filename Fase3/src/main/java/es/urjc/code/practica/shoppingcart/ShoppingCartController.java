@@ -135,6 +135,8 @@ public class ShoppingCartController {
 	 * 
 	 * }
 	 */
+	
+	
 
 	@RequestMapping("usercart")
 	public String usercart(Model model, HttpServletRequest request, HttpSession session) {
@@ -203,6 +205,26 @@ public class ShoppingCartController {
 		}
 
 		return total;
+	}
+	
+	
+	@RequestMapping("cleanglasses")
+	public String sunglasses(Model model, HttpServletRequest request) {
+
+		model.addAttribute("logueado", userComponent.isLoggedUser());
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
+
+		// Obtenemos nuestro producto del repositorio y lo pasamos al modelo
+		
+		// Obtenemos nuestro producto del repositorio y lo pasamos al modelo
+		Product product = repository.findByBrand("visionlynx");
+		model.addAttribute("product_cleanglasses", product);
+		
+		model.addAttribute ("pepe","pepe");
+		
+		System.out.println(product);
+
+		return "product_add_cleanglasses";
 	}
 
 	@RequestMapping("payment")
