@@ -81,7 +81,7 @@
                         <div class="panel-heading">
                             <h3>Datos personales</h3></div>
                         <div class="panel-body">
-                            <form class="form-horizontal">
+                            <form class="form-horizontal" action = "/user/editDatos/" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label for="inputName" class="col-lg-2 control-label">Nombre</label>
                                     <div class="col-lg-9 col-lg-offset-1">
@@ -115,9 +115,11 @@
                                 <div class="form-group">
                                     <div class="col-lg-10 col-lg-offset-6">
                                         <button type="reset" class="btn btn-default">Cancelar</button>
-                                        <button type="submit" class="btn btn-success">Aceptar</button>
+                                        <input type='submit' value='Aceptar' class="btn btn-primary"/>
+                   						<input type="hidden" name="_csrf" value="{{token}}"/>
                                     </div>
                                 </div>
+                                	
                             </form>
                         </div>
                     </div>
@@ -129,29 +131,33 @@
                         <div class="panel-heading">
                             <h3>Cambiar contraseña</h3></div>
                         <div class="panel-body">
-                            <form class="form-horizontal">
+                            <form class="form-horizontal" action = "/user/editPassword/" method="post" enctype="multipart/form-data">
+                                 <!--
                                 <div class="form-group">
                                     <label for="inputOld" class="col-lg-2 control-label">Contraseña Actual</label>
                                     <div class="col-lg-9 col-lg-offset-1">
-                                        <input type="password" class="form-control" id="inputOld" placeholder="Old Password">
+                                        <input type="password" class="form-control" name="oldpassword" id="inputOld" placeholder="Old Password">
                                     </div>
+                                
                                 </div>
+                                -->
                                 <div class="form-group">
                                     <label for="inputPass" class="col-lg-2 control-label">Nueva contraseña</label>
                                     <div class="col-lg-9 col-lg-offset-1">
-                                        <input type="password" class="form-control" id="inputPass" placeholder="New Password">
+                                        <input type="password" class="form-control" name="password" id="inputPass" placeholder="New Password">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputConfirm" class="col-lg-2 control-label">Confirmar contraseña</label>
                                     <div class="col-lg-9 col-lg-offset-1">
-                                        <input type="password" class="form-control" id="inputConfirm" placeholder="Confirm Password">
+                                        <input type="password" class="form-control" name="confirmPassword" id="inputConfirm" placeholder="Confirm Password">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-lg-10 col-lg-offset-6">
                                         <button type="reset" class="btn btn-default">Cancelar</button>
-                                        <button type="submit" class="btn btn-success">Aceptar</button>
+                                        <input type='submit' value='Aceptar' class="btn btn-primary"/>
+                   						<input type="hidden" name="_csrf" value="{{token}}"/>
                                     </div>
                                 </div>
                             </form>
@@ -159,8 +165,8 @@
                     </div>
                 </div>
 
-
-                <!-- Columna de prescripcion -->
+	
+                <!-- Columna de prescripcion 
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -219,49 +225,7 @@
                         </div>
                     </div>
                 </div>
-
-
-
-
-                <!-- <div class="formulario col-md-6 col-sm-6 col-xs-12" id="password">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h3 class="modal-title">Cambiar Contraseña</h3>
-                      </div>
-                      <div class="modal-body">
-                        <form class="form-horizontal">
-                             <div class="form-group">
-                                  <label for="inputOld" class="col-lg-2 control-label">Contraseña Actual</label>
-                                  <div class="col-lg-9 col-lg-offset-1">
-                                          <input type="password" class="form-control" id="inputOld" placeholder="Old Password">
-                                  </div>
-                             </div>
-                             <div class="form-group">
-                                  <label for="inputPass" class="col-lg-2 control-label">Nueva contraseña</label>
-                                  <div class="col-lg-9 col-lg-offset-1">
-                                          <input type="password" class="form-control" id="inputPass" placeholder="New Password">
-                                  </div>
-                             </div>
-                             <div class="form-group">
-                                  <label for="inputConfirm" class="col-lg-2 control-label">Confirmar contraseña</label>
-                                  <div class="col-lg-9 col-lg-offset-1">
-                                       <input type="password" class="form-control" id="inputConfirm" placeholder="Confirm Password">
-                                  </div>
-                             </div>
-                        </form>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-success">Guardar</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>-->
-
-
-
+				-->
 
 
             </div>

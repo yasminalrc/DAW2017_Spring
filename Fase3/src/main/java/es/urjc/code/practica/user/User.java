@@ -22,7 +22,16 @@ public class User {
 	
 	private String name;
 	private String passwordHash;
+	private String confirmpasswordHash;
 	
+	public String getConfirmpasswordHash() {
+		return confirmpasswordHash;
+	}
+
+	public void setConfirmpasswordHash(String confirmpassword) {
+		this.confirmpasswordHash = new BCryptPasswordEncoder().encode(confirmpassword);
+	}
+
 	private String surnames;
 	private String email;
 	private String birthdate;
