@@ -45,7 +45,7 @@ public class ProductController {
 	
 	@PostConstruct
 	public void init() {
-		repository.save(new Product("sunglasses1", "brand1", "model1", "reference1", "type1", "red", "M", null, null, false, 0.50, 5, "/files/product1.jpg", "description1"));
+		repository.save(new Product("sunglasses1", "brand1", "model1", "reference1", "type1", "red", "M", null, null, false, 0.50, 5, "/files\\descarga.jpg", "description1"));
 		repository.save(new Product("sunglasses2", "brand2", "model2", "reference2", "type1", "black", "S", null, null, false, 0.50, 5, "/files/product2.jpg", "description2"));
 		repository.save(new Product("sunglasses3", "brand3", "model3", "reference3", "type1", "blue", "XL", null, null, false, 0.50, 5, "/files/product3.jpg", "description3"));
 		repository.save(new Product("sunglasses4", "brand4", "model4", "reference4", "type1", "red", "M", null, null, false, 0.50, 5, "/files/product4.jpg", "description4"));
