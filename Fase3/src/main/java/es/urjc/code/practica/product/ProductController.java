@@ -97,6 +97,12 @@ public class ProductController {
                 61.60,5,"/files/rayban.jpg",
                 "Referencia: 21006065 "));
 		
+		repository.save(new Product("LIMPIA GAFAS AROMA MANZANA",
+                "visionlynx","model1","reference1","1_uds","nocolor",
+                "nosize","0","0",false,
+                3.20,5,"/files/cleanglasses.jpg",
+                "Referencia: 21006067 "));
+		
 	}
    
 	// VIEW
