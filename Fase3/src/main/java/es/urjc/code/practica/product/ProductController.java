@@ -52,41 +52,41 @@ public class ProductController {
 	
 	@PostConstruct
 	public void init() {
-		repository.save(new Product("sunglasses1", "brand1", "model1", "reference1", "type1", "red", "M", null, null, false, 0.50, 5, "/image/descarga.jpg", "description1"));
-		repository.save(new Product("sunglasses2", "brand2", "model2", "reference2", "type1", "black", "S", null, null, false, 0.50, 5, "/files/product2.jpg", "description2"));
-		repository.save(new Product("sunglasses3", "brand3", "model3", "reference3", "type1", "blue", "XL", null, null, false, 0.50, 5, "/files/product3.jpg", "description3"));
-		repository.save(new Product("sunglasses4", "brand4", "model4", "reference4", "type1", "red", "M", null, null, false, 0.50, 5, "/files/product4.jpg", "description4"));
-		repository.save(new Product("sunglasses5", "brand5", "model5", "reference5", "type5", "red", "M", null, null, false, 0.50, 5, "/files/product5.jpg", "description5"));
-		repository.save(new Product("lents6", "brand6", "model6", "reference6", "type2", null, null, "0.25", "8.50", false, 0.50, 5, "/files/product6.jpg", "description6"));
+		repository.save(new Product("sunglasses1", "brand1", "model1", "reference1", "type1", "red", "M", null, null, false, 0.50, 5, "producto1", "description1"));
+		repository.save(new Product("sunglasses2", "brand2", "model2", "reference2", "type1", "black", "S", null, null, false, 0.50, 5, "producto2", "description2"));
+		repository.save(new Product("sunglasses3", "brand3", "model3", "reference3", "type1", "blue", "XL", null, null, false, 0.50, 5, "producto3", "description3"));
+		repository.save(new Product("sunglasses4", "brand4", "model4", "reference4", "type1", "red", "M", null, null, false, 0.50, 5, "producto4", "description4"));
+		repository.save(new Product("sunglasses5", "brand5", "model5", "reference5", "type5", "red", "M", null, null, false, 0.50, 5, "producto21", "description5"));
+		repository.save(new Product("lents6", "brand6", "model6", "reference6", "type2", null, null, "0.25", "8.50", false, 0.50, 5, "producto6", "description6"));
 		
-		//repository.save(new Product("lents7", "brand7", "model7", "reference7", "type2", null, null, 0.25, 8.50, false, 0.50, 5, "/files/product7.jpg", "description7"));
-		//repository.save(new Product("lents8", "brand8", "model8", "reference8", "type2", null, null, 0.25, 8.50, false, 0.50, 5, "/files/product8.jpg", "description8"));
-		//repository.save(new Product("lents9", "brand9", "model9", "reference9", "type2", null, null, 0.25, 8.50, false, 0.50, 5, "/files/product9.jpg", "description9"));
-		//repository.save(new Product("lents10", "brand10", "model10", "reference10", "type2", null, null, 0.25, 8.50, false, 0.50, 5, "/files/product10.jpg", "description10"));
-		repository.save(new Product("accesory11", "brand11", "model11", "reference11", "type3", null, null, null, null, false, 0.50, 5, "/files/product11.jpg", "description11"));
-		repository.save(new Product("accesory12", "brand12", "model12", "reference12", "type3", null, null, null, null, false, 0.50, 5, "/files/product12.jpg", "description12"));
-		repository.save(new Product("accesory13", "brand13", "model13", "reference13", "type3", null, null, null, null, false, 0.50, 5, "/files/product13.jpg", "description13"));
-		repository.save(new Product("accesory14", "brand14", "model14", "reference14", "type3", null, null, null, null, false, 0.50, 5, "/files/product14.jpg", "description14"));
-		repository.save(new Product("accesory15", "brand15", "model15", "reference15", "type3", null, null, null, null, false, 0.50, 5, "/files/product15.jpg", "description15"));
+		repository.save(new Product("lents7", "brand7", "model7", "reference7", "type2", null, null," 0.25", "8.50", false, 0.50, 5, "producto7", "description7"));
+		repository.save(new Product("lents8", "brand8", "model8", "reference8", "type2", null, null, "0.25", "8.50", false, 0.50, 5, "producto8", "description8"));
+		repository.save(new Product("lents9", "brand9", "model9", "reference9", "type2", null, null, "0.25", "8.50", false, 0.50, 5, "producto9", "description9"));
+		repository.save(new Product("lents10", "brand10", "model10", "reference10", "type2", null, null, "0.25", "8.50", false, 0.50, 5, "producto10", "description10"));
+		repository.save(new Product("accesory11", "brand11", "model11", "reference11", "type3", null, null, null, null, false, 0.50, 5, "producto11.jpg", "description11"));
+		repository.save(new Product("accesory12", "brand12", "model12", "reference12", "type3", null, null, null, null, false, 0.50, 5, "producto12.jpg", "description12"));
+		repository.save(new Product("accesory13", "brand13", "model13", "reference13", "type3", null, null, null, null, false, 0.50, 5, "producto13.jpg", "description13"));
+		repository.save(new Product("accesory14", "brand14", "model14", "reference14", "type3", null, null, null, null, false, 0.50, 5, "producto14.jpg", "description14"));
+		repository.save(new Product("accesory15", "brand15", "model15", "reference15", "type3", null, null, null, null, false, 0.50, 5, "producto15.jpg", "description15"));
 	    //Hasta aquí son 11 productos
 		
 		//Metemos los siguientes nuevos para probar la paginación
 		
-		repository.save(new Product("accesory16", "brand11", "model11", "reference11", "type3", null, null, null, null, false, 0.50, 5, "/files/product11.jpg", "description11"));
-		repository.save(new Product("accesory17", "brand12", "model12", "reference12", "type3", null, null, null, null, false, 0.50, 5, "/files/product12.jpg", "description12"));
-		repository.save(new Product("accesory18", "brand13", "model13", "reference13", "type3", null, null, null, null, false, 0.50, 5, "/files/product13.jpg", "description13"));
-		repository.save(new Product("accesory19", "brand14", "model14", "reference14", "type3", null, null, null, null, false, 0.50, 5, "/files/product14.jpg", "description14"));
-		repository.save(new Product("accesory20", "brand15", "model15", "reference15", "type3", null, null, null, null, false, 0.50, 5, "/files/product15.jpg", "description15"));
-		repository.save(new Product("accesory21", "brand11", "model11", "reference11", "type3", null, null, null, null, false, 0.50, 5, "/files/product11.jpg", "description11"));
-		repository.save(new Product("accesory22", "brand12", "model12", "reference12", "type3", null, null, null, null, false, 0.50, 5, "/files/product12.jpg", "description12"));
-		repository.save(new Product("accesory23", "brand13", "model13", "reference13", "type3", null, null, null, null, false, 0.50, 5, "/files/product13.jpg", "description13"));
-		repository.save(new Product("accesory24", "brand14", "model14", "reference14", "type3", null, null, null, null, false, 0.50, 5, "/files/product14.jpg", "description14"));
-		repository.save(new Product("accesory25", "brand15", "model15", "reference15", "type3", null, null, null, null, false, 0.50, 5, "/files/product15.jpg", "description15"));
-		repository.save(new Product("accesory26", "brand11", "model11", "reference11", "type3", null, null, null, null, false, 0.50, 5, "/files/product11.jpg", "description11"));
-		repository.save(new Product("accesory27", "brand12", "model12", "reference12", "type3", null, null, null, null, false, 0.50, 5, "/files/product12.jpg", "description12"));
-		repository.save(new Product("accesory28", "brand13", "model13", "reference13", "type3", null, null, null, null, false, 0.50, 5, "/files/product13.jpg", "description13"));
-		repository.save(new Product("accesory29", "brand14", "model14", "reference14", "type3", null, null, null, null, false, 0.50, 5, "/files/product14.jpg", "description14"));
-		repository.save(new Product("accesory30", "brand15", "model15", "reference15", "type3", null, null, null, null, false, 0.50, 5, "/files/product15.jpg", "description15"));
+		repository.save(new Product("accesory16", "brand11", "model11", "reference11", "type3", null, null, null, null, false, 0.50, 5, "producto16", "description11"));
+		repository.save(new Product("accesory17", "brand12", "model12", "reference12", "type3", null, null, null, null, false, 0.50, 5, "producto17", "description12"));
+		repository.save(new Product("accesory18", "brand13", "model13", "reference13", "type3", null, null, null, null, false, 0.50, 5, "producto18", "description13"));
+		repository.save(new Product("accesory19", "brand14", "model14", "reference14", "type3", null, null, null, null, false, 0.50, 5, "producto19", "description14"));
+		repository.save(new Product("accesory20", "brand15", "model15", "reference15", "type3", null, null, null, null, false, 0.50, 5, "producto23", "description15"));
+		repository.save(new Product("accesory21", "brand11", "model11", "reference11", "type3", null, null, null, null, false, 0.50, 5, "producto21", "description11"));
+		repository.save(new Product("accesory22", "brand12", "model12", "reference12", "type3", null, null, null, null, false, 0.50, 5, "producto22", "description12"));
+		repository.save(new Product("accesory23", "brand13", "model13", "reference13", "type3", null, null, null, null, false, 0.50, 5, "producto23", "description13"));
+		repository.save(new Product("accesory24", "brand14", "model14", "reference14", "type3", null, null, null, null, false, 0.50, 5, "producto24", "description14"));
+		repository.save(new Product("accesory25", "brand15", "model15", "reference15", "type3", null, null, null, null, false, 0.50, 5, "producto25", "description15"));
+		repository.save(new Product("accesory26", "brand11", "model11", "reference11", "type3", null, null, null, null, false, 0.50, 5, "producto26", "description11"));
+		repository.save(new Product("accesory27", "brand12", "model12", "reference12", "type3", null, null, null, null, false, 0.50, 5, "producto1", "description12"));
+		repository.save(new Product("accesory28", "brand13", "model13", "reference13", "type3", null, null, null, null, false, 0.50, 5, "producto12", "description13"));
+		repository.save(new Product("accesory29", "brand14", "model14", "reference14", "type3", null, null, null, null, false, 0.50, 5, "producto12", "description14"));
+		repository.save(new Product("accesory30", "brand15", "model15", "reference15", "type3", null, null, null, null, false, 0.50, 5, "producto13", "description15"));
 	
 		
 		
