@@ -1,10 +1,15 @@
 package es.urjc.code.practica.product;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -13,6 +18,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,11 +47,12 @@ public class ProductController {
 	@Autowired
 	private UserComponent userComponent;
 	
+	
 	private static final String FILES_FOLDER = "files";
 	
 	@PostConstruct
 	public void init() {
-		repository.save(new Product("sunglasses1", "brand1", "model1", "reference1", "type1", "red", "M", null, null, false, 0.50, 5, "/files\\descarga.jpg", "description1"));
+		repository.save(new Product("sunglasses1", "brand1", "model1", "reference1", "type1", "red", "M", null, null, false, 0.50, 5, "/image/descarga.jpg", "description1"));
 		repository.save(new Product("sunglasses2", "brand2", "model2", "reference2", "type1", "black", "S", null, null, false, 0.50, 5, "/files/product2.jpg", "description2"));
 		repository.save(new Product("sunglasses3", "brand3", "model3", "reference3", "type1", "blue", "XL", null, null, false, 0.50, 5, "/files/product3.jpg", "description3"));
 		repository.save(new Product("sunglasses4", "brand4", "model4", "reference4", "type1", "red", "M", null, null, false, 0.50, 5, "/files/product4.jpg", "description4"));
@@ -97,7 +104,7 @@ public class ProductController {
 	
 	//NEW
 	//Añadir un producto como Administrador	
-
+	/*
 		@RequestMapping(value="/admin/add/", method = RequestMethod.POST)
 		//@RequestMapping(value = "/image/upload", method = RequestMethod.POST)
 		public String ProductAdd(Model model, 
@@ -120,16 +127,84 @@ public class ProductController {
 					
 				Image image = new Image(imageName, filesFolder.getPath());
 				imageRepository.save(image); 	
-				product.setImage("//"+filesFolder.getPath()+"/"+imageName);
+				product.setImage(filesFolder.getPath()+"/"+imageName);
 			}
 			repository.save(product);
-			return "product_added";	
+			return "redirect:/profile";	
 			
 		}
+	
+		*/
+	
+		@RequestMapping(value="/admin/add/", method = RequestMethod.POST)
+		//@RequestMapping(value = "/image/upload", method = RequestMethod.POST)
+		public String productAdd(Model model, 
+				@RequestParam("imageTitle") String imageTitle,
+				@RequestParam("file") MultipartFile file,  Product product) {
+	
+			String fileName = imageTitle + ".jpg";
+	
+			if (!file.isEmpty()) {
+				try {
+	
+					File filesFolder = new File(FILES_FOLDER);
+					if (!filesFolder.exists()) {
+						filesFolder.mkdirs();
+					}
+	
+					File uploadedFile = new File(filesFolder.getAbsolutePath(), fileName);
+					file.transferTo(uploadedFile);
+	
+					
+					//Código para guardar la entidad imagen en Base de datos
+					Image image = new Image(imageTitle, filesFolder.getPath());
+					
+					imageRepository.save(image);
+					
+					
+					product.setImage(imageTitle);
+					
+					repository.save(product);
+					
+					return "redirect:/profile";
+	
+				} catch (Exception e) {
+					
+					model.addAttribute("fileName",fileName);
+					model.addAttribute("error",
+							e.getClass().getName() + ":" + e.getMessage());
+					
+					return "redirect:/adminadd";
+				}
+			} else {
+				
+				model.addAttribute("error",	"The file is empty");
+				
+				return "redirect:/adminadd";
+			}
+		}
+		
 		
 	
+		@RequestMapping("/files/{fileName}")
+		public void productAdd2(@PathVariable String fileName,
+				HttpServletResponse response) throws FileNotFoundException, IOException {
 	
-		
+			File file = new File(FILES_FOLDER, fileName+ ".jpg");
+	
+			if (file.exists()) {
+				response.setContentType("image/jpeg");
+				response.setContentLength(new Long(file.length()).intValue());
+				FileCopyUtils
+						.copy(new FileInputStream(file), response.getOutputStream());
+			} else {
+				response.sendError(404, "File" + fileName + "(" + file.getAbsolutePath()
+						+ ") does not exist");
+			}
+		}
+	
+			
+	
  
 		@RequestMapping(value="/admin/edit/{id}", method = RequestMethod.POST)
 		public String editProduct(Model model, @PathVariable long id, 
@@ -190,7 +265,7 @@ public class ProductController {
 				
 				repository.save(producto);
 			}
-			return "product_updated";
+			return "redirect:/profile";
 			
 		}
 		
@@ -204,7 +279,7 @@ public class ProductController {
 			repository.delete(id);
 			return "product_deleted";
 		}
-		return "/admin";
+		return "redirect:/profile";
 	}
 }
 

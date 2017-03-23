@@ -44,9 +44,9 @@ public class UserController {
 		
 		userRepository.save(user);
 		
-		request.login(user.getName(), user.getPasswordHash());
+		//request.login(user.getName(), user.getPasswordHash());
 		
-	    return "index";
+	    return "redirect:/home";
 	}
 	
 	
@@ -66,7 +66,7 @@ public class UserController {
 			userComponent.setLoggedUser(usuario);
 		}
 	
-	    return "index";
+	    return "redirect:/profile";
 	}
 	
 	
@@ -85,7 +85,7 @@ public class UserController {
 			usuario.setPasswordHash(password);
 			userRepository.save(usuario);
 		}
-		return "user_updated";
+		return "redirect:/profile";
 	
 	}
 	

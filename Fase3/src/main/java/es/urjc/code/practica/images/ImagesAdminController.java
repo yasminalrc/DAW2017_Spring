@@ -33,7 +33,7 @@ public class ImagesAdminController {
 	private ImageRepository imageRepository;
 	
 	
-	
+	/*
 	@RequestMapping(value="/adminadd/image", method = RequestMethod.POST)
 	//@RequestMapping(value = "/image/upload", method = RequestMethod.POST)
 	public String handleFileUpload(Model model, 
@@ -104,5 +104,5 @@ public class ImagesAdminController {
 					+ ") does not exist");
 		}
 	}
-
+	*/
 }
