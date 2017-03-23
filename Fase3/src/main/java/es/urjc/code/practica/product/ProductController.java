@@ -63,11 +63,11 @@ public class ProductController {
 		repository.save(new Product("lents8", "brand8", "model8", "reference8", "type2", null, null, "0.25", "8.50", false, 0.50, 5, "producto8", "description8"));
 		repository.save(new Product("lents9", "brand9", "model9", "reference9", "type2", null, null, "0.25", "8.50", false, 0.50, 5, "producto9", "description9"));
 		repository.save(new Product("lents10", "brand10", "model10", "reference10", "type2", null, null, "0.25", "8.50", false, 0.50, 5, "producto10", "description10"));
-		repository.save(new Product("accesory11", "brand11", "model11", "reference11", "type3", null, null, null, null, false, 0.50, 5, "producto11.jpg", "description11"));
-		repository.save(new Product("accesory12", "brand12", "model12", "reference12", "type3", null, null, null, null, false, 0.50, 5, "producto12.jpg", "description12"));
-		repository.save(new Product("accesory13", "brand13", "model13", "reference13", "type3", null, null, null, null, false, 0.50, 5, "producto13.jpg", "description13"));
-		repository.save(new Product("accesory14", "brand14", "model14", "reference14", "type3", null, null, null, null, false, 0.50, 5, "producto14.jpg", "description14"));
-		repository.save(new Product("accesory15", "brand15", "model15", "reference15", "type3", null, null, null, null, false, 0.50, 5, "producto15.jpg", "description15"));
+		repository.save(new Product("accesory11", "brand11", "model11", "reference11", "type3", null, null, null, null, false, 0.50, 5, "producto11", "description11"));
+		repository.save(new Product("accesory12", "brand12", "model12", "reference12", "type3", null, null, null, null, false, 0.50, 5, "producto12", "description12"));
+		repository.save(new Product("accesory13", "brand13", "model13", "reference13", "type3", null, null, null, null, false, 0.50, 5, "producto13", "description13"));
+		repository.save(new Product("accesory14", "brand14", "model14", "reference14", "type3", null, null, null, null, false, 0.50, 5, "producto14", "description14"));
+		repository.save(new Product("accesory15", "brand15", "model15", "reference15", "type3", null, null, null, null, false, 0.50, 5, "producto15", "description15"));
 	    //Hasta aquí son 11 productos
 		
 		//Metemos los siguientes nuevos para probar la paginación
