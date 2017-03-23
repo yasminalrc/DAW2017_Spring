@@ -120,10 +120,31 @@
 
 
                 <!-- Inicio Carrito -->
-                
-                
-                {{^emptycar}}
-                <div class="row">
+
+				{{#emptycar}}
+				<div class="row">
+					<div class="col-xs-12">
+						<div id="myTabContent" class="tab-content">
+							<div class="tab-pane fade active in " id="carrito">
+								<div class="panel panel-info">
+									<div class="panel-heading">
+										<div class="panel-title">
+											<div class="row">
+												<div class="col-xs-6">
+														Su carrito está vacío
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				{{/emptycar}} {{^emptycar}}
+				<div class="row">
                     <div class="col-xs-12">
                         <div id="myTabContent" class="tab-content">
                             <div class="tab-pane fade active in " id="carrito">
