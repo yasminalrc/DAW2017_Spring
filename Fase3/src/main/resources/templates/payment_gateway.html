@@ -116,7 +116,8 @@
 
 
                         <div class="tab-pane fade active in" id="confirmarpedido">
-
+                        
+						<form class="form-horizontal" action="/confirm" method="post" enctype="multipart/form-data">
                             <div class="well text-center">
                                 <div class="row">
                                     <div class="col-sm-6 col-xs-12 text-left">
@@ -135,13 +136,13 @@
                                                 <div class="col-lg-10">
                                                     <div class="radio">
                                                         <label for="textinput">
-                                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked=""> Pago con tarjeta
+                                                            <input type="radio" name="paymentmethod" id="optionsRadios1" value="option1" checked=""> Pago con tarjeta
                                                         </label>
                                                         <label for="textinput"><span class="glyphicon glyphicon-credit-card"> </span> </label>
                                                     </div>
                                                     <div class="radio">
                                                         <label for="textinput">
-                                                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"> Pago por transferencia bancaria
+                                                            <input type="radio" name="paymentmethod" id="optionsRadios2" value="option2"> Pago por transferencia bancaria
                                                         </label>
                                                         <label for="textinput"><span class="glyphicon glyphicon-transfer"> </span> </label>
                                                     </div>
@@ -262,7 +263,12 @@
                                                         <a href="/usercart" type="button" class="btn btn-primary btn-sm">Atrás</a>
                                                     </div>
                                                     <div class="col-md-5 col-sm-6 col-xs-6">
-                                                        <a href="Pagotarjeta.html" class="btn btn-success btn-sm">Continuar</a>
+<!--                                                         <a href="Pagotarjeta.html" class="btn btn-success btn-sm">Continuar</a> -->
+                                                        
+                                                                           
+									                   	<input type='submit' value='Continuar' class="btn btn-success btn-sm"/>
+									                   	<input type="hidden" name="_csrf" value="{{token}}"/>
+									                   	
                                                     </div>
 
                                                 </div>
@@ -293,6 +299,8 @@
 
                             </div>
                             <!-- fin div well -->
+                            
+                            </form>
 
 
 

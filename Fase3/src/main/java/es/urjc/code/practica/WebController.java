@@ -3,7 +3,11 @@ package es.urjc.code.practica;
 import java.io.File;
 import java.io.IOException;
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -12,6 +16,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,6 +29,7 @@ import es.urjc.code.practica.images.Image;
 import es.urjc.code.practica.images.ImageRepository;
 import es.urjc.code.practica.product.Product;
 import es.urjc.code.practica.product.ProductsRepository;
+import es.urjc.code.practica.shoppingcart.Cart;
 import es.urjc.code.practica.user.User;
 import es.urjc.code.practica.user.UserComponent;
 import es.urjc.code.practica.user.UserRepository;
@@ -48,8 +54,9 @@ public class WebController {
 	
 	
    @RequestMapping("/")
-    public String index(Model model, HttpServletRequest request) {
+    public String index(Model model, HttpServletRequest request, ModelMap m) {
 	   
+	   m.put("cart", new Cart());
 	   if (userComponent.isLoggedUser()){
    		return home(model,request);
    		}
@@ -66,6 +73,8 @@ public class WebController {
     public String loginerror() {
     	return "login_form_error";
     }
+ 
+    
     
 
     @RequestMapping("/home")
@@ -79,6 +88,7 @@ public class WebController {
     	User user2 = userComponent.getLoggedUser();
     	
     	model.addAttribute("user", user2.getName());
+    	
     	model.addAttribute("logueado", userComponent.isLoggedUser());
     	
     	System.out.println("User: "+user);
@@ -119,17 +129,17 @@ public class WebController {
     
     
     
+    
     @RequestMapping("/profile")
     public String profile(Model model, HttpServletRequest request, Pageable page) {
 
-
-    	model.addAttribute("user", request.isUserInRole("USER"));
+    	model.addAttribute("user", userComponent.getLoggedUser());
     	
     	Principal p = request.getUserPrincipal();
-    	User user = userRepository.findByName(p.getName());
+    	User user = userComponent.getLoggedUser();
     	
     	
-    	model.addAttribute("user", user.getName());
+    	model.addAttribute("name", user.getName());
     	model.addAttribute("logueado", userComponent.isLoggedUser());
     	
     
@@ -140,18 +150,21 @@ public class WebController {
     		return "profile";
     	}
     }
+     
+    @RequestMapping(value ="/admin/{id}")
+    public String admin_add_product(Model model, @PathVariable long id , HttpServletRequest request) {
     
-    
-    
-    @RequestMapping("/payment")
-    public String payment1(Model model) {
+		model.addAttribute("logueado", userComponent.isLoggedUser());
+    	model.addAttribute("admin", request.isUserInRole("ADMIN"));
     	
-    	model.addAttribute("logueado", userComponent.isLoggedUser());
-	   
-    	return "payment_gateway";
-    } 
+		model.addAttribute("id", repository.findOne(id).getId());
+		model.addAttribute("producto", repository.findOne(id));
+		
+    	
+    	return "admin_edit_product";
+    }
     
-    
+  
     @RequestMapping("/user_orders")
     public String user_orders(Model model) {
     	
@@ -174,7 +187,7 @@ public class WebController {
     	return "create_account";
     }	
     
-    @RequestMapping("/usercart")
+  /*  @RequestMapping("/usercart")
     public String usercart(Model model,HttpServletRequest request, HttpSession session) {
     	
     	model.addAttribute("logueado", userComponent.isLoggedUser());
@@ -196,41 +209,14 @@ public class WebController {
     	model.addAttribute("logueado", userComponent.isLoggedUser());
     	model.addAttribute("admin", request.isUserInRole("ADMIN"));
      
-    	/*Boolean newproduct =true;
-    	model.addAttribute("newproduct",newproduct); */ 
+    	// Boolean newproduct =true;model.addAttribute("newproduct",newproduct); 
     	productadded=productadded+1;
   
     	return "product_add_contactlens_cart";
     } 
+     */
     
-    
-    
-    
-    @RequestMapping("/product_add_contactlens")
-    public String productContactLens(Model model, HttpServletRequest request) {
-    	
-    	model.addAttribute("logueado", userComponent.isLoggedUser());
-    	model.addAttribute("admin", request.isUserInRole("ADMIN"));
-    	
-    	model.addAttribute("isLent");
-    	
-    	
-    	
-		return "product_add_contactlens";
-    	
-    	
-    }
-    
-    @RequestMapping("/product_add_general")
-    public String productGeneral (Model model, HttpServletRequest request){
-    	
-    	model.addAttribute("logueado", userComponent.isLoggedUser());
-     	model.addAttribute("admin", request.isUserInRole("ADMIN"));
-    	
-    	return "product_add_general";
-    }
- 	
- 		
+		
 
 }
     
