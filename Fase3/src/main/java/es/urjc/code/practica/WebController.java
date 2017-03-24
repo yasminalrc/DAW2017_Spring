@@ -30,6 +30,8 @@ import es.urjc.code.practica.images.ImageRepository;
 import es.urjc.code.practica.product.Product;
 import es.urjc.code.practica.product.ProductsRepository;
 import es.urjc.code.practica.shoppingcart.Cart;
+import es.urjc.code.practica.shoppingcart.OrderSummary;
+import es.urjc.code.practica.shoppingcart.OrderSummaryRepository;
 import es.urjc.code.practica.user.User;
 import es.urjc.code.practica.user.UserComponent;
 import es.urjc.code.practica.user.UserRepository;
@@ -47,6 +49,9 @@ public class WebController {
 	
 	@Autowired
 	private ProductsRepository repository;
+	
+	@Autowired
+	private OrderSummaryRepository orderRepository;
 	
 	private int productadded =0;
 	
@@ -107,6 +112,29 @@ public class WebController {
     	return "admin";
     	
     	
+    }
+    
+    @RequestMapping("/orderlist")
+    public String orderlist (Model model, Pageable page, HttpServletRequest request){
+    	
+        	model.addAttribute("logueado", userComponent.isLoggedUser());
+	    	model.addAttribute("admin", request.isUserInRole("ADMIN"));
+	    	
+	    	List <OrderSummary> orders = orderRepository.findAll();
+	    	model.addAttribute("orders",orders);
+	    	
+	  /*  	//model.addAttribute("products", repository.findAll());
+	    	Page<OrderSummary> orders = orderRepository.findAll(page);
+	    	model.addAttribute("orders", orders);
+	    	
+	    	//Parte Paginación
+	    	model.addAttribute("showNext",!orders.isLast());
+	    	model.addAttribute("showPrev", !orders.isFirst());
+	    	model.addAttribute("nextPage", orders.getNumber()+1);
+	    	model.addAttribute("prevPage",orders.getNumber()-1);*/
+	    	
+	    	return "admin_order_list";
+    	    
     }
     
     @RequestMapping("/admin")

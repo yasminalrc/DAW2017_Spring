@@ -71,7 +71,7 @@
                         -->
                         <li><a href="/usercart">Carrito<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"> <span class="badge">1</span></span></a></li>
                         <li>
-	                        <a href="/admin/?page&size=10" > Admin
+	                        <a href="/adminall" > Admin
 	                        <span class="glyphicon glyphicon-user" aria-hidden="true">
 	                        </span>
 	                        </a>
@@ -243,15 +243,16 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Order ID</th>
-                                        <th>User name</th>
-                                        <th>Product brand</th>
-                                        <th>Product type</th>
-                                        <th>Published</th>
-                                        <th>Actions</th>
+                                        <th>Order name</th>
+                                        <th>User order</th>
+                                        <th>Payment method</th>
+                                        <th>Productos</th>
+                                        <!--  <th>Actions</th> -->
                                     </tr>
                                 </thead>
+                                         {{#orders}}
                                 <tbody>
-                                	{{#products}}
+
                                     <tr>
                                         <td>
                                             <input type="checkbox"> <a href="#"><i class="icon-star-empty"></i></a></td>
@@ -259,23 +260,23 @@
                                             <p>{{id}}</p>
                                         </td>
                                         <td>
-                                            <p>{{user_name}}</p>
+                                            <p>{{ordername}}</p>
                                         </td>
                                         <td>
-                                            <p>{{brand}}</p>
+                                            <p>{{user}}</p>
                                         </td>
                                         <td>
-                                            <p>{{type}}</p>
+                                            <p>{{paymentmethod}}</p>
                                         </td>
-                                        <td>
+                                       <!--   <td>
                                             <p>{{published}}</p>
-                                        </td>
+                                        </td> -->
                                         <td>
                                             <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-pencil"></span></button>
-                                            <a href="/admin/product/delete/{{id}}.html" type="button" class="btn btn-primary" > <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                                            <a href="#" type="button" class="btn btn-primary" > <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
                                         </td>
                                     </tr>
-                                    {{/products}}
+                                   {{/orders}}
                                 </tbody>
                             </table>
                         </div>
