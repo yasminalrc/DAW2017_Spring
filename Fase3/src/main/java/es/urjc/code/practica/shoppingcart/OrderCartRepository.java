@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 
 
-public interface OrdersUserRepository extends JpaRepository<OrderCart, Long>{
+public interface OrderCartRepository extends JpaRepository<OrderCart, Long>{
 	
 	OrderCart findById (long id);
 	
