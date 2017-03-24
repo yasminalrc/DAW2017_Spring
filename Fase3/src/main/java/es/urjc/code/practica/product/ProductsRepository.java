@@ -16,7 +16,6 @@ public interface ProductsRepository extends JpaRepository<Product, Long>{
 	
 	Product findByImage (String image);
 	
-	
     
 
 }

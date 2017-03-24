@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -75,7 +76,6 @@ public class WebController {
     }
  
     
-    
 
     @RequestMapping("/home")
     public String home(Model model, HttpServletRequest request) {
@@ -93,11 +93,12 @@ public class WebController {
     	
     	System.out.println("User: "+user);
     	System.out.println("User2: "+user2);
-    	
     
 	
     	return "index";
     }
+    
+    
     
     @RequestMapping("/admin")
     public String admin(Model model,Pageable page,HttpServletRequest request) {
@@ -106,7 +107,9 @@ public class WebController {
     	model.addAttribute("admin", request.isUserInRole("ADMIN"));
     	
     	//model.addAttribute("products", repository.findAll());
+    	
     	Page<Product> products = repository.findAll(page);
+    	
     	model.addAttribute("products", products);
     	
     	//Parte Paginación
@@ -117,6 +120,30 @@ public class WebController {
     	
     	return "admin_product_list";
     }
+    
+    @RequestMapping("/profile")
+    public String profile(Model model, HttpServletRequest request) {
+
+    	model.addAttribute("user", userComponent.getLoggedUser());
+    	
+    	Principal p = request.getUserPrincipal();
+    	User user = userComponent.getLoggedUser();
+    	
+    	
+    	model.addAttribute("name", user.getName());
+    	model.addAttribute("logueado", userComponent.isLoggedUser());
+    	
+    
+    	if (request.isUserInRole("ADMIN")){
+    		return "admin_product_list";
+    	}
+    	else{
+    		return "profile";
+    	}
+    }
+
+    
+    
     
     @RequestMapping("/adminadd")
     public String admin_add_product(Model model,HttpServletRequest request) {
@@ -130,27 +157,7 @@ public class WebController {
     
     
     
-    @RequestMapping("/profile")
-    public String profile(Model model, HttpServletRequest request, Pageable page) {
-
-    	model.addAttribute("user", userComponent.getLoggedUser());
-    	
-    	Principal p = request.getUserPrincipal();
-    	User user = userComponent.getLoggedUser();
-    	
-    	
-    	model.addAttribute("name", user.getName());
-    	model.addAttribute("logueado", userComponent.isLoggedUser());
-    	
     
-    	if (request.isUserInRole("ADMIN")){
-    		return admin(model,page,request);
-    	}
-    	else{
-    		return "profile";
-    	}
-    }
-     
     @RequestMapping(value ="/admin/{id}")
     public String admin_add_product(Model model, @PathVariable long id , HttpServletRequest request) {
     

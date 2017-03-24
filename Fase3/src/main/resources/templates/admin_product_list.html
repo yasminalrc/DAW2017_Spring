@@ -256,8 +256,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                	{{#products}}
-                                    <tr>
+                                {{#products}}
+                                	<tr>
                                         <td>
                                             <input type="checkbox"> <a href="#"><i class="icon-star-empty"></i></a>
                                         </td>
@@ -282,14 +282,20 @@
                                             <a href="/admin/product/delete/{{id}}.html" type="button" class="btn btn-primary" > <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
                                         </td>
                                     </tr>
+                                    
                                     {{/products}}
+                                    
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
+                <!-- BOTON CARGAR MAS
+                <button onclick="cargarPagina(paginaActual)" class="btn btn-lg btn-block"> Cargar más productos </button>
+                 -->
                 
-                <!--  BOTONES PÁGE PREV Y PAGE NEXT -->
+                
+                <!--  BOTONES PÁGE PREV Y PAGE NEXT  -->
                 
                 {{#showNext}}
                    <a href="/admin/?page={{nextPage}}&size=10" type="button" class="btn btn-primary add-product" > 
@@ -299,10 +305,11 @@
                    <a href="/admin/?page={{prevPage}}&size=10" type="button" class="btn btn-primary add-product" > 
                       Prev</a>
                 {{/showPrev}}     
- 
+ 				
             </div><!-- fin div class container -->
         </div>
 	</div>
+	<script src="/js/AjaxSpinner.js"></script>
 </body>
 <footer>
 	<div id="footer"></div>
