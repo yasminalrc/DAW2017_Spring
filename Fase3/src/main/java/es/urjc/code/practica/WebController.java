@@ -121,6 +121,8 @@ public class WebController {
 	    	model.addAttribute("admin", request.isUserInRole("ADMIN"));
 	    	
 	    	List <OrderSummary> orders = orderRepository.findAll();
+	    	
+	    	System.out.println(orders);
 	    	model.addAttribute("orders",orders);
 	    	
 	  /*  	//model.addAttribute("products", repository.findAll());

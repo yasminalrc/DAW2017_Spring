@@ -165,6 +165,7 @@ public class ShoppingCartController {
 		
 		return "user_cart_shopping";
 	}
+	
 
 	@RequestMapping(value = "usercart_post", method = RequestMethod.POST)
 	public String usercartpost(Model model, @ModelAttribute("cart") Cart c, @RequestParam("quantity") Integer quantity,
@@ -202,8 +203,36 @@ public class ShoppingCartController {
 		
 		System.out.println(lst);
 
-		return "redirect:usercart";
+		return "redirect:/usercart";
 	}
+	
+	
+	
+    @RequestMapping ("remove/{id}")
+    public String remove (@PathVariable int id, HttpSession session, Model model){
+		
+    	List <Cart> lst = (List<Cart>) session.getAttribute("cart");
+    	
+    	if (lst != null){
+    		for (Cart cart: lst){
+    			if (cart.getId()== id){
+    				lst.remove(cart);
+    				break;
+    			}
+    		}	
+    	} 
+    	
+    	System.out.println("cart");
+    	session.setAttribute("cart", lst);
+    	session.setAttribute("total", getTotal(lst));
+    	
+    	model.addAttribute("total",getTotal(lst));
+    	
+    	
+    	return "redirect:/usercart";
+    	
+    	
+    }
 
 	// Método que necesitamos para el carritp, para calcular el total
 	public Double getTotal(List<Cart> lst) {
