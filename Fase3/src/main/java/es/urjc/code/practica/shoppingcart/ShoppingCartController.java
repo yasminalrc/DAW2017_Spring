@@ -46,7 +46,7 @@ public class ShoppingCartController {
 	private ProductsRepository repository;
 
 	@Autowired
-	private OrderCartRepository ordersrepository;
+	private OrderSummaryRepository ordersrepository;
 
 	private int productadded = 0;
 
@@ -271,24 +271,50 @@ public class ShoppingCartController {
 		model.addAttribute("logueado", userComponent.isLoggedUser());
 		model.addAttribute("user", userComponent.getLoggedUser());
 
-		List<Cart> lst = (List<Cart>) session.getAttribute("cart");
-		session.setAttribute("cart", lst);
-		session.setAttribute("total", getTotal(lst));
+		//List<Cart> lst = (List<Cart>) session.getAttribute("cart");
+		//session.setAttribute("cart", lst);
+		//session.setAttribute("total", getTotal(lst));
 
 		return "payment_gateway";
 	}
+	
+	
 
-	@RequestMapping(value = "confirm", method = RequestMethod.POST)
-	public String orderconfirm(Model model, @RequestParam("paymentmethod") String payment, HttpSession session) {
+	@RequestMapping(value = "confirm/cart", method = RequestMethod.POST)
+	public String orderconfirm(Model model, 
+			@RequestParam("paymentmethod") String payment, HttpSession session) {
 
+		System.out.println("blablabla");
+		model.addAttribute("bla", "bla");
 		model.addAttribute("logueado", userComponent.isLoggedUser());
-		model.addAttribute("user", userComponent.getLoggedUser());
-
+		
+		User user= userComponent.getLoggedUser();
+		model.addAttribute("user", user);
+		model.addAttribute("cartm", session.getAttribute("cart"));
 		List<Cart> lst = (List<Cart>) session.getAttribute("cart");
-		session.setAttribute("cart", lst);
-		session.setAttribute("total", getTotal(lst));
+		
+		Cart cartit= (Cart) session.getAttribute("cart");
+		
+		OrderSummary order = new OrderSummary ("normalorder",user.getName(),payment);
+		OrderCart ordercart = new OrderCart(cartit.getName(),cartit.getPrice(),
+				cartit.getQuantity(),cartit.getSize(),cartit.getSphere(),cartit.getRadio(),
+				cartit.getDiameter(),cartit.getEye());
+		
+		order.setOrder((List<OrderCart>) ordercart);
+		
+		ordersrepository.save(order);
+		
+		System.out.println("blablabla");
+		System.out.println(order);
+		
+		/*public OrderCart( String name, Double price, Integer quantity, String size, String sphere,
+				String radio, String diameter, String eye) {
+			
+			public Cart(long id, String name, Double price, Integer quantity, String size, String sphere, String radio,
+					String diameter, String eye, String image) { */
+		
 
-		return "payment_gateway";
+		return "payment_creditcard";
 	}
 
 }
