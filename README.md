@@ -45,7 +45,7 @@ Aplicación web de venta de productos de óptica.
 
 ## DIAGRAMA DE ENTIDAD/RELACIÓN
 
-![Alt text](Capturas/EER_Diagram.png "imagen diagrama")
+![Alt text](Capturas/modelOK.png "imagen diagrama")
 
 ## DIAGRAMA DE CLASES Y TEMPLATES
 
