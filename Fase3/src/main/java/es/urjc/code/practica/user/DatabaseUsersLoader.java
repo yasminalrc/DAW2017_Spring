@@ -1,4 +1,4 @@
-package es.urjc.code.practica;
+package es.urjc.code.practica.user;
 
 import java.util.Date;
 
@@ -6,8 +6,6 @@ import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import es.urjc.code.practica.user.User;
-import es.urjc.code.practica.user.UserRepository;
 
 @Component
 public class DatabaseUsersLoader {
