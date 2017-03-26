@@ -47,6 +47,9 @@ public class ShoppingCartController {
 
 	@Autowired
 	private OrderSummaryRepository ordersrepository;
+	
+	@Autowired
+	private OrderCartRepository ordercartrepository;
 
 	private int productadded = 0;
 
@@ -284,24 +287,50 @@ public class ShoppingCartController {
 	public String orderconfirm(Model model, 
 			@RequestParam("paymentmethod") String payment, HttpSession session) {
 
-		System.out.println("blablabla");
+		System.out.println("blablabla_1111111");
 		model.addAttribute("bla", "bla");
 		model.addAttribute("logueado", userComponent.isLoggedUser());
+		
+		if (!userComponent.isLoggedUser()){
+			return "redirect:/login";
+		}
 		
 		User user= userComponent.getLoggedUser();
 		model.addAttribute("user", user);
 		model.addAttribute("cartm", session.getAttribute("cart"));
+		//
 		List<Cart> lst = (List<Cart>) session.getAttribute("cart");
-		
-		Cart cartit= (Cart) session.getAttribute("cart");
+		//Cart cartit= (Cart) session.getAttribute("cart");
 		
 		OrderSummary order = new OrderSummary ("normalorder",user.getName(),payment);
-		OrderCart ordercart = new OrderCart(cartit.getName(),cartit.getPrice(),
+		List <OrderCart> lstordercart = new ArrayList <OrderCart>();
+		
+		for (Cart cart: lst){
+		
+			String name = cart.getName();
+			Double price = cart.getPrice();
+			Integer quantity = cart.getQuantity();
+			String size= cart.getSize();
+			String sphere= cart.getSphere();
+			String radio = cart.getRadio();
+			String diameter = cart.getDiameter();
+			String eye = cart.getEye();
+			
+			OrderCart ordercart = new OrderCart (name,price,quantity,size,sphere,radio,
+					diameter,eye);
+			
+			ordercartrepository.save(ordercart);
+			order.getOrder().add(ordercart);
+			
+			//lstordercart.add(ordercart);
+			
+		}
+		
+		/*OrderCart ordercart = new OrderCart(cartit.getName(),cartit.getPrice(),
 				cartit.getQuantity(),cartit.getSize(),cartit.getSphere(),cartit.getRadio(),
-				cartit.getDiameter(),cartit.getEye());
+				cartit.getDiameter(),cartit.getEye()); */
 		
-		order.setOrder((List<OrderCart>) ordercart);
-		
+		//order.setOrder(lstordercart); 
 		ordersrepository.save(order);
 		
 		System.out.println("blablabla");
@@ -314,7 +343,15 @@ public class ShoppingCartController {
 					String diameter, String eye, String image) { */
 		
 
+		return "redirect:/payment_creditcard";
+	}
+	
+	@RequestMapping ("payment_creditcard")
+	public String paymentcard (Model model, HttpSession session){
+		
 		return "payment_creditcard";
 	}
+	
+
 
 }
