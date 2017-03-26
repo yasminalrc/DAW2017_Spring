@@ -220,8 +220,9 @@
         <div id="admin-products">
             <div class="container">
 
-                <button type="button" class="btn btn-primary add-product"> <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</button>
-                <a href="/adminadd" type="button" class="btn btn-primary add-product" > <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add</a>
+                <!--  <button type="button" class="btn btn-primary add-product"> <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</button>
+               -->
+                <a href="/adminall" type="button" class="btn btn-primary add-product" > <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Volver</a>
 
 
                 <div class="row">
@@ -246,7 +247,7 @@
                                         <th>Order name</th>
                                         <th>User order</th>
                                         <th>Payment method</th>
-                                        <th>Productos</th>
+                                        <!--  <th>Productos</th> -->
                                         <!--  <th>Actions</th> -->
                                     </tr>
                                 </thead>
@@ -269,10 +270,10 @@
                                             <p>{{paymentmethod}}</p>
                                         </td>
                                 
-                                        <td>
-                                            <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-pencil"></span></button>
-                                            <a href="#" type="button" class="btn btn-primary" > <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-                                        </td>
+                                       <!--   <td>
+                                           <!--   <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-pencil"></span></button>
+                                             <a href="#" type="button" class="btn btn-primary" > <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a> 
+                                        </td> -->
                                     </tr>
                                    {{/orders}}
                                 </tbody>
