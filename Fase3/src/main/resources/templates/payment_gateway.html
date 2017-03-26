@@ -7,17 +7,9 @@
 <title>VisionLynx</title>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-	crossorigin="anonymous" />
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-	crossorigin="anonymous"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <link type="text/css" rel="stylesheet" href="css/menunavbar.css" />
 <link type="text/css" rel="stylesheet" href="css/style.css" />
 
@@ -121,20 +113,18 @@
 
 						<div class="tab-pane fade active in" id="confirmarpedido">
 
-							<form class="form-horizontal">
+	
 								<div class="well text-center">
 									<div class="row">
 										<div class="col-sm-6 col-xs-12 text-left">
 											<form class="form-horizontal" role="form" action="/confirm/cart" method="post"
 											enctype="multipart/form-data">
-											
-												
+											<fieldset>
 												<!-- Form Name -->
-												<legend>
-													Método de Pago  <img class="img-responsive pull-right"
+												<legend> Método de Pago  <img class="img-responsive pull-right"
 														src="http://i76.imgup.net/accepted_c22e0.png">
 												</legend>
-
+											
 												<!-- <div class="alert alert-dismissible alert-info">
             Elija primero su forma de pago
                         </div> -->
@@ -146,16 +136,18 @@
 														<div class="radio">
 															<label for="textinput"> <input type="radio"
 																name="paymentmethod" id="optionsRadios1" value="option1"
-																checked=""> Pago con tarjeta
-															</label> <label for="textinput"><span
-																class="glyphicon glyphicon-credit-card"> </span> </label>
+																checked> Pago con tarjeta
+															</label> 
+															<label for="textinput"><span
+																class="glyphicon glyphicon-credit-card"> </span> 
+															</label>
 														</div>
 														<div class="radio">
 															<label for="textinput"> <input type="radio"
 																name="paymentmethod" id="optionsRadios2" value="option2">
 																Pago por transferencia bancaria
-															</label> <label for="textinput"><span
-																class="glyphicon glyphicon-transfer"> </span> </label>
+															</label> <label for="textinput"><span class="glyphicon glyphicon-transfer"> </span> 
+															</label>
 														</div>
 													</div>
 												</div>
@@ -182,7 +174,7 @@
 												</div>
 
 
-
+											</fieldset>
 
 
 											</form>
@@ -192,7 +184,7 @@
 										</div>
 										<div class="col-sm-5 col-xs-12 text-left">
 											<form class="form-horizontal " role="form">
-												<!--<fieldset> -->
+												<fieldset> 
 
 												<!-- Form Name -->
 												<legend>Dirección de Envío</legend>
@@ -272,10 +264,11 @@
 
 												<div class="alert alert-dismissible alert-info">Si
 													desea modificar sus datos de envío, sobreescriba en los
-													campos arriba indicados.</div>
+													campos arriba indicados.
+												</div>
 
 												<div class="form-group">
-												<form action="/confirm/cart" method="post" enctype="multipart/form-data">
+												
 													<div class="col-md-6 col-sm-6"></div>
 													<div class="col-md-6 col-sm-6 xs-12">
 														<div class=" col-md-2 col-sm-0 col-xs-0"></div>
@@ -295,7 +288,10 @@
 														</div>
 
 													</div>
-													</form>
+												</div>
+												
+											</fieldset>
+										</form>
 												</div>
 												<!--
                                             <div class="form-group">
@@ -311,7 +307,7 @@
 
 
 												<!-- </fieldset> -->
-											</form>
+											
 
 										</div>
 										<div class="col-xs-1"></div>
@@ -323,7 +319,7 @@
 								</div>
 								<!-- fin div well -->
 
-							</form>
+							
 
 
 
@@ -336,10 +332,11 @@
 				</div>
 
 			</div>
+			<!-- /fin container 2-->
 		</div>
 
-	</div>
-	<!-- /fin container 2-->
+	
+	
 
 	<div id="footer"></div>
 
