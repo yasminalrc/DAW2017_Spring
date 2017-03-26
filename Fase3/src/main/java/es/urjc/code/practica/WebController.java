@@ -59,11 +59,11 @@ public class WebController {
 	
 	
    @RequestMapping("/")
-    public String index(Model model, HttpServletRequest request, ModelMap m) {
+    public String index(Model model, HttpServletRequest request, ModelMap m,HttpSession session) {
 	   
 	   m.put("cart", new Cart());
 	   if (userComponent.isLoggedUser()){
-   		return home(model,request);
+   		return home(model,request,session);
    		}
     	return "index";
     } 
@@ -83,7 +83,7 @@ public class WebController {
     
 
     @RequestMapping("/home")
-    public String home(Model model, HttpServletRequest request) {
+    public String home(Model model, HttpServletRequest request,HttpSession session) {
     	
     	model.addAttribute("admin", request.isUserInRole("ADMIN"));
     	
@@ -227,34 +227,7 @@ public class WebController {
     	return "create_account";
     }	
     
-  /*  @RequestMapping("/usercart")
-    public String usercart(Model model,HttpServletRequest request, HttpSession session) {
-    	
-    	model.addAttribute("logueado", userComponent.isLoggedUser());
-    	model.addAttribute("admin", request.isUserInRole("ADMIN"));
-    	
-    	//Utilizamos este método para cuando mapeamos desde la cabecera a usercart, sin utilizar el método post
-    	//Redigirimos a la vista según ya se haya añadido un producto desde product_add_contactlens, o no
-    	if (productadded>=1){
-    		Boolean newproduct= true;
-    		model.addAttribute("newproduct", newproduct);
-    	} 
-    	
-    	return "user_cart_shopping";
-    } 
-    
-    @RequestMapping(value="/usercart_post",method = RequestMethod.POST)
-    public String usercartpost(Model model,HttpServletRequest request, HttpSession session) {
-    	
-    	model.addAttribute("logueado", userComponent.isLoggedUser());
-    	model.addAttribute("admin", request.isUserInRole("ADMIN"));
-     
-    	// Boolean newproduct =true;model.addAttribute("newproduct",newproduct); 
-    	productadded=productadded+1;
-  
-    	return "product_add_contactlens_cart";
-    } 
-     */
+
     
 		
 

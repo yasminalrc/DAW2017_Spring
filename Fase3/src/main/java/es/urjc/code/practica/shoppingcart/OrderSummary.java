@@ -29,7 +29,7 @@ public class OrderSummary {
 	
 	
 	@OneToMany
-	private List <OrderCart> order = new ArrayList<>();;
+	private List <OrderCart> order = new ArrayList<OrderCart>(); //new ArrayList<>();;
 	
 	protected OrderSummary (){
 		
