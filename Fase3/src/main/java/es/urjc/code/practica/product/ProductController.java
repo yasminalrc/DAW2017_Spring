@@ -94,7 +94,7 @@ public class ProductController {
 		repository.save(new Product("ONE DAY ACUVUE MOIST 30 UNIDADES",
 				                    "Acuvue","model1","reference1","30_uds","bluecolor",
 				                    "noSize","noSpherePredef","noRadioPredef",false,
-				                    19.34,5,"/files/acuvue.jpg",
+				                    19.34,5,"producto12",
 				                    "Referencia: LA3 " + "\n" + "Lente de contacto de hidrogel. El componente usado en su fabricación es altamente hidratante y aporta gran comodidad a lo largo del día. Contiene filtro UV. Cada caja contiene 30 unidades."
 				                    ));
 		
@@ -102,13 +102,13 @@ public class ProductController {
 		repository.save(new Product("RAY BAN 4165 601/71 55",
                 "rayban","model1","reference1","1_uds","redcolor",
                 "medium","0","0",false,
-                61.60,5,"/files/rayban.jpg",
+                61.60,5,"/producto12",
                 "Referencia: 21006065 "));
 		
 		repository.save(new Product("LIMPIA GAFAS AROMA MANZANA",
                 "visionlynx","model1","reference1","1_uds","nocolor",
                 "nosize","0","0",false,
-                3.20,5,"/files/cleanglasses.jpg",
+                3.20,5,"producto12",
                 "Referencia: 21006067 "));
 		
 	}
@@ -267,7 +267,7 @@ public class ProductController {
 
 		if (repository.exists(id)) {
 			repository.delete(id);
-			return "product_deleted";
+			return "redirect:/admin";
 		}
 		return "redirect:/profile";
 	}
