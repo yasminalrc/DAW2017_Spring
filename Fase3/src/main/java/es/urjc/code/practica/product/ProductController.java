@@ -267,7 +267,7 @@ public class ProductController {
 
 		if (repository.exists(id)) {
 			repository.delete(id);
-			return "product_deleted";
+			return "redirect:/admin";
 		}
 		return "redirect:/profile";
 	}

@@ -24,12 +24,37 @@
 
 <!--SCRIPT TO IMPORT MENU AND FOOTER-->
 <script>
-	$(function() {
-		$("#header").load("header_loginOk.html");
-	});
-	$(function() {
-		$("#footer").load("footer.html");
-	});
+//en caso de que se haya loqueado
+{{#logueado}}
+	//y es admin
+	{{#admin}}
+    	 $(function () {
+             $("#header").load("header_Admin.html");
+         });
+         $(function () {
+             $("#footer").load("footer.html");
+         });    
+    {{/admin}}
+    //y no es admin, es decir, es un usuario
+    {{^admin}}
+        $(function () {
+            $("#header").load("header_loginOk.html");
+       	 });
+        $(function () {
+            $("#footer").load("footer.html");
+        });
+    {{/admin}}
+    
+{{/logueado}}
+
+{{^logueado}}
+    $(function () {
+        $("#header").load("header.html");
+    });
+    $(function () {
+        $("#footer").load("footer.html");
+    });
+{{/logueado}} 
 </script>
 </head>
 
@@ -122,7 +147,7 @@
 						<div class="tab-pane fade active in" id="confirmarpedido">
 
 							<form class="form-horizontal" role="form" action="/confirm/cart" method="post"
-											enctype="multipart/form-data"> >
+											enctype="multipart/form-data"> 
 								<div class="well text-center">
 									<div class="row">
 										<div class="col-sm-6 col-xs-12 text-left">
