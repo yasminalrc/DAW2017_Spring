@@ -5,34 +5,64 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import es.urjc.code.practica.images.Image;
 
 @Entity
 public class Product {
 	
+	public interface ProductAttribute{};
+	
 	@Id
+	@JsonView(ProductAttribute.class)
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
 	/*** Main ***/
+	@JsonView(ProductAttribute.class)
 	private String name;
+	
+	@JsonView(ProductAttribute.class)
 	private String brand;
+	
+	@JsonView(ProductAttribute.class)
 	private String model;
+	
+	@JsonView(ProductAttribute.class)
 	private String reference;
+	
 	// ***** Acotar type
+	@JsonView(ProductAttribute.class)
 	private String type;
+	
+	@JsonView(ProductAttribute.class)
 	private String colour;
+	
+	@JsonView(ProductAttribute.class)
 	private String size;
+	
+	@JsonView(ProductAttribute.class)
 	private String sphere;
+	
+	@JsonView(ProductAttribute.class)
 	private String radio;
+	
+	@JsonView(ProductAttribute.class)
 	private Boolean published;
+	
+	@JsonView(ProductAttribute.class)
 	private Double price;
+	
+	@JsonView(ProductAttribute.class)
 	private Integer quantity;
 	
 	/*** Images ***/	
+	@JsonView(ProductAttribute.class)
 	private String image;
 	
 	/*** Description ***/
+	@JsonView(ProductAttribute.class)
 	private String description;
 
 	/*** Category ***/
