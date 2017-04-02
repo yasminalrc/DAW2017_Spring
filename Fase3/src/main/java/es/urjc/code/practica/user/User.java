@@ -13,15 +13,27 @@ import javax.persistence.Id;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import es.urjc.code.practica.product.Product.ProductAttribute;
+
 @Entity
 public class User {
+	
+	public interface UserAttribute{};
 
 	@Id
+	@JsonView(UserAttribute.class)
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	@JsonView(UserAttribute.class)
 	private String name;
+	
+	@JsonView(UserAttribute.class)
 	private String passwordHash;
+	
+	@JsonView(UserAttribute.class)
 	private String confirmpasswordHash;
 	
 	public String getConfirmpasswordHash() {
