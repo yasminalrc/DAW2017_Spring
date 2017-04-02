@@ -49,6 +49,7 @@
 </head>
 
 <body>
+
     <header>
         <!--IMPORT MENU-->
         {{#logueado}}
@@ -72,6 +73,8 @@
         
         <div id="header"></div>
     </header>
+
+
 
     <br>
     <br>
@@ -117,7 +120,31 @@
 
 
                 <!-- Inicio Carrito -->
-                <div class="row">
+
+				{{#emptycar}}
+				<div class="row">
+					<div class="col-xs-12">
+						<div id="myTabContent" class="tab-content">
+							<div class="tab-pane fade active in " id="carrito">
+								<div class="panel panel-info">
+									<div class="panel-heading">
+										<div class="panel-title">
+											<div class="row">
+												<div class="col-xs-6">
+														Su carrito está vacío
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				{{/emptycar}} {{^emptycar}}
+				<div class="row">
                     <div class="col-xs-12">
                         <div id="myTabContent" class="tab-content">
                             <div class="tab-pane fade active in " id="carrito">
@@ -137,76 +164,34 @@
                                         </div>
                                     </div>
                                     <div class="panel-body">
-                                        <div class="row">
-                                            <div class="col-xs-2"><img class="img-responsive" src="http://lorempixel.com/100/70/technics/">
-                                            </div>
-                                            <div class="col-xs-4">
-                                                <h4 class="product-name"><strong>LIMPIA GAFAS AROMA MANZANA</strong></h4>
-                                                <h4><small>Product description</small></h4>
-                                            </div>
-                                            <div class="col-xs-6">
-                                                <div class="col-xs-6 text-right">
-                                                    <h6><strong>1.58 <span class="text-muted">x</span></strong></h6>
-                                                </div>
-                                                <div class="col-xs-4">
-                                                    <input type="text" class="form-control input-sm" value="1">
-                                                </div>
-                                                <div class="col-xs-2">
-                                                    <button type="button" class="btn btn-link btn-xs">
-                                                        <span class="glyphicon glyphicon-trash"> </span>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-xs-2"><img class="img-responsive" src="http://lorempixel.com/100/70/business/">
-                                            </div>
-                                            <div class="col-xs-4">
-                                                <h4 class="product-name"><strong>BIOFINITY TORIC</strong></h4>
-                                                <h4><small>Product description</small></h4>
-                                            </div>
-                                            <div class="col-xs-6">
-                                                <div class="col-xs-6 text-right">
-                                                    <h6><strong>1.00 <span class="text-muted">x</span></strong></h6>
-                                                </div>
-                                                <div class="col-xs-4">
-                                                    <input type="text" class="form-control input-sm" value="1">
-                                                </div>
-                                                <div class="col-xs-2">
-                                                    <button type="button" class="btn btn-link btn-xs">
-                                                        <span class="glyphicon glyphicon-trash"> </span>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    
+                             
                                         
-                                        
-                                        {{#newproduct}}
+                                        {{#cartm}}
                                                                   <hr>               
                                                                                 <div class="row">
                                             <div class="col-xs-2"><img class="img-responsive" src="http://lorempixel.com/100/70">
                                             </div>
                                             <div class="col-xs-4">
-                                                <h4 class="product-name"><strong>NEW PRODUCT</strong></h4>
+                                                <h4 class="product-name"><strong>{{name}} </strong></h4>
                                                 <h4><small>Product description</small></h4>
                                             </div>
                                             <div class="col-xs-6">
                                                 <div class="col-xs-6 text-right">
-                                                    <h6><strong>1.00 <span class="text-muted">x</span></strong></h6>
+                                                    <h6><strong>{{price}} <span class="text-muted">x</span></strong></h6>
                                                 </div>
                                                 <div class="col-xs-4">
-                                                    <input type="text" class="form-control input-sm" value="1">
+                                                    <input type="text" class="form-control input-sm" value="{{quantity}}">
                                                 </div>
                                                 <div class="col-xs-2">
-                                                    <button type="button" class="btn btn-link btn-xs">
-                                                        <span class="glyphicon glyphicon-trash"> </span>
-                                                    </button>
+                                                    <a href="/remove/{{id}}" type="button" class="btn btn-link btn-xs"> <span class="glyphicon glyphicon-trash"> </span>
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
                                         
-                                        {{/newproduct}}
+                                        {{/cartm}}
+                                        
 
                                     </div>
                                     <div class="panel-footer">
@@ -216,7 +201,7 @@
                                                 <h5>Subtotal</h5>
                                             </div>
                                             <div class="col-md-2 col-xs-4">
-                                                <h5> 2.58€</h5>
+                                                <h5> {{total}} €</h5>
                                             </div>
                                         </div>
                                         <div class="row text-right">
@@ -237,7 +222,7 @@
                                             </div>
 
                                             <div class="col-md-4 col-xs-6">
-                                                <a href="Productos.html" type="button" class="btn btn-primary btn-sm btn-block">
+                                                <a href="/" type="button" class="btn btn-primary btn-sm btn-block">
                                                     <span class="glyphicon glyphicon-share-alt"></span> Seguir comprando
                                                 </a>
 
@@ -261,6 +246,7 @@
                     <!-- Fin Carrito -->
 
                 </div>
+                {{/emptycar}}
                 <!-- div class section clearfix -->
 
             </div>

@@ -12,6 +12,7 @@
    	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type='text/javascript' src="/js/ajaxGET.js"></script>
     
     <link type="text/css" rel="stylesheet" href="/css/menunavbar.css" />
     <link type="text/css" rel="stylesheet" href="/css/carouselnew.css" />
@@ -71,7 +72,7 @@
                         -->
                         <li><a href="/usercart">Carrito<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"> <span class="badge">1</span></span></a></li>
                         <li>
-	                        <a href="/admin/?page&size=10" > Admin
+	                        <a href="/adminall" > Admin
 	                        <span class="glyphicon glyphicon-user" aria-hidden="true">
 	                        </span>
 	                        </a>
@@ -253,41 +254,18 @@
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                	{{#products}}
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox"> <a href="#"><i class="icon-star-empty"></i></a></td>
-                                        <td><img style="border:1px solid #ddd; height: 70px; width: 70px;" src="{{image}}" /></td>
-                                        <td>
-                                            <p>{{id}}</p>
-                                        </td>
-                                        <td>
-                                            <p>{{name}}</p>
-                                        </td>
-                                        <td>
-                                            <p>{{brand}}</p>
-                                        </td>
-                                        <td>
-                                            <p>{{type}}</p>
-                                        </td>
-                                        <td>
-                                            <p>{{published}}</p>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-pencil"></span></button>
-                                            <a href="/admin/product/delete/{{id}}.html" type="button" class="btn btn-primary" > <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-                                        </td>
-                                    </tr>
-                                    {{/products}}
+                                <tbody id="product-table">
+
                                 </tbody>
                             </table>
+                            <button id="cargarmas" onclick="cargarPagina(paginaActual)" class="btn btn-primary btn-block">Cargar más</button>
                         </div>
                     </div>
                 </div>
                 
-                <!--  BOTONES PÁGE PREV Y PAGE NEXT -->
                 
+                <!--  BOTONES PÁGE PREV Y PAGE NEXT -->
+                <!--
                 {{#showNext}}
                    <a href="/admin/?page={{nextPage}}&size=10" type="button" class="btn btn-primary add-product" > 
                       Next</a>
@@ -296,7 +274,8 @@
                    <a href="/admin/?page={{prevPage}}&size=10" type="button" class="btn btn-primary add-product" > 
                       Prev</a>
                 {{/showPrev}}     
- 
+ 				-->
+ 				
             </div><!-- fin div class container -->
         </div>
 	</div>
