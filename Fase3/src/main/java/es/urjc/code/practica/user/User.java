@@ -33,7 +33,7 @@ public class User {
 	@JsonView(UserAttribute.class)
 	private String passwordHash;
 	
-	@JsonView(UserAttribute.class)
+	//@JsonView(UserAttribute.class)
 	private String confirmpasswordHash;
 	
 	public String getConfirmpasswordHash() {
