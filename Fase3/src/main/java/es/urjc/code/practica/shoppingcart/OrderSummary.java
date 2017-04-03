@@ -38,8 +38,9 @@ public class OrderSummary {
 	@JsonView(OrderSummaryAttribute.class)
 	private String paymentmethod;
 	
-	@JsonView(OrderSummaryAttribute.class)
+	
 	@OneToMany
+	@JsonView(OrderSummaryAttribute.class)
 	private List <OrderCart> order = new ArrayList<OrderCart>(); //new ArrayList<>();;
 	
 	protected OrderSummary (){

@@ -1,5 +1,6 @@
 package es.urjc.code.practica.shoppingcart;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,7 +26,7 @@ import es.urjc.code.practica.images.ImageRepository;
 @RestController
 public class ShoppingCartRestController {
 	
-	interface ShoppingCartView extends OrderCart.OrderCartAttribute{};
+	interface ShoppingCartView extends OrderSummary.OrderSummaryAttribute{};
 	
 	@Autowired
 	private OrderSummaryRepository repository;
@@ -36,13 +38,25 @@ public class ShoppingCartRestController {
 	
 	@JsonView(ShoppingCartView.class)
 	@RequestMapping(value = "/api/orders/", method= RequestMethod.GET)
-	public Collection<OrderSummary> getOrderCartsPage(Pageable page){
+	public @ResponseBody List<OrderSummary> getOrderCartsPage(Pageable page){
 		
 		
-		//List <OrderSummary> listOrders = repository.findAll(page).getContent();
-		//return listOrders;
+		//List<OrderSummary> listOrders = repository.findAll(page).getContent();
+		List<OrderSummary> listOrders2 = new ArrayList<OrderSummary>();
 		
-		return repository.findAll();
+		listOrders2= repository.findAll();
+		
+		//List<OrderSummary> listOrders = repository.findAll();
+		
+		
+	/*	if (listOrders != null) {
+			return new ResponseEntity<>(listOrders, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		} */
+		return listOrders2;
+		
+		//return repository.findAll();
 		
 		
 	}
