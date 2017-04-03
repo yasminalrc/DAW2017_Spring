@@ -64,7 +64,15 @@ public class ShoppingCartRestController {
 	@RequestMapping(value = "/api/orders/", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public OrderSummary createOrder(@RequestBody OrderSummary order) {
-
+		
+/*	if (order != null) {
+		if (listcart !=null){
+			for (OrderCart cart: listcart){
+				cartrepository.saveAndFlush(cart);
+				order.getOrder().add(cart);
+			}
+		}	
+	}	*/
 		repository.save(order);
 		return order;
 	}

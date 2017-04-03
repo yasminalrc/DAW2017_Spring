@@ -18,8 +18,14 @@ import com.fasterxml.jackson.annotation.JsonView;
 import es.urjc.code.practica.shoppingcart.OrderCart.OrderCartAttribute;
 import es.urjc.code.practica.user.User;
 
+import java.io.*;
+import com.fasterxml.jackson.core.*;
+import com.fasterxml.jackson.databind.*;
+
+
 @Entity
-public class OrderSummary {
+public class OrderSummary{
+	
 	
 	public interface OrderSummaryAttribute{};
 	
@@ -40,7 +46,7 @@ public class OrderSummary {
 	
 	
 	@OneToMany
-	@JsonView(OrderSummaryAttribute.class)
+	@JsonView
 	private List <OrderCart> order = new ArrayList<OrderCart>(); //new ArrayList<>();;
 	
 	protected OrderSummary (){
@@ -103,6 +109,8 @@ public class OrderSummary {
 		return "OrderSummary [id=" + id + ", ordername=" + ordername + ", user=" + user + ", paymentmethod="
 				+ paymentmethod + ", order=" + order + "]";
 	}
+
+	
 	
 	
 
