@@ -10,10 +10,10 @@ STATUS: 200 - OK
 
 
 | LOGIN |
-| URL                    | METHOD    | INPUT                   | OUTPUT                     |
-| ---------------------- | --------- | ----------------------- | -------------------------- |
-| .../api/logIn          | ¿?        | None                    | ResponseEntity<User>       |
-| .../api/logOut         | ¿?        | HttpSession             | ResponseEntity<Boolean>    |
+| URL | METHOD | INPUT | OUTPUT |
+| --- | --- | --- | --- |
+| .../api/logIn | ¿? | None | ResponseEntity<User> |
+| .../api/logOut | ¿? | HttpSession | ResponseEntity<Boolean> |
 
 
 | PRODUCTS |
