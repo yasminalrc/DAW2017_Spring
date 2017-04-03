@@ -43,21 +43,43 @@ public class User {
 	public void setConfirmpasswordHash(String confirmpassword) {
 		this.confirmpasswordHash = new BCryptPasswordEncoder().encode(confirmpassword);
 	}
-
+	
+	@JsonView(UserAttribute.class)
 	private String surnames;
+	
+	@JsonView(UserAttribute.class)
 	private String email;
+	
+	@JsonView(UserAttribute.class)
 	private String birthdate;
 	
 	// ATRIBUTOS DE DIRECCIÓN DE FACTURACION
-	
+			
+			@JsonView(UserAttribute.class)
 			private String address;
+			
+			@JsonView(UserAttribute.class)
 			private String address2;
+			
+			@JsonView(UserAttribute.class)
 			private int zipcode;
+			
+			@JsonView(UserAttribute.class)
 			private String locality;
+			
+			@JsonView(UserAttribute.class)
 			private String province;
+			
+			@JsonView(UserAttribute.class)
 			private String country;
+			
+			@JsonView(UserAttribute.class)
 			private String phone;
+			
+			@JsonView(UserAttribute.class)
 			private String nid;
+			
+			@JsonView(UserAttribute.class)
 			private String other;
 
 	public String getOther() {
@@ -68,6 +90,7 @@ public class User {
 				this.other = other;
 			}
 
+	@JsonView(UserAttribute.class)		
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> roles;
 	

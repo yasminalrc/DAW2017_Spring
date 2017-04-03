@@ -13,21 +13,32 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import es.urjc.code.practica.shoppingcart.OrderCart.OrderCartAttribute;
 import es.urjc.code.practica.user.User;
 
 @Entity
 public class OrderSummary {
 	
+	public interface OrderSummaryAttribute{};
+	
 	@Id
+	@JsonView(OrderSummaryAttribute.class)
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	long id;
 	
 	/***Atributos de Cart ***/
+	@JsonView(OrderSummaryAttribute.class)
 	private String ordername;
+	
+	@JsonView(OrderSummaryAttribute.class)
 	private String user;
+	
+	@JsonView(OrderSummaryAttribute.class)
 	private String paymentmethod;
 	
-	
+	@JsonView(OrderSummaryAttribute.class)
 	@OneToMany
 	private List <OrderCart> order = new ArrayList<OrderCart>(); //new ArrayList<>();;
 	

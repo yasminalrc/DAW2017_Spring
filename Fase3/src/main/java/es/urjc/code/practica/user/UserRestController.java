@@ -23,7 +23,7 @@ import es.urjc.code.practica.images.ImageRepository;
 @RestController
 public class UserRestController {
 	
-	interface ProductView extends User.UserAttribute{};
+	interface UserView extends User.UserAttribute{};
 	
 	@Autowired
 	private UserRepository repository;
@@ -32,13 +32,13 @@ public class UserRestController {
 	private static final String FILES_FOLDER = "files";
 	
 	
-	@JsonView(ProductView.class)
+	@JsonView(UserView.class)
 	@RequestMapping(value = "/api/users/", method= RequestMethod.GET)
 	public List<User> getProductsPage(Pageable page){
 		
 		
-		List<User> listProducts = repository.findAll(page).getContent();
-		return listProducts;
+		List<User> listUsers = repository.findAll(page).getContent();
+		return listUsers;
 	}
 	
 	@RequestMapping(value = "/api/users/", method = RequestMethod.POST)
@@ -53,9 +53,9 @@ public class UserRestController {
 	@RequestMapping(value = "/api/users/{id}", method = RequestMethod.GET)
 	public ResponseEntity<User> getUser(@PathVariable long id) {
 
-		User anuncio = repository.findOne(id);
-		if (anuncio != null) {
-			return new ResponseEntity<>(anuncio, HttpStatus.OK);
+		User user = repository.findOne(id);
+		if (user != null) {
+			return new ResponseEntity<>(user, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
@@ -63,18 +63,20 @@ public class UserRestController {
 	
 
 	@RequestMapping(value = "/api/users/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<User> updateUser(@PathVariable long id, @RequestBody User user) {
+	public ResponseEntity<User> updateUser(@PathVariable long id, @RequestBody User updateUser) {
 
-		User userput = repository.findOne(id);
-		if (userput != null) {
+		User user = repository.findOne(id);
+		if (user != null) {
 
-			user.setId(id);
-			repository.save(userput);
+			updateUser.setId(id);
+			repository.save(updateUser);
 
-			return new ResponseEntity<>(userput, HttpStatus.OK);
+			return new ResponseEntity<>(updateUser, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
+		
+		
 	}
 
 	@RequestMapping(value = "/api/users/{id}", method = RequestMethod.DELETE)
