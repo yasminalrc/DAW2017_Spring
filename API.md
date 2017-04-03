@@ -9,17 +9,17 @@ STATUS: 200 - OK
         404 - NOT FOUND
 
 
-LOGIN
+LOGIN |
 URL | METHOD | INPUT | OUTPUT 
 --- | --- | --- | --- 
-.../api/logIn | ¿? | None | ResponseEntity<User> 
-.../api/logOut | ¿? | HttpSession | ResponseEntity<Boolean>
+/api/logIn | ¿? | None | ResponseEntity<User> 
+/api/logOut | ¿? | HttpSession | ResponseEntity<Boolean>
 
 
 | PRODUCTS |
 | URL                    | METHOD    | INPUT                   | OUTPUT                     |
 | ---------------------- | --------- | ----------------------- | -------------------------- |
-| .../api/products/      | GET       | None                    | List<Product>              |
+| /api/products/      | GET       | None                    | List<Product>              |
 | .../api/products/{id}  | GET       | Product.Id              | ResponseEntity<Product>    |
 | .../api/products/      | POST      | Product                 | Product                    |
 | .../api/products/{id}  | PUT       | Product.Id, Product     | ResponseEntity<Product>    |
