@@ -9,11 +9,11 @@ STATUS: 200 - OK
         404 - NOT FOUND
 
 
-| LOGIN |
-| URL | METHOD | INPUT | OUTPUT |
-| --- | --- | --- | --- |
-| .../api/logIn | ¿? | None | ResponseEntity<User> |
-| .../api/logOut | ¿? | HttpSession | ResponseEntity<Boolean> |
+LOGIN
+URL | METHOD | INPUT | OUTPUT 
+--- | --- | --- | --- 
+.../api/logIn | ¿? | None | ResponseEntity<User> 
+.../api/logOut | ¿? | HttpSession | ResponseEntity<Boolean>
 
 
 | PRODUCTS |
