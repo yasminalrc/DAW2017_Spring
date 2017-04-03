@@ -4,9 +4,10 @@
 
 URL:    https://localhost:8443...
 
-STATUS: 200 - OK
-        401 - UNAUTHORIZED - WRONG PASSWORD
-        404 - NOT FOUND
+STATUS 
+200 - OK
+401 - UNAUTHORIZED - WRONG PASSWORD
+404 - NOT FOUND
 
 
 **LOGIN** 
@@ -16,15 +17,15 @@ URL | METHOD | INPUT | OUTPUT
 /api/logIn | ¿? | None | ResponseEntity<User> 
 /api/logOut | ¿? | HttpSession | ResponseEntity<Boolean>
 
+**PRODUCTS**
 
-| PRODUCTS |
-| URL                    | METHOD    | INPUT                   | OUTPUT                     |
-| ---------------------- | --------- | ----------------------- | -------------------------- |
-| /api/products/      | GET       | None                    | List<Product>              |
-| .../api/products/{id}  | GET       | Product.Id              | ResponseEntity<Product>    |
-| .../api/products/      | POST      | Product                 | Product                    |
-| .../api/products/{id}  | PUT       | Product.Id, Product     | ResponseEntity<Product>    |
-| .../api/products/{id}  | DELETE    | Product.Id              | ResponseEntity<Product>    |
+URL | METHOD | INPUT | OUTPUT 
+--- | --- | --- | --- 
+/api/products/ | GET | None | List<Product>
+/api/products/{id} | GET | Product.Id | ResponseEntity<Product>
+/api/products/ | POST | Product | Product 
+/api/products/{id} | PUT | Product.Id, Product | ResponseEntity<Product> 
+/api/products/{id} | DELETE | Product.Id | ResponseEntity<Product> 
 
 
 | USERS |
