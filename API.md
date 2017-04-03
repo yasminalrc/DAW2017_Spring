@@ -9,7 +9,8 @@ STATUS: 200 - OK
         404 - NOT FOUND
 
 
-LOGIN |
+**LOGIN** 
+
 URL | METHOD | INPUT | OUTPUT 
 --- | --- | --- | --- 
 /api/logIn | ¿? | None | ResponseEntity<User> 
