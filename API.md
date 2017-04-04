@@ -12,31 +12,33 @@ STATUS
 
 **LOGIN** 
 
-...URL | METHOD | INPUT | OUTPUT 
---- | --- | --- | --- 
-/api/logIn | ¿? | None | ResponseEntity<User> 
-/api/logOut | ¿? | HttpSession | ResponseEntity<Boolean>
+...URL              | METHOD    | INPUT                   | OUTPUT 
+---                 | ---       | ---                     | --- 
+/api/logIn          | ¿?        | None                    | ResponseEntity<User> 
+/api/logOut         | ¿?        | HttpSession             | ResponseEntity<Boolean>
+
 
 **PRODUCTS**
 
-...URL | METHOD | INPUT | OUTPUT 
---- | --- | --- | --- 
-/api/products/ | GET | None | List<Product>
-/api/products/{id} | GET | Product.Id | ResponseEntity<Product>
-/api/products/ | POST | Product | Product 
-/api/products/{id} | PUT | Product.Id, Product | ResponseEntity<Product> 
-/api/products/{id} | DELETE | Product.Id | ResponseEntity<Product> 
+...URL              | METHOD    | INPUT                   | OUTPUT 
+---                 | ---       | ---                     | --- 
+/api/products/      | GET       | None                    | List<Product>
+/api/products/{id}  | GET       | Product.Id              | ResponseEntity<Product>
+/api/products/      | POST      | Product                 | Product 
+/api/products/{id}  | PUT       | Product.Id, Product     | ResponseEntity<Product> 
+/api/products/{id}  | DELETE    | Product.Id              | ResponseEntity<Product> 
 
 
 **USERS**
 
-...URL | METHOD | INPUT | OUTPUT 
---- | --- | --- | --- 
-/api/users/ | GET | None | List<User> 
-/api/users/{id} | GET | User.Id | ResponseEntity<User>
-/api/users/ | POST | User | User
-/api/users/{id} | PUT | User.Id, Product | ResponseEntity<User> 
-/api/users/{id} | DELETE | User.Id | ResponseEntity<User> 
+...URL              | METHOD    | INPUT                   | OUTPUT 
+---                 | ---       | ---                     | --- 
+/api/users/         | GET       | None                    | List<User> 
+/api/users/{id}     | GET       | User.Id                 | ResponseEntity<User>
+/api/users/         | POST      | User                    | User
+/api/users/{id}     | PUT       | User.Id, Product        | ResponseEntity<User> 
+/api/users/{id}     | DELETE    | User.Id                 | ResponseEntity<User> 
+
 
 **ORDERS**  [Order = OrderSummary]
 
