@@ -58,6 +58,7 @@ CODE | STATUS
 
 Example of Product
 https://localhost:8443/api/products/15
+```json
 {
   "id": 15,
   "name": "accesory15",
@@ -75,4 +76,4 @@ https://localhost:8443/api/products/15
   "image": "producto15",
   "description": "description15"
 }
-
+```
