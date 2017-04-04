@@ -12,14 +12,14 @@ STATUS
 
 **LOGIN** 
 
-URL | METHOD | INPUT | OUTPUT 
+...URL | METHOD | INPUT | OUTPUT 
 --- | --- | --- | --- 
 /api/logIn | ¿? | None | ResponseEntity<User> 
 /api/logOut | ¿? | HttpSession | ResponseEntity<Boolean>
 
 **PRODUCTS**
 
-URL | METHOD | INPUT | OUTPUT 
+...URL | METHOD | INPUT | OUTPUT 
 --- | --- | --- | --- 
 /api/products/ | GET | None | List<Product>
 /api/products/{id} | GET | Product.Id | ResponseEntity<Product>
@@ -28,19 +28,19 @@ URL | METHOD | INPUT | OUTPUT
 /api/products/{id} | DELETE | Product.Id | ResponseEntity<Product> 
 
 
-| USERS |
-| URL                    | METHOD    | INPUT                   | OUTPUT                     |
-| ---------------------- | --------- | ----------------------- | -------------------------- |
-| .../api/users/         | GET       | None                    | List<User>                 |
-| .../api/users/{id}     | GET       | User.Id                 | ResponseEntity<User>       |
-| .../api/users/         | POST      | User                    | User                       |
-| .../api/users/{id}     | PUT       | User.Id, Product        | ResponseEntity<User>       |
-| .../api/users/{id}     | DELETE    | User.Id                 | RsponseEntity<User>        |
+**USERS**
+...URL | METHOD | INPUT | OUTPUT 
+--- | --- | --- | --- 
+/api/users/ | GET | None | List<User> 
+/api/users/{id} | GET | User.Id | ResponseEntity<User>
+/api/users/ | POST | User | User
+/api/users/{id} | PUT | User.Id, Product | ResponseEntity<User> 
+/api/users/{id} | DELETE | User.Id | ResponseEntity<User> 
 
+**ORDERS**  [Order = OrderSummary]
 
-| ORDERS  [Order = OrderSummary] |
-| URL                    | METHOD    | INPUT                   | OUTPUT                     |
-| ---------------------- | --------- | ----------------------- | -------------------------- |
+...URL | METHOD | INPUT | OUTPUT 
+--- | --- | --- | --- 
 | .../api/orders/        | GET       | None                    | List<Order>                |
 | .../api/orders/{id}    | GET       | Order.Id                | ResponseEntity<Order>      |
 | .../api/orders/        | POST      | Order                   | Order                      |
