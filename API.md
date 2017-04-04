@@ -29,6 +29,7 @@ STATUS
 
 
 **USERS**
+
 ...URL | METHOD | INPUT | OUTPUT 
 --- | --- | --- | --- 
 /api/users/ | GET | None | List<User> 
