@@ -99,3 +99,27 @@ https://localhost:8443/api/users/2
   ]
 }
 ```
+
+#### Example of Order
+https://localhost:8443/api/orders/1
+``` json
+{
+  "id": 1,
+  "ordername": "order1",
+  "user": "user1",
+  "paymentmethod": "paymentcard1",
+  "order": [
+    {
+      "id": 1,
+      "name": "name1",
+      "price": 20.4,
+      "quantity": 1,
+      "size": "size1",
+      "sphere": "0",
+      "radio": "0",
+      "diameter": "0",
+      "eye": "0"
+    }
+  ]
+}
+```
