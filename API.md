@@ -40,10 +40,10 @@ STATUS
 
 **ORDERS**  [Order = OrderSummary]
 
-...URL | METHOD | INPUT | OUTPUT 
---- | --- | --- | --- 
-| .../api/orders/        | GET       | None                    | List<Order>                |
-| .../api/orders/{id}    | GET       | Order.Id                | ResponseEntity<Order>      |
-| .../api/orders/        | POST      | Order                   | Order                      |
-| .../api/orders/{id}    | PUT       | Order.Id, Order         | ResponseEntity<Order>      |
-| .../api/orders/{id}    | DELETE    | Order.Id                | ResponseEntity<Order>      |
+...URL              | METHOD    | INPUT                   | OUTPUT 
+---                 | ---       | ---                     | --- 
+/api/orders/        | GET       | None                    | List<Order>               
+/api/orders/{id}    | GET       | Order.Id                | ResponseEntity<Order>     
+/api/orders/        | POST      | Order                   | Order                     
+/api/orders/{id}    | PUT       | Order.Id, Order         | ResponseEntity<Order>    
+/api/orders/{id}    | DELETE    | Order.Id                | ResponseEntity<Order>    
