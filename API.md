@@ -19,8 +19,8 @@ CODE | STATUS
 ### LOGIN 
 ...URL              | METHOD    | INPUT                   | OUTPUT 
 ---                 | ---       | ---                     | --- 
-/api/logIn          | ¿?        | None                    | User
-/api/logOut         | ¿?        | HttpSession             | Boolean
+/api/logIn          | GET       | None                    | User
+/api/logOut         | GET       | HttpSession             | Boolean
 
 
 ### PRODUCTS
