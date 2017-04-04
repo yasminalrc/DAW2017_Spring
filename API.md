@@ -54,3 +54,25 @@ CODE | STATUS
 /api/orders/        | POST      | Order                   | Order                     
 /api/orders/{id}    | PUT       | Order.Id, Order         | Order    
 /api/orders/{id}    | DELETE    | Order.Id                | Order    
+
+
+Example of Product
+https://localhost:8443/api/products/15
+{
+  "id": 15,
+  "name": "accesory15",
+  "brand": "brand15",
+  "model": "model15",
+  "reference": "reference15",
+  "type": "type3",
+  "colour": null,
+  "size": null,
+  "sphere": null,
+  "radio": null,
+  "published": false,
+  "price": 0.5,
+  "quantity": 5,
+  "image": "producto15",
+  "description": "description15"
+}
+
