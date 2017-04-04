@@ -49,7 +49,7 @@ CODE | STATUS
 
 ...URL              | METHOD    | INPUT                   | OUTPUT 
 ---                 | ---       | ---                     | --- 
-/api/orders/        | GET       | None                    | list of [Order]               
+/api/orders/        | GET       | None                    | List of [Order]               
 /api/orders/{id}    | GET       | Order.Id                | Order     
 /api/orders/        | POST      | Order                   | Order                     
 /api/orders/{id}    | PUT       | Order.Id, Order         | Order    
