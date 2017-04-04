@@ -73,3 +73,29 @@ https://localhost:8443/api/products/15
   "description": "description15"
 }
 ```
+
+#### Example of User
+https://localhost:8443/api/users/2
+``` json
+{
+  "id": 2,
+  "name": "user2",
+  "passwordHash": "$2a$10$cnbjIHCE.X8kAndSenKLbuRGSpcnMP3Hh4kqm8GEAlpeVW2bADhR6",
+  "confirmpasswordHash": null,
+  "surnames": "pig",
+  "email": "megustacomer@zanahorias.com",
+  "birthdate": "01/01/2000",
+  "address": "En tu barrio Nº69 bajo A ",
+  "address2": null,
+  "zipcode": 69000,
+  "locality": "Madrid",
+  "province": "Madrid",
+  "country": "España",
+  "phone": "612345678",
+  "nid": "A12345678",
+  "other": null,
+  "roles": [
+    "ROLE_USER"
+  ]
+}
+```
