@@ -4,6 +4,7 @@
 **URL**:    https://localhost:8443...
 
 **STATUS**
+
 CODE | STATUS
 200 | OK
 201 | CREATED
