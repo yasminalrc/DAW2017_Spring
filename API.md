@@ -56,7 +56,7 @@ CODE | STATUS
 /api/orders/{id}    | DELETE    | Order.Id                | Order    
 
 
-Example of Product
+*Example of Product*
 https://localhost:8443/api/products/15
 ```json
 {
