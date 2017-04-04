@@ -1,10 +1,10 @@
-**API**
+#API
 
-**COMMON INFO**
-**URL**:    https://localhost:8443...
+## COMMON INFO
+### URL
+https://localhost:8443...
 
-**STATUS**
-
+### STATUS
 CODE | STATUS
 ---  | ---
 200  | OK
@@ -15,16 +15,14 @@ CODE | STATUS
 404  | NOT FOUND
 
 
-**LOGIN** 
-
+### LOGIN 
 ...URL              | METHOD    | INPUT                   | OUTPUT 
 ---                 | ---       | ---                     | --- 
 /api/logIn          | ¿?        | None                    | User
 /api/logOut         | ¿?        | HttpSession             | Boolean
 
 
-**PRODUCTS**
-
+### PRODUCTS
 ...URL              | METHOD    | INPUT                   | OUTPUT 
 ---                 | ---       | ---                     | --- 
 /api/products/      | GET       | None                    | List of [Product]
@@ -34,8 +32,7 @@ CODE | STATUS
 /api/products/{id}  | DELETE    | Product.Id              | Product 
 
 
-**USERS**
-
+### USERS
 ...URL              | METHOD    | INPUT                   | OUTPUT 
 ---                 | ---       | ---                     | --- 
 /api/users/         | GET       | None                    | List of [User] 
@@ -45,8 +42,7 @@ CODE | STATUS
 /api/users/{id}     | DELETE    | User.Id                 | User 
 
 
-**ORDERS**  [Order = OrderSummary]
-
+### ORDERS [Order = OrderSummary]
 ...URL              | METHOD    | INPUT                   | OUTPUT 
 ---                 | ---       | ---                     | --- 
 /api/orders/        | GET       | None                    | List of [Order]               
@@ -56,7 +52,7 @@ CODE | STATUS
 /api/orders/{id}    | DELETE    | Order.Id                | Order    
 
 
-*Example of Product*
+#### Example of Product
 https://localhost:8443/api/products/15
 ```json
 {
