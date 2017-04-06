@@ -34,29 +34,15 @@ public class ShoppingCartRestController {
 	@Autowired
 	private OrderCartRepository cartrepository;
 
+	interface CartDetail extends OrderSummary.OrderSummaryAttribute, OrderSummary.OrderCarts, OrderCart.OrderCartAttribute  {
+	}
 	
 	
-	@JsonView(ShoppingCartView.class)
 	@RequestMapping(value = "/api/orders/", method= RequestMethod.GET)
-	public @ResponseBody List<OrderSummary> getOrderCartsPage(Pageable page){
+	public Collection<OrderSummary> getOrderCartsPage(Pageable page){
 		
 		
-		//List<OrderSummary> listOrders = repository.findAll(page).getContent();
-		List<OrderSummary> listOrders2 = new ArrayList<OrderSummary>();
-		
-		listOrders2= repository.findAll();
-		
-		//List<OrderSummary> listOrders = repository.findAll();
-		
-		
-	/*	if (listOrders != null) {
-			return new ResponseEntity<>(listOrders, HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		} */
-		return listOrders2;
-		
-		//return repository.findAll();
+		return repository.findAll();
 		
 		
 	}
