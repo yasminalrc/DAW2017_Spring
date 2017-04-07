@@ -22,11 +22,14 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 import es.urjc.code.practica.images.Image;
 import es.urjc.code.practica.images.ImageRepository;
+import es.urjc.code.practica.user.User;
 
 @RestController
 public class ShoppingCartRestController {
 	
-	interface ShoppingCartView extends OrderSummary.OrderSummaryAttribute{};
+	interface ShoppingCartView 
+	extends OrderSummary.OrderSummaryAttribute,OrderCart.OrderCartAttribute{};
+	
 	
 	@Autowired
 	private OrderSummaryRepository repository;
@@ -34,6 +37,36 @@ public class ShoppingCartRestController {
 	@Autowired
 	private OrderCartRepository cartrepository;
 
+	
+	@JsonView(ShoppingCartView.class)
+	@RequestMapping(value = "/api/carts/{id}", method = RequestMethod.GET)
+	public ResponseEntity<OrderCart> getCart(@PathVariable long id) {
+
+		OrderCart cart = cartrepository.findOne(id);
+		if (cart != null) {
+			return new ResponseEntity<>(cart, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@JsonView(ShoppingCartView.class)
+	@RequestMapping(value = "/api/carts/", method = RequestMethod.GET)
+	public List<OrderCart> getListCarts(Pageable page) {
+
+		List<OrderCart> listCarts = cartrepository.findAll(page).getContent();
+		return listCarts;
+	}
+	
+	
+	@RequestMapping(value = "/api/carts/", method = RequestMethod.POST)
+	@ResponseStatus(HttpStatus.CREATED)
+	public OrderCart createCart(@RequestBody OrderCart cart) {
+		
+		cartrepository.save(cart);
+		return cart;
+	}
+	
 	
 	
 	@JsonView(ShoppingCartView.class)
@@ -57,8 +90,6 @@ public class ShoppingCartRestController {
 		return listOrders2;
 		
 		//return repository.findAll();
-		
-		
 	}
 	
 	@RequestMapping(value = "/api/orders/", method = RequestMethod.POST)
