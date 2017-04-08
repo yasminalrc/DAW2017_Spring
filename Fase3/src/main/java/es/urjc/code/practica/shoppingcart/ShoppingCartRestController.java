@@ -66,26 +66,7 @@ public class ShoppingCartRestController {
 	@RequestMapping(value = "/api/carts/", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public OrderCart createCart(@RequestBody OrderCart cart, HttpSession session) {
-		/* Código igual que en Controller normal - susceptible de pasar a Servicio - solo esta parte */
-		if (listaproductoscarrito == null) {
-
-			listaproductoscarrito = new ArrayList<>();
-			listaproductoscarrito.add(cart);
-		} else {
-			boolean flag = false;
-			for (OrderCart ocart : listaproductoscarrito) {
-
-				if (ocart.getId() == cart.getId()) {
-					ocart.setQuantity(ocart.getQuantity() + cart.getQuantity());
-					flag = true;
-					break;
-				}
-			}
-			if (flag == false) {
-				listaproductoscarrito.add(cart);
-			}
-		}
-		/*Fin código repetido*/
+		
 		
 		String st= "hola";
 		session.setAttribute("model",st);
@@ -120,18 +101,28 @@ public class ShoppingCartRestController {
 	@ResponseStatus(HttpStatus.CREATED)
 	public OrderSummary createOrder(@RequestBody OrderSummary order) {
 		
-/*	if (order != null) {
-		if (listcart !=null){
-			for (OrderCart cart: listcart){
+	if (order != null) {
+		if (listaproductoscarrito !=null){
+			for (OrderCart cart: listaproductoscarrito){
 				cartrepository.saveAndFlush(cart);
 				order.getOrder().add(cart);
 			}
 		}	
-	}	*/
+	}	
+		
 		repository.save(order);
 		
 		listaproductoscarrito = null;
 		//Ponemos la lista a null una vez que ya se ha guardado el pedido en base de datos 
+		return order;
+	}
+	
+	
+	@RequestMapping(value = "/api/ordersp/", method = RequestMethod.POST)
+	@ResponseStatus(HttpStatus.CREATED)
+	public OrderSummary createOrderpost(@RequestBody OrderSummary order) {
+		
+		repository.save(order);
 		return order;
 	}
 	
@@ -174,8 +165,9 @@ public class ShoppingCartRestController {
 	
 	@JsonView(ShoppingCartView.class)
 	@RequestMapping("/api/listcart/")
-	public @ResponseBody List<OrderCart> getActualListCart(Pageable page) {	
+	public @ResponseBody List<OrderCart> getMemoryListCart(Pageable page) {	
 		
+		System.out.println(listaproductoscarrito);
 		return listaproductoscarrito;
 	}
 	
@@ -186,14 +178,40 @@ public class ShoppingCartRestController {
 		return (String) session.getAttribute("model");
 	}
 	
+	@RequestMapping (value="/api/cart/addList",method = RequestMethod.POST)
+	public String addListCart (@RequestBody OrderCart cart){
+		
+		/* Código igual que en Controller normal - susceptible de pasar a Servicio - solo esta parte */
+		if (listaproductoscarrito == null) {
+
+			listaproductoscarrito = new ArrayList<>();
+			listaproductoscarrito.add(cart);
+		} else {
+			boolean flag = false;
+			for (OrderCart ocart : listaproductoscarrito) {
+
+				if (ocart.getName() == cart.getName()) {
+					ocart.setQuantity(ocart.getQuantity() + cart.getQuantity());
+					flag = true;
+					break;
+				}
+			}
+			if (flag == false) {
+				listaproductoscarrito.add(cart);
+			}
+		}
+		/*Fin código repetido*/
+		
+		return "Producto añadido";
+	}
 	
-    @RequestMapping ("/api/cart/remove/{id}")
-    public String removeCart (@PathVariable int id, HttpSession session, Model model){
+    @RequestMapping (value="/api/cart/remove/{name}",method = RequestMethod.DELETE)
+    public String removeCart (@PathVariable String name, HttpSession session, Model model){
 		
     	//List <Cart> lst = (List<Cart>) session.getAttribute("cart");	
     	if (listaproductoscarrito != null){
     		for (OrderCart cart: listaproductoscarrito){
-    			if (cart.getId()== id){
+    			if (cart.getName().equals(name)){
     				listaproductoscarrito.remove(cart);
     				break;
     			}
@@ -210,5 +228,6 @@ public class ShoppingCartRestController {
     	
     }
 
+    /*Fin métodos controlar Cart en memoria */
 }
 
