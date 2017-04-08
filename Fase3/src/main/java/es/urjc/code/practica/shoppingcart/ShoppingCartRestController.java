@@ -117,6 +117,15 @@ public class ShoppingCartRestController {
 		return order;
 	}
 	
+	
+	@RequestMapping(value = "/api/ordersp/", method = RequestMethod.POST)
+	@ResponseStatus(HttpStatus.CREATED)
+	public OrderSummary createOrderpost(@RequestBody OrderSummary order) {
+		
+		repository.save(order);
+		return order;
+	}
+	
 	@RequestMapping(value = "/api/orders/{id}", method = RequestMethod.GET)
 	public ResponseEntity<OrderSummary> getOrder(@PathVariable long id) {
 
