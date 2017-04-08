@@ -4,11 +4,14 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 // import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +21,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
-
 
 import es.urjc.code.practica.images.Image;
 import es.urjc.code.practica.images.ImageRepository;
@@ -36,6 +38,8 @@ public class ShoppingCartRestController {
 	
 	@Autowired
 	private OrderCartRepository cartrepository;
+	
+	private List <OrderCart> listaproductoscarrito;
 
 	
 	@JsonView(ShoppingCartView.class)
@@ -61,7 +65,30 @@ public class ShoppingCartRestController {
 	
 	@RequestMapping(value = "/api/carts/", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public OrderCart createCart(@RequestBody OrderCart cart) {
+	public OrderCart createCart(@RequestBody OrderCart cart, HttpSession session) {
+		/* Código igual que en Controller normal - susceptible de pasar a Servicio - solo esta parte */
+		if (listaproductoscarrito == null) {
+
+			listaproductoscarrito = new ArrayList<>();
+			listaproductoscarrito.add(cart);
+		} else {
+			boolean flag = false;
+			for (OrderCart ocart : listaproductoscarrito) {
+
+				if (ocart.getId() == cart.getId()) {
+					ocart.setQuantity(ocart.getQuantity() + cart.getQuantity());
+					flag = true;
+					break;
+				}
+			}
+			if (flag == false) {
+				listaproductoscarrito.add(cart);
+			}
+		}
+		/*Fin código repetido*/
+		
+		String st= "hola";
+		session.setAttribute("model",st);
 		
 		cartrepository.save(cart);
 		return cart;
@@ -78,17 +105,14 @@ public class ShoppingCartRestController {
 		List<OrderSummary> listOrders2 = new ArrayList<OrderSummary>();
 		
 		listOrders2= repository.findAll();
-		
-		//List<OrderSummary> listOrders = repository.findAll();
-		
-		
-	/*	if (listOrders != null) {
-			return new ResponseEntity<>(listOrders, HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		} */
 		return listOrders2;
 		
+		//List<OrderSummary> listOrders = repository.findAll();
+		/*if (listOrders != null) {
+			return new List<>ResponseEntity><>(listOrders2, HttpStatus.OK);//ResponseBody<>(listOrders2, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		} */			
 		//return repository.findAll();
 	}
 	
@@ -105,6 +129,9 @@ public class ShoppingCartRestController {
 		}	
 	}	*/
 		repository.save(order);
+		
+		listaproductoscarrito = null;
+		//Ponemos la lista a null una vez que ya se ha guardado el pedido en base de datos 
 		return order;
 	}
 	
@@ -141,6 +168,47 @@ public class ShoppingCartRestController {
 		repository.delete(id);
 		return new ResponseEntity<>(null, HttpStatus.OK);
 	}
+	
+	
+	/* Controlar Cart en memoria */
+	
+	@JsonView(ShoppingCartView.class)
+	@RequestMapping("/api/listcart/")
+	public @ResponseBody List<OrderCart> getActualListCart(Pageable page) {	
+		
+		return listaproductoscarrito;
+	}
+	
+	
+	@RequestMapping("/api/pruebaModel/")
+	public String getModel(HttpSession session) {	
+		
+		return (String) session.getAttribute("model");
+	}
+	
+	
+    @RequestMapping ("/api/cart/remove/{id}")
+    public String removeCart (@PathVariable int id, HttpSession session, Model model){
+		
+    	//List <Cart> lst = (List<Cart>) session.getAttribute("cart");	
+    	if (listaproductoscarrito != null){
+    		for (OrderCart cart: listaproductoscarrito){
+    			if (cart.getId()== id){
+    				listaproductoscarrito.remove(cart);
+    				break;
+    			}
+    		}	
+    	} 
+    	
+    	//System.out.println("cart");
+    	//session.setAttribute("cart", lst);
+    	//session.setAttribute("total", getTotal(lst));
+    	
+    	//model.addAttribute("total",getTotal(lst));
+    	return "Producto Eliminado";
+    	
+    	
+    }
 
 }
 
