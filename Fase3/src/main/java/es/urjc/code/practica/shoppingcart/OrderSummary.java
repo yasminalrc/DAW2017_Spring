@@ -44,7 +44,32 @@ public class OrderSummary{
 	@JsonView(OrderSummaryAttribute.class)
 	private String paymentmethod;
 	
+	@JsonView(OrderSummaryAttribute.class)
+	private String state;
 	
+	@JsonView(OrderSummaryAttribute.class)
+	private Double totalprice;
+	
+	
+	public Double getTotalprice() {
+		return totalprice;
+	}
+
+	public void setTotalprice(Double totalprice) {
+		this.totalprice = totalprice;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+
+
+
 	@OneToMany
 	@JsonView
 	private List <OrderCart> order = new ArrayList<OrderCart>(); //new ArrayList<>();;
@@ -58,6 +83,15 @@ public class OrderSummary{
 		this.ordername = ordername;
 		this.user = user;
 		this.paymentmethod = paymentmethod;
+	}
+	
+	public OrderSummary(String ordername, String user, String paymentmethod, String state, Double totalprice) {
+		super();
+		this.ordername = ordername;
+		this.user = user;
+		this.paymentmethod = paymentmethod;
+		this.state= state;
+		this.totalprice = totalprice;
 	}
 	
 	
