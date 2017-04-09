@@ -110,6 +110,17 @@ public class ProductRestController {
 		repository.delete(id);
 		return new ResponseEntity<>(null, HttpStatus.OK);
 	}
+	
+	@RequestMapping(value = "/api/product/{name}", method = RequestMethod.GET)
+	public ResponseEntity<Product> getProductByName(@PathVariable String name) {
+
+		Product product = repository.findByName(name);
+		if (product != null) {
+			return new ResponseEntity<>(product, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
 
 
 }
