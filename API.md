@@ -76,9 +76,21 @@ CODE | STATUS
 ![Alt text](Capturas/REST/REST_users_GET_A.PNG "Users GET")
 ![Alt text](Capturas/REST/REST_users_GET_B.PNG "Users GET Output")
 
-[GET] */api/users/{id}     
+[GET] */api/users/{id}*
 ![Alt text](Capturas/REST/REST_user_GET_A.PNG "User GET")
 ![Alt text](Capturas/REST/REST_user_GET_B.PNG "User GET Output")
+
+[POST] */api/users/*
+![Alt text](Capturas/REST/REST_user_POST_A.PNG "User POST")
+![Alt text](Capturas/REST/REST_user_POST_B.PNG "User POST Output")
+
+[PUT] */api/users/{id}*
+![Alt text](Capturas/REST/REST_user_PUT_A.PNG "User PUT")
+![Alt text](Capturas/REST/REST_user_PUT_B.PNG "User PUT Output")
+
+[DELETE] */api/users/{id}*
+![Alt text](Capturas/REST/REST_user_DELETE_A.PNG "User DELETE")
+![Alt text](Capturas/REST/REST_user_DELETE_B.PNG "User DELETE Output")
 
 ### ORDERS [Order = OrderSummary]
 ...URL              | METHOD    | INPUT                   | OUTPUT 
