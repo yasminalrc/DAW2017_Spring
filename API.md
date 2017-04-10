@@ -38,9 +38,13 @@ CODE | STATUS
 /api/products/{id}  | PUT       | Product.Id, Product     | Product 
 /api/products/{id}  | DELETE    | Product.Id              | Product 
 
-*/api/products/* [GET]
+*/api/products/*      [GET]
 ![Alt text](Capturas/REST/REST_products_GET_A.PNG "Products GET")
 ![Alt text](Capturas/REST/REST_products_GET_B.PNG "Products GET Output")
+
+*/api/products/{id}*  [GET]
+![Alt text](Capturas/REST/REST_product_GET_A.PNG "Product GET")
+![Alt text](Capturas/REST/REST_product_GET_B.PNG "Product GET Output")
 
 ### USERS
 ...URL              | METHOD    | INPUT                   | OUTPUT 
