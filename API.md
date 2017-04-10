@@ -50,9 +50,13 @@ CODE | STATUS
 ![Alt text](Capturas/REST/REST_product_POST_A.PNG "Product POST")
 ![Alt text](Capturas/REST/REST_product_POST_B.PNG "Product POST Output")
 
-[PUT] */api/products/34      
+[PUT] */api/products/{id}*      
 ![Alt text](Capturas/REST/REST_product_PUT_A.PNG "Product PUT")
 ![Alt text](Capturas/REST/REST_product_PUT_B.PNG "Product PUT Output")
+
+[PUT] */api/products/{id}*      
+![Alt text](Capturas/REST/REST_product_DELETE_A.PNG "Product DELETE")
+![Alt text](Capturas/REST/REST_product_DELETE_B.PNG "Product DELETE Output")
 
 ### USERS
 ...URL              | METHOD    | INPUT                   | OUTPUT 
