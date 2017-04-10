@@ -49,7 +49,7 @@ Aplicación web de venta de productos de óptica.
 
 ## DIAGRAMA DE CLASES Y TEMPLATES
 
-![Alt text](Capturas/diagrama.png "UML clases")
+![Alt text](Capturas/diagram.png "UML clases")
 
 ## DIAGRAMA DE NAVEGACIÓN
 
