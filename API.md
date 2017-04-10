@@ -21,11 +21,11 @@ CODE | STATUS
 /api/logOut         | GET       | HttpSession             | Boolean
 
 #### EXAMPLE
-*/api/logIn*  [GET] 
+[GET] */api/logIn*  
 ![Alt text](Capturas/REST/REST_logIn_A.PNG "REST logIn")
 ![Alt text](Capturas/REST/REST_logIn_B.PNG "REST logIn Output")
 
-*/api/logOut* [GET]
+[GET] */api/logOut* 
 ![Alt text](Capturas/REST/REST_logOut_A.PNG "REST logOut")
 ![Alt text](Capturas/REST/REST_logOut_B.PNG "REST logOut Output")
 
@@ -38,17 +38,21 @@ CODE | STATUS
 /api/products/{id}  | PUT       | Product.Id, Product     | Product 
 /api/products/{id}  | DELETE    | Product.Id              | Product 
 
-*/api/products/*      [GET]
+[GET] */api/products/*      
 ![Alt text](Capturas/REST/REST_products_GET_A.PNG "Products GET")
 ![Alt text](Capturas/REST/REST_products_GET_B.PNG "Products GET Output")
 
-*/api/products/{id}*  [GET]
+[GET] */api/products/{id}*  
 ![Alt text](Capturas/REST/REST_product_GET_A.PNG "Product GET")
 ![Alt text](Capturas/REST/REST_product_GET_B.PNG "Product GET Output")
 
-*/api/products/*      [POST]
+[POST] */api/products/*      
 ![Alt text](Capturas/REST/REST_product_POST_A.PNG "Product POST")
 ![Alt text](Capturas/REST/REST_product_POST_B.PNG "Product POST Output")
+
+[PUT] */api/products/34      
+![Alt text](Capturas/REST/REST_product_PUT_A.PNG "Product PUT")
+![Alt text](Capturas/REST/REST_product_PUT_B.PNG "Product PUT Output")
 
 ### USERS
 ...URL              | METHOD    | INPUT                   | OUTPUT 
