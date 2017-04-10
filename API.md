@@ -73,8 +73,12 @@ CODE | STATUS
 /api/users/{id}     | DELETE    | User.Id                 | User 
 
 [GET] */api/users/*      
-![Alt text](Capturas/REST/REST_users_GET_A.PNG "User GET")
-![Alt text](Capturas/REST/REST_users_GET_B.PNG "User GET Output")
+![Alt text](Capturas/REST/REST_users_GET_A.PNG "Users GET")
+![Alt text](Capturas/REST/REST_users_GET_B.PNG "Users GET Output")
+
+[GET] */api/users/{id}     
+![Alt text](Capturas/REST/REST_user_GET_A.PNG "User GET")
+![Alt text](Capturas/REST/REST_user_GET_B.PNG "User GET Output")
 
 ### ORDERS [Order = OrderSummary]
 ...URL              | METHOD    | INPUT                   | OUTPUT 
