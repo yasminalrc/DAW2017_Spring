@@ -46,6 +46,10 @@ CODE | STATUS
 ![Alt text](Capturas/REST/REST_product_GET_A.PNG "Product GET")
 ![Alt text](Capturas/REST/REST_product_GET_B.PNG "Product GET Output")
 
+*/api/products/*      [POST]
+![Alt text](Capturas/REST/REST_product_POST_A.PNG "Product POST")
+![Alt text](Capturas/REST/REST_product_POST_B.PNG "Product POST Output")
+
 ### USERS
 ...URL              | METHOD    | INPUT                   | OUTPUT 
 ---                 | ---       | ---                     | --- 
