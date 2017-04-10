@@ -34,6 +34,7 @@ CODE | STATUS
 ---                 | ---       | ---                     | --- 
 /api/products/      | GET       | None                    | List of [Product]
 /api/products/{id}  | GET       | Product.Id              | Product
+/api/products/{name}| GET       | Product.Name            | Product
 /api/products/      | POST      | Product                 | Product 
 /api/products/{id}  | PUT       | Product.Id, Product     | Product 
 /api/products/{id}  | DELETE    | Product.Id              | Product 
@@ -46,6 +47,10 @@ CODE | STATUS
 ![Alt text](Capturas/REST/REST_product_GET_A.PNG "Product GET")
 ![Alt text](Capturas/REST/REST_product_GET_B.PNG "Product GET Output")
 
+[GET] */api/products/{name}*      
+![Alt text](Capturas/REST/REST_product_GET_NAME_A.PNG "Product GET")
+![Alt text](Capturas/REST/REST_product_GET_NAME_B.PNG "Product GET Output")
+
 [POST] */api/products/*      
 ![Alt text](Capturas/REST/REST_product_POST_A.PNG "Product POST")
 ![Alt text](Capturas/REST/REST_product_POST_B.PNG "Product POST Output")
@@ -54,7 +59,7 @@ CODE | STATUS
 ![Alt text](Capturas/REST/REST_product_PUT_A.PNG "Product PUT")
 ![Alt text](Capturas/REST/REST_product_PUT_B.PNG "Product PUT Output")
 
-[PUT] */api/products/{id}*      
+[DELETE] */api/products/{id}*      
 ![Alt text](Capturas/REST/REST_product_DELETE_A.PNG "Product DELETE")
 ![Alt text](Capturas/REST/REST_product_DELETE_B.PNG "Product DELETE Output")
 
