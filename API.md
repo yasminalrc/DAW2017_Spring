@@ -14,13 +14,15 @@ CODE | STATUS
 401  | UNAUTHORIZED - WRONG PASSWORD
 404  | NOT FOUND
 
-**Input and output format --> JSON**
-
 ### LOGIN 
 ...URL              | METHOD    | INPUT                   | OUTPUT 
 ---                 | ---       | ---                     | --- 
 /api/logIn          | GET       | None                    | User
 /api/logOut         | GET       | HttpSession             | Boolean
+
+#### EXAMPLE
+*/api/logIn* 
+![Alt text](Capturas/REST/REST_logIn_A.PNG "REST logIn")
 
 
 ### PRODUCTS
