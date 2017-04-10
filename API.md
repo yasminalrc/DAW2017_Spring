@@ -23,6 +23,7 @@ CODE | STATUS
 #### EXAMPLE
 */api/logIn* 
 ![Alt text](Capturas/REST/REST_logIn_A.PNG "REST logIn")
+![Alt text](Capturas/REST/REST_logIn_B.PNG "REST logIn Output")
 
 
 ### PRODUCTS
