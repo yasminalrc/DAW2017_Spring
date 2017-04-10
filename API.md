@@ -21,11 +21,11 @@ CODE | STATUS
 /api/logOut         | GET       | HttpSession             | Boolean
 
 #### EXAMPLE
-*/api/logIn* 
+*/api/logIn*  [GET] 
 ![Alt text](Capturas/REST/REST_logIn_A.PNG "REST logIn")
 ![Alt text](Capturas/REST/REST_logIn_B.PNG "REST logIn Output")
 
-*/api/logOut*
+*/api/logOut* [GET]
 ![Alt text](Capturas/REST/REST_logOut_A.PNG "REST logOut")
 ![Alt text](Capturas/REST/REST_logOut_B.PNG "REST logOut Output")
 
@@ -38,6 +38,9 @@ CODE | STATUS
 /api/products/{id}  | PUT       | Product.Id, Product     | Product 
 /api/products/{id}  | DELETE    | Product.Id              | Product 
 
+*/api/products/* [GET]
+![Alt text](Capturas/REST/REST_products_GET_A.PNG "Products GET")
+![Alt text](Capturas/REST/REST_products_GET_B.PNG "Products GET Output")
 
 ### USERS
 ...URL              | METHOD    | INPUT                   | OUTPUT 
