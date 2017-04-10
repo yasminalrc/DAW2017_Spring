@@ -25,6 +25,9 @@ CODE | STATUS
 ![Alt text](Capturas/REST/REST_logIn_A.PNG "REST logIn")
 ![Alt text](Capturas/REST/REST_logIn_B.PNG "REST logIn Output")
 
+*/api/logOut*
+![Alt text](Capturas/REST/REST_logOut_A.PNG "REST logOut")
+![Alt text](Capturas/REST/REST_logOut_A.PNG "REST logOut Output")
 
 ### PRODUCTS
 ...URL              | METHOD    | INPUT                   | OUTPUT 
