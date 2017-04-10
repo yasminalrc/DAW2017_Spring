@@ -29,10 +29,6 @@ public class OrderSummary{
 	
 	public interface OrderSummaryAttribute{};
 	
-	public interface OrderCarts{};
-	
-	
-	
 	@Id
 	@JsonView(OrderSummaryAttribute.class)
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -75,29 +71,18 @@ public class OrderSummary{
 
 
 	@OneToMany
-	@JsonView(OrderCarts.class)
+	@JsonView
 	private List <OrderCart> order = new ArrayList<OrderCart>(); //new ArrayList<>();;
 	
 	protected OrderSummary (){
 		
 	}
 	
-	public OrderSummary(String ordername, String user, String paymentmethod)
-	{
+	public OrderSummary(String ordername, String user, String paymentmethod) {
 		super();
 		this.ordername = ordername;
 		this.user = user;
 		this.paymentmethod = paymentmethod;
-		
-	}
-	
-	
-	public OrderSummary(String ordername, String user, String paymentmethod, List <OrderCart> order) {
-		super();
-		this.ordername = ordername;
-		this.user = user;
-		this.paymentmethod = paymentmethod;
-		this.order = order;
 	}
 	
 	public OrderSummary(String ordername, String user, String paymentmethod, String state, Double totalprice) {
