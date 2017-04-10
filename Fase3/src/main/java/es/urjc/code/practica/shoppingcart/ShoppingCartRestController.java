@@ -41,8 +41,6 @@ public class ShoppingCartRestController {
 	
 	private List <OrderCart> listaproductoscarrito;
 
-	interface CartDetail extends OrderSummary.OrderSummaryAttribute, OrderSummary.OrderCarts, OrderCart.OrderCartAttribute  {
-	}
 	
 	@JsonView(ShoppingCartView.class)
 	@RequestMapping(value = "/api/carts/{id}", method = RequestMethod.GET)
@@ -79,8 +77,8 @@ public class ShoppingCartRestController {
 	
 	
 	
+	@JsonView(ShoppingCartView.class)
 	@RequestMapping(value = "/api/orders/", method= RequestMethod.GET)
-<<<<<<< HEAD
 	public @ResponseBody List<OrderSummary> getOrderCartsPage(Pageable page){
 		
 		
@@ -97,14 +95,6 @@ public class ShoppingCartRestController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		} */			
 		//return repository.findAll();
-=======
-	public Collection<OrderSummary> getOrderCartsPage(Pageable page){
-		
-		
-		return repository.findAll();
-		
-		
->>>>>>> Dina_Rest
 	}
 	
 	@RequestMapping(value = "/api/orders/", method = RequestMethod.POST)
@@ -240,4 +230,3 @@ public class ShoppingCartRestController {
 
     /*Fin métodos controlar Cart en memoria */
 }
-
