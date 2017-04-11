@@ -128,6 +128,13 @@ CODE | STATUS
 ![Alt text](Capturas/REST/REST_orders_POST_A.PNG "Orders POST")
 ![Alt text](Capturas/REST/REST_orders_POST_B.PNG "Orders POST Output")
 
+[PUT] */api/orders/{id}*
+![Alt text](Capturas/REST/REST_orders_PUT_A.PNG "Orders PUT")
+![Alt text](Capturas/REST/REST_orders_PUT_B.PNG "Orders PUT Output")
+
+[DELETE] */api/orders/{id}*
+![Alt text](Capturas/REST/REST_orders_DELETE_A.PNG "Orders DELETE")
+![Alt text](Capturas/REST/REST_orders_DELETE_B.PNG "Orders DELETE Output")
 
 #### Example of Product
 https://localhost:8443/api/products/15
