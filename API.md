@@ -95,11 +95,38 @@ CODE | STATUS
 ### ORDERS [Order = OrderSummary]
 ...URL              | METHOD    | INPUT                   | OUTPUT 
 ---                 | ---       | ---                     | --- 
+/api/carts/         | GET       | None                    | List of [Cart]
+/api/carts/{id}     | GET       | Cart.Id                 | Item of Cart
+/api/carts/         | POST      | Cart                    | Cart
 /api/orders/        | GET       | None                    | List of [Order]               
 /api/orders/{id}    | GET       | Order.Id                | Order     
 /api/orders/        | POST      | Order                   | Order                     
 /api/orders/{id}    | PUT       | Order.Id, Order         | Order    
 /api/orders/{id}    | DELETE    | Order.Id                | Order    
+
+[GET] */api/carts/*
+![Alt text](Capturas/REST/REST_carts_GET_A.PNG "Carts GET")
+![Alt text](Capturas/REST/REST_carts_GET_B.PNG "Carts GET Output")
+
+[GET] */api/carts/{id}*
+![Alt text](Capturas/REST/REST_carts_GET_ID_A.PNG "Carts GET")
+![Alt text](Capturas/REST/REST_carts_GET_ID_B.PNG "Carts GET Output")
+
+[POST] */api/carts/*
+![Alt text](Capturas/REST/REST_carts_POST_A.PNG "Carts POST")
+![Alt text](Capturas/REST/REST_carts_POST_B.PNG "Carts POST Output")
+
+[GET] */api/orders/*
+![Alt text](Capturas/REST/REST_orders_GET_A.PNG "Orders GET")
+![Alt text](Capturas/REST/REST_orders_GET_B.PNG "Orders GET Output")
+
+[GET] */api/orders/{id}*
+![Alt text](Capturas/REST/REST_orders_GET_ID_A.PNG "Orders GET")
+![Alt text](Capturas/REST/REST_orders_GET_ID_B.PNG "Orders GET Output")
+
+[POST] */api/orders/*
+![Alt text](Capturas/REST/REST_orders_POST_A.PNG "Orders POST")
+![Alt text](Capturas/REST/REST_orders_POST_B.PNG "Orders POST Output")
 
 
 #### Example of Product
