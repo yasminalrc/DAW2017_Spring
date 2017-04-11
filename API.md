@@ -93,16 +93,20 @@ CODE | STATUS
 ![Alt text](Capturas/REST/REST_user_DELETE_B.PNG "User DELETE Output")
 
 ### ORDERS [Order = OrderSummary]
-...URL              | METHOD    | INPUT                   | OUTPUT 
----                 | ---       | ---                     | --- 
-/api/carts/         | GET       | None                    | List of [Cart]
-/api/carts/{id}     | GET       | Cart.Id                 | Item of Cart
-/api/carts/         | POST      | Cart                    | Cart
-/api/orders/        | GET       | None                    | List of [Order]               
-/api/orders/{id}    | GET       | Order.Id                | Order     
-/api/orders/        | POST      | Order                   | Order                     
-/api/orders/{id}    | PUT       | Order.Id, Order         | Order    
-/api/orders/{id}    | DELETE    | Order.Id                | Order    
+...URL                  | METHOD    | INPUT                   | OUTPUT 
+---                     | ---       | ---                     | --- 
+/api/carts/             | GET       | None                    | List of [Cart]
+/api/carts/{id}         | GET       | Cart.Id                 | Cart
+/api/carts/             | POST      | Cart                    | Cart
+/api/orders/            | GET       | None                    | List of [Order]               
+/api/orders/{id}        | GET       | Order.Id                | Order     
+/api/orders/            | POST      | Order                   | Order                     
+/api/orders/{id}        | PUT       | Order.Id, Order         | Order    
+/api/orders/{id}        | DELETE    | Order.Id                | Order    
+/api/listcart/          | GET       | None                    | List of [Cart]
+/api/cart/addlist       | POST      | Cart                    | List of [Cart]
+/api/cart/remove/{name} | DELETE    | Cart.Name               | Text
+
 
 [GET] */api/carts/*
 ![Alt text](Capturas/REST/REST_carts_GET_A.PNG "Carts GET")
@@ -135,6 +139,28 @@ CODE | STATUS
 [DELETE] */api/orders/{id}*
 ![Alt text](Capturas/REST/REST_orders_DELETE_A.PNG "Orders DELETE")
 ![Alt text](Capturas/REST/REST_orders_DELETE_B.PNG "Orders DELETE Output")
+
+#### Examen of Cart
+
+[GET] */api/listcart/*
+![Alt text](Capturas/REST/REST_listCart_GET_A.PNG "Cart GET")
+![Alt text](Capturas/REST/REST_listCart_GET_B.PNG "Cart GET Output")
+
+[POST] */api/listcart/*
+![Alt text](Capturas/REST/REST_addlistCart_POST_A.PNG "Cart POST")
+![Alt text](Capturas/REST/REST_addlistCart_POST_B.PNG "Cart POST Output")
+
+[GET] */api/listcart/*
+![Alt text](Capturas/REST/REST_listCart2_GET_A.PNG "Cart GET")
+![Alt text](Capturas/REST/REST_listCart2_GET_B.PNG "Cart GET Output")
+
+[DELETE] */api/listcart/{name}*
+![Alt text](Capturas/REST/REST_removelistCart_DELETE_A.PNG "Cart DELETE")
+![Alt text](Capturas/REST/REST_removelistCart_DELETE_B.PNG "Cart DELETE Output")
+
+[GET] */api/listcart/*
+![Alt text](Capturas/REST/REST_listCart_GET_A.PNG "Cart GET")
+![Alt text](Capturas/REST/REST_listCart_GET_B.PNG "Cart GET Output")
 
 #### Example of Product
 https://localhost:8443/api/products/15
