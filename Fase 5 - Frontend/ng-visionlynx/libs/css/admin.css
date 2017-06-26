@@ -1,0 +1,6 @@
+body {
+  padding-top:20px;
+}
+.panel-body .btn:not(.btn-block) {
+    margin-bottom:10px;
+}
